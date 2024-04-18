@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -38,17 +40,5 @@ public class Efx_AmanExport {
 
         
         driver.findElement(By.xpath("(//img)[8]")).click();
-       // Thread.sleep(50000);
-       // driver.findElement(By.xpath("//span[contains(@class,'menu-item text-truncate')][normalize-space()='Regions']")).click();
-        //driver.findElement(By.xpath("//div[@id='export']//div//img")).click();
-        //Thread.sleep(50000);
-        //driver.findElement(By.xpath("//span[@class='menu-item text-truncate'][normalize-space()='Sites']")).click();
-        //driver.findElement(By.xpath("//div[@id='export']//div//img")).click();
-        //Thread.sleep(50000);
-       
-        
-
-        
-      
 
     }}
