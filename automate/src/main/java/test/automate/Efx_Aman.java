@@ -31,16 +31,9 @@ public class Efx_Aman {
             WebElement otpBox = driver.findElement(By.xpath(xpath));
             otpBox.sendKeys(digitAsString);
         }
-<<<<<<< HEAD
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-=======
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
->>>>>>> branch 'master' of https://github.com/awaishamidascend/eclipse_CI-CD.git
 
-<<<<<<< HEAD
-    }}
-=======
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
 
     }
-	}
->>>>>>> branch 'master' of https://github.com/awaishamidascend/eclipse_CI-CD.git
+}
