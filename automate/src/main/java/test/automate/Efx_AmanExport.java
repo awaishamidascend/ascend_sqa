@@ -16,6 +16,7 @@ public class Efx_AmanExport {
         WebDriver driver = new ChromeDriver();
         
         driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
+        driver.manage().window().maximize();
         Thread.sleep(10000);
         driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("system@ascend.com");
         driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("eod777");
@@ -34,11 +35,7 @@ public class Efx_AmanExport {
         }
         //OTP Login Button
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        System.out.print("OTP logged in successfully");
         Thread.sleep(5000);
-        System.out.print("Wait statement executed successfully");
-
-        
         driver.findElement(By.xpath("(//img)[8]")).click();
 
     }}
