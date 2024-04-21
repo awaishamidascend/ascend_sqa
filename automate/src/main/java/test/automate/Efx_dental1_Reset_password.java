@@ -30,6 +30,6 @@ public class Efx_dental1_Reset_password {
 	        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div/div/div/div/div/div/div/div/form/div/button[1]")).click();
 	        Thread.sleep(10000);
 
-	        		
+	        		driver.quit();
 	 }
 }
