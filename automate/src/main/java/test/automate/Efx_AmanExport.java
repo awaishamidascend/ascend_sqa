@@ -1,3 +1,5 @@
+package test.automate;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,6 +50,8 @@ public class Efx_AmanExport {
         // Perform click action on the desired element (e.g., export button)
         driver.findElement(By.xpath("(//img)[8]")).click();
         
+        Thread.sleep(5000);
+
         // Close the WebDriver instance
         driver.quit();
     }
