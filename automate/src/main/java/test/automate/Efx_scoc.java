@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Efx_scoc {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Setup WebDriverManager to manage the WebDriver binaries
         WebDriverManager.chromedriver().setup();
         
@@ -56,6 +56,8 @@ public class Efx_scoc {
         WebElement indicatorElement = driver.findElement(By.cssSelector(".select__indicator.select__dropdown-indicator.css-tlfecz-indicatorContainer"));
         indicatorElement.click();
         
+        Thread.sleep(5000);
+
         // Closing the browser
         driver.quit();
     }
