@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Efx_AmanExport {
+public class Efx_Aman_UsersExport {
     public static void main(String[] args) throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
