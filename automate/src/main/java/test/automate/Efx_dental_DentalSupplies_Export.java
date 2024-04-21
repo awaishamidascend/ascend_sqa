@@ -54,10 +54,6 @@ public class Efx_dental_DentalSupplies_Export {
     }  
         
 	
-<<<<<<< HEAD
 	
 
-    }}
-=======
     }
->>>>>>> branch 'master' of https://github.com/awaishamidascend/eclipse_CI-CD.git
