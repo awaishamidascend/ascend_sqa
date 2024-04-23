@@ -44,5 +44,3 @@ public class NHCC_Live {
         driver.quit();
     }
 	}
-
-
