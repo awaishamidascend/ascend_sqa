@@ -4,16 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager; // Import WebDriverManager
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Events_Form {
-    public static void main(String[] args) {
-        
-        // Initialize ChromeDriver using WebDriverManager
+    public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-        // Navigate to the web page
         driver.get("https://efficax-717.kakashi.app/");
 
         // Fill in email field
@@ -28,6 +27,10 @@ public class Events_Form {
         WebElement signInButton = driver.findElement(By.xpath("//button[@type='submit']"));
         signInButton.click();
 
+        // Wait for OTP field to be visible
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//input[@aria-label='Please enter OTP character 1']"));
+       
         // Fill in OTP fields
         String[] otpValues = {"7", "8", "6", "7", "8", "6"};
         for (int i = 0; i < otpValues.length; i++) {
