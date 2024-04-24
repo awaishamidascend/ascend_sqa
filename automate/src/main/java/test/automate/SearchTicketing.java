@@ -15,11 +15,7 @@ public class SearchTicketing {
         
         driver.get("https://nhcc.kakashi.app/login");
         driver.manage().window().maximize();
-
-        
-        
-//Test
-        
+     
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("user@test.com");
         driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Khadija@123");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
