@@ -1,4 +1,4 @@
-package selenium_jenkins_testcases;
+package test.automate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
