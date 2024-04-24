@@ -1,5 +1,4 @@
-package test.automate;
-
+package selenium_jenkins_testcases;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -35,26 +34,24 @@ public class Efx_dental_DentalSupplies_Export {
         // Clicking on login button
         System.out.println("Clicking on the login button...");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         
-     // Clicking on menu items
+        // Clicking on menu items
         System.out.println("Clicking on menu items...");
-        driver.findElement(By.xpath("//span[normalize-space()='Dental Supplies']")).click();
-        Thread.sleep(5000);
-        
-        // Clicking on submission listing
-        System.out.println("Clicking on submission listing...");
-        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[1]/ul[1]/div[2]/li[3]/a[1]/span[1]")).click();
-        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div[4]/ul[1]/li[1]")).click();
+        Thread.sleep(10000);
+        System.out.println("Clicking on ");
+        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/div[4]/ul[1]/li[1]/ul/div[2]/li[3]/a")).click();
+        Thread.sleep(10000);
         
         // Clicking on export button
         System.out.println("Clicking on the export button...");
-        driver.findElement(By.xpath("//div[contains(@class,'py-2 d-flex justify-content-between')]//button[@type='button']")).click();
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[2]/div[3]/div/div/div[1]/div[2]/button[1]")).click();
         Thread.sleep(10000);
         
         // Close the browser
         System.out.println("Test completed. Closing the browser...");
         driver.quit();
     }  
-        
+        	
     }

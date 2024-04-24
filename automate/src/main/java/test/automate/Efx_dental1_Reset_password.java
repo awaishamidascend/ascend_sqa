@@ -1,4 +1,4 @@
-package test.automate;
+package selenium_jenkins_testcases;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,6 +30,6 @@ public class Efx_dental1_Reset_password {
 	        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div/div/div/div/div/div/div/div/form/div/button[1]")).click();
 	        Thread.sleep(10000);
 
-	        		driver.quit();
+	        		
 	 }
 }
