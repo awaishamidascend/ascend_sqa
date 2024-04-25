@@ -31,6 +31,8 @@ public class Events_Form_TestGrid {
         WebElement signInButton = driver.findElement(By.xpath("//button[@type='submit']"));
         signInButton.click();
 
+        
+        Thread.sleep(5000);
         String otp = "786786";
         // Find the OTP input field
         //WebElement otpInput = driver.findElement(By.xpath("//input[@aria-label='Please enter OTP character 1']"));
@@ -43,13 +45,13 @@ public class Events_Form_TestGrid {
             WebElement otpBox = driver.findElement(By.xpath(xpath));
             otpBox.sendKeys(digitAsString);
         }
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        driver.findElement(By.xpath("//button[contains(@class,'btn btn-primary my-1 btn btn-outline-secondary')]")).click();
-        Thread.sleep(1000);
-        
+        System.out.print("Now enter submit OTP Button...\n");
+        driver.findElement(By.xpath("//button[@type='submit']"));
+        System.out.print("OTP Button Clicked'''\n");
+
         // Wait for the button to be clickable
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//button[contains(@class,'btn btn-primary my-1 btn btn-outline-secondary')]")).click();
+        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/p[1]")).click();
         
         // Wait for the dropdown to be clickable
         Thread.sleep(1000);
@@ -59,6 +61,5 @@ public class Events_Form_TestGrid {
         Thread.sleep(1000);
         driver.findElement(By.xpath("//div[text()='Environmental event']")).click();
         
-        // Rest of your code...
     } 
 }
