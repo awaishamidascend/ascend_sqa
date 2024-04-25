@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class event717 {
+public class Event717 {
 	public static void main(String[] args) throws InterruptedException {
 
         WebDriverManager.chromedriver().setup();
