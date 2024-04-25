@@ -22,11 +22,6 @@
       <scope>test</scope>
     </dependency>
     
-    <dependency>
-    	<groupId>ascend.com.sa</groupId>
-    	<artifactId>MyFirstProject</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
     
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
