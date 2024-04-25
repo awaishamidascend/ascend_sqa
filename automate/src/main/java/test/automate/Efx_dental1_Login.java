@@ -10,8 +10,6 @@ public class Efx_dental1_Login {
     public static void main(String[] args) throws InterruptedException {
         // Setup WebDriver
         WebDriverManager.chromedriver().setup();
-        
-        // Create a new instance of ChromeDriver
         WebDriver driver = new ChromeDriver();
         
         // Open the webpage
