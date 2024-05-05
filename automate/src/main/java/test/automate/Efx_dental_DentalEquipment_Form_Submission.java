@@ -2,7 +2,9 @@ package test.automate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -19,7 +21,7 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         
         // Wait for 10 seconds to allow the page to load fully
         System.out.println("Waiting for the page to load...");
-        Thread.sleep(10000);
+        Thread.sleep(5000);
        
         // Maximize the browser window 
         System.out.println("Maximizing the browser window...");
@@ -33,18 +35,24 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         // Clicking on login button
         System.out.println("Clicking on the login button...");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         
         //Clicking on Dental supplies menu
         System.out.println("Clicking on menu items...");
         driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div[4]/ul[1]/li[2]")).click();
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         System.out.println("Clicking on form");
-        driver.findElement(By.xpath("<span class=\"menu-item text-truncate font-family\">Form</span>")).click();
+        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[2]/ul[1]/div[2]/li[1]/a[1]/span[1]")).click();
         System.out.println("Clicking on select region");
-        driver.findElement(By.xpath("//*[@id=\"region\"]/div")).click();
         
-        
+        driver.findElement(By.cssSelector("#react-select-2-input")).click();
+
+        // Initialize Select object with the dropdown element
+        //Select select = new Select(dropdown);
+
+        // Select the second option
+        //select.selectByIndex(1); // Index starts from 0, so 1 is the second option
+
         
         
         
