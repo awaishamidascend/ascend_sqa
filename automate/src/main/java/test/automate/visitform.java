@@ -1,5 +1,10 @@
 package test.automate;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 public class visitform {
 	
 	WebDriverManager.chromedriver().setup();
@@ -8,7 +13,7 @@ public class visitform {
     // Maximize the browser window
     driver.manage().window().maximize();
     
-    driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
+    driver.get("https://dev-efficax-obligation.kakashi.app/login");
     
     Thread.sleep(10000);
     
@@ -95,6 +100,6 @@ public class visitform {
     driver.findElement(By.xpath("//body/div[@id='root']/div[@class='wrapper vertical-layout navbar-sticky footer-static vertical-menu-modern menu-expanded']/div[@class='app-content content overflow-hidden']/div[@class='container-xxl p-0 mt-2 animate__animated animate__fadeInLeft']/div[@class='row']/div[@class='col']/div/div[@class='bs-stepper linear']/div[@class='bs-stepper-content']/div[@id='additionalRemarks']/div/div[@class='row']/div[@class='row']/div[@class='col-sm-12 col-md-6']/div[@class='signature']/canvas[1]")).sendkeys("15623");
 
 	
-	
+}
 
 }
