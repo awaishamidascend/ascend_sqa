@@ -9,16 +9,15 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Event717 {
 	public static void main(String[] args) throws InterruptedException {
-
-        WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         
-        driver.get("https://efficax-717.kakashi.app/login");
+        driver.get("https://moh717.ascend.com.sa/login");
         Thread.sleep(10000);
-        driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("dev-romeesa.ashfaq@ascend.com.sa");
+        driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("system@efficax.com");
         driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("eod777");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(1000);
+        Thread.sleep(10000);
         String otp = "786786";
         // Find the OTP input field
         //WebElement otpInput = driver.findElement(By.xpath("//input[@aria-label='Please enter OTP character 1']"));
@@ -32,11 +31,9 @@ public class Event717 {
             otpBox.sendKeys(digitAsString);
         }
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        driver.findElement(By.xpath("//button[contains(@class,'btn btn-primary my-1 btn btn-outline-secondary')]")).click();
-        Thread.sleep(1000);
+        Thread.sleep(10000);
+        //event form
+        driver.findElement(By.xpath("//p[normalize-space()='New Event']")).click();
+
         
-	
-	
-	
-	
-	}}
+	} }

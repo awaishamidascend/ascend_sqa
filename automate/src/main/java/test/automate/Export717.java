@@ -10,7 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Export717 {
 	public static void main(String[] args) throws InterruptedException {
 
-        WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         
         driver.get("https://moh717.ascend.com.sa/login");
@@ -18,7 +18,7 @@ public class Export717 {
         driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("system@efficax.com");
         driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("eod777");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(1000);
+        Thread.sleep(10000);
         String otp = "786786";
         // Find the OTP input field
         //WebElement otpInput = driver.findElement(By.xpath("//input[@aria-label='Please enter OTP character 1']"));
@@ -32,7 +32,7 @@ public class Export717 {
             otpBox.sendKeys(digitAsString);
         }
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(50000);
+        Thread.sleep(10000);  
         //export
-        driver.findElement(By.xpath("(//button[@class='export-label'])[1]")).click();
+        driver.findElement(By.xpath("//button[@class='export-label']//*[name()='svg']")).click();
 	} }
