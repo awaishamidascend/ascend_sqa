@@ -3,7 +3,9 @@ package test.automate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -15,19 +17,21 @@ public class DashboardNHCC {
         WebDriver driver = new ChromeDriver();
         
         driver.get("https://nhcc.kakashi.app/login");
+        
+        driver.manage().window().maximize();
+
      
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("user@test.com");
         driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Khadija@123");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(50000);
 		
-		//scroll down on Dashboard 
+		// Dashboard 
         
-        // Create an instance of JavascriptExecutor
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+      driver.findElement(By.xpath("//button[normalize-space()='Filter']")).click();
+      Thread.sleep(50000);
         
-        // Scroll down the page by pixel
-        js.executeScript("window.scrollBy(0,1000)");
+       System.out.println("Test completed. Closing the browser...");
 
      // Close the browser
         driver.quit();

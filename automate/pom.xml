@@ -33,6 +33,11 @@
     <artifactId>webdrivermanager</artifactId>
     <version>5.8.0</version>
 </dependency>
- 
+
+  	<dependency>
+  		<groupId>Test_Suite</groupId>
+  		<artifactId>Test_Cases</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 </project>
