@@ -4,7 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -14,7 +16,7 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         // Setup WebDriver
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        
+
         // Open the webpage
         System.out.println("Opening the webpage...");
         driver.get("https://efficax-dental.ascend.com.sa/");
@@ -45,14 +47,11 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[2]/ul[1]/div[2]/li[1]/a[1]/span[1]")).click();
         System.out.println("Clicking on select region");
         
-        driver.findElement(By.cssSelector("#react-select-2-input")).click();
-
+        Thread.sleep(10000);
+        //driver.findElement(By.className("select__input-container css-ackcql")).click();
+        System.out.println("Selected Dropdown Manually");
+        
         // Initialize Select object with the dropdown element
-        //Select select = new Select(dropdown);
-
-        // Select the second option
-        //select.selectByIndex(1); // Index starts from 0, so 1 is the second option
-
         
         
         
