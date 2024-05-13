@@ -27,10 +27,10 @@ public class taskschedular {
                     .sendKeys("eod777");
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
-
+    
             Thread.sleep(5000);
 
-            /*String otp = "786786";
+            String otp = "786786";
 
             for (int i = 0; i < otp.length(); i++) {
                 char digit = otp.charAt(i);
@@ -38,7 +38,7 @@ public class taskschedular {
                 String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
                 WebElement otpBox = driver.findElement(By.xpath(xpath));
                 otpBox.sendKeys(digitAsString);
-            }/*
+            }
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
 
@@ -50,19 +50,9 @@ public class taskschedular {
             driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
             // Add more actions here... 
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            driver.quit();
-        }
-
+     
     
-    // Click on the OTP login button
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
-    
-    Thread.sleep(5000);
-    
-    
+  
     driver.findElement(By.xpath("//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form']")).click();
     driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
     driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
@@ -86,5 +76,11 @@ public class taskschedular {
     //driver.findElement(By.xpath("")).click();
     //driver.findElement(By.xpath("")).click();
 
+    
+        } finally {
+            // Close the WebDriver instance
+            driver.quit();
 }
 }
+}
+
