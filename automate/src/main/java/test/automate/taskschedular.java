@@ -10,7 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class taskschedular {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Throwable {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -30,7 +30,7 @@ public class taskschedular {
 
             Thread.sleep(5000);
 
-            String otp = "786786";
+            /*String otp = "786786";
 
             for (int i = 0; i < otp.length(); i++) {
                 char digit = otp.charAt(i);
@@ -38,7 +38,7 @@ public class taskschedular {
                 String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
                 WebElement otpBox = driver.findElement(By.xpath(xpath));
                 otpBox.sendKeys(digitAsString);
-            }
+            }/*
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
 
@@ -81,10 +81,10 @@ public class taskschedular {
     driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
     //submit
     driver.findElement(By.xpath("//button[contains(@type,'submit')]")).click();
-    driver.findElement(By.xpath("")).click();
-    driver.findElement(By.xpath("")).click();
-    driver.findElement(By.xpath("")).click();
-    driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
 
 }
 }
