@@ -1,9 +1,13 @@
 package test.automate;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -48,21 +52,25 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         System.out.println("Clicking on select region");
         
         Thread.sleep(5000);
-        //driver.findElement(By.className("select__input-container css-ackcql")).click();
         
-        driver.findElement(By.className("css-8mmkcg")).click();
-        System.out.println("Selected Dropdown");
-        
-        
-        // Initialize Select object with the dropdown element
-        driver.findElement(By.xpath("(//*[name()='path'])[16]")).click();
-        System.out.println("Selected the second option...");
+     // Find the dropdown element
+        WebElement dropdown = driver.findElement(By.className("css-8mmkcg"));
 
+        // Click on the dropdown to open it
+        dropdown.click();
+        System.out.println("Opened Dropdown");
+        
+        Thread.sleep(5000);
+        
+     // Simulate pressing down arrow key twice to select the second option
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
         
         
-        
-        
-    }
     
+        System.out.println("Selected 2nd option of Dropdown");
+
+
+    }    
 }
-        
+
