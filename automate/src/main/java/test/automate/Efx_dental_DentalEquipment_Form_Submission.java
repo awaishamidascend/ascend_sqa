@@ -47,11 +47,17 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[2]/ul[1]/div[2]/li[1]/a[1]/span[1]")).click();
         System.out.println("Clicking on select region");
         
-        Thread.sleep(10000);
+        Thread.sleep(5000);
         //driver.findElement(By.className("select__input-container css-ackcql")).click();
-        System.out.println("Selected Dropdown Manually");
+        
+        driver.findElement(By.className("css-8mmkcg")).click();
+        System.out.println("Selected Dropdown");
+        
         
         // Initialize Select object with the dropdown element
+        driver.findElement(By.xpath("(//*[name()='path'])[16]")).click();
+        System.out.println("Selected the second option...");
+
         
         
         
