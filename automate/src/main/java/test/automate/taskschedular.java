@@ -10,7 +10,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class taskschedular {
 
 
+
     public static void main(String[] args) throws InterruptedException {
+
+
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -42,7 +45,15 @@ public class taskschedular {
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
 
+=======
+    
+>>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
             Thread.sleep(10000);
+
+         
+   
+
+            //Thread.sleep(10000);
 
             driver.findElement(By.xpath("(//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form'])[1]")).click();
             Thread.sleep(5000);
@@ -50,22 +61,13 @@ public class taskschedular {
             driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
             // Add more actions here... 
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            driver.quit();
-        }
-
+     
     
-    // Click on the OTP login button
-    driver.findElement(By.xpath("//button[@type='submit']")).click();
-    
-    Thread.sleep(5000);
-    
-    
+    //Open task schedular
     driver.findElement(By.xpath("//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form']")).click();
     driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
+    //first step select form
+    driver.findElement(By.xpath("//div[@class='select__control select__control--is-focused css-1u57jws-control']//div[@class='select__input-container css-ackcql']")).click();
     driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
     driver.findElement(By.xpath("//div[contains(@class,'select__value-container css-1d8n9bt')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
     driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
@@ -81,10 +83,16 @@ public class taskschedular {
     driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
     //submit
     driver.findElement(By.xpath("//button[contains(@type,'submit')]")).click();
-    driver.findElement(By.xpath("")).click();
-    driver.findElement(By.xpath("")).click();
-    driver.findElement(By.xpath("")).click();
-    driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
+    //driver.findElement(By.xpath("")).click();
 
+    
+        } finally {
+            // Close the WebDriver instance
+           // driver.quit();
 }
 }
+}
+

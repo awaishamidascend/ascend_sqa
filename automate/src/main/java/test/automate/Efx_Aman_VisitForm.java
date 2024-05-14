@@ -29,24 +29,24 @@ public class Efx_Aman_VisitForm {
 	    
 	    // Click on the login button
 	    driver.findElement(By.xpath("//button[@type='submit']")).click();
-	    
+	    System.out.println("print login button");
 	    Thread.sleep(5000);
 	    
-	    String otp = "786786";
+	    //String otp = "786786";
 	    
 	    // Find the OTP input field and enter OTP
-	    for (int i = 0; i < otp.length(); i++) {
-	        char digit = otp.charAt(i);
-	        String digitAsString = Character.toString(digit);
-	        String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
-	        WebElement otpBox = driver.findElement(By.xpath(xpath));
-	        otpBox.sendKeys(digitAsString);
-	    }
+	   // for (int i = 0; i < otp.length(); i++) {
+	      //  char digit = otp.charAt(i);
+	       // String digitAsString = Character.toString(digit);
+	        //String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
+	       // WebElement otpBox = driver.findElement(By.xpath(xpath));
+	        //otpBox.sendKeys(digitAsString);
+	    //}
 	    
 	    // Click on the OTP login button
-	    driver.findElement(By.xpath("//button[@type='submit']")).click();
+	    //driver.findElement(By.xpath("//button[@type='submit']")).click();
 	    
-	    Thread.sleep(5000);
+	    Thread.sleep(1000);
 	    // click visit form
 		
 	    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]")).click();
