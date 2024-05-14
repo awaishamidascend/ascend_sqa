@@ -30,11 +30,11 @@ public class taskschedular {
                     .sendKeys("eod777");
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
-
-            Thread.sleep(10000);
-
+            Thread.sleep(5000);
+            
             String otp = "786786";
-
+            
+            // Find the OTP input field and enter OTP
             for (int i = 0; i < otp.length(); i++) {
                 char digit = otp.charAt(i);
                 String digitAsString = Character.toString(digit);
@@ -42,7 +42,8 @@ public class taskschedular {
                 WebElement otpBox = driver.findElement(By.xpath(xpath));
                 otpBox.sendKeys(digitAsString);
             }
-
+            
+            // Click on the OTP login button
             driver.findElement(By.xpath("//button[@type='submit']")).click();
 
             Thread.sleep(10000);
