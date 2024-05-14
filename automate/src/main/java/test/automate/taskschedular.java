@@ -28,21 +28,12 @@ public class taskschedular {
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
     
-            Thread.sleep(5000);
-
-            String otp = "786786";
-
-            for (int i = 0; i < otp.length(); i++) {
-                char digit = otp.charAt(i);
-                String digitAsString = Character.toString(digit);
-                String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
-                WebElement otpBox = driver.findElement(By.xpath(xpath));
-                otpBox.sendKeys(digitAsString);
-            }
-
-            driver.findElement(By.xpath("//button[@type='submit']")).click();
-
             Thread.sleep(10000);
+
+         
+   
+
+            //Thread.sleep(10000);
 
             driver.findElement(By.xpath("(//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form'])[1]")).click();
             Thread.sleep(5000);
@@ -52,10 +43,11 @@ public class taskschedular {
 
      
     
-  
+    //Open task schedular
     driver.findElement(By.xpath("//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form']")).click();
     driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
+    //first step select form
+    driver.findElement(By.xpath("//div[@class='select__control select__control--is-focused css-1u57jws-control']//div[@class='select__input-container css-ackcql']")).click();
     driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
     driver.findElement(By.xpath("//div[contains(@class,'select__value-container css-1d8n9bt')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
     driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
@@ -79,7 +71,7 @@ public class taskschedular {
     
         } finally {
             // Close the WebDriver instance
-            driver.quit();
+           // driver.quit();
 }
 }
 }
