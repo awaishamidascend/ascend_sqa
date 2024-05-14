@@ -10,7 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class taskschedular {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -28,7 +28,7 @@ public class taskschedular {
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 
             String otp = "786786";
 
