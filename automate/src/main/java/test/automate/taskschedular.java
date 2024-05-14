@@ -45,13 +45,7 @@ public class taskschedular {
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-=======
-    
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
             Thread.sleep(10000);
-
-         
-   
 
             //Thread.sleep(10000);
 
