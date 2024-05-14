@@ -48,7 +48,6 @@ public class taskschedular {
 
             Thread.sleep(10000);
 
-            //Thread.sleep(10000);
 
             driver.findElement(By.xpath("(//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form'])[1]")).click();
             Thread.sleep(5000);
