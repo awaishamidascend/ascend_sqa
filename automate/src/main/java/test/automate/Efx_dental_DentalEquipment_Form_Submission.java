@@ -66,7 +66,7 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         Actions actions = new Actions(driver);
         actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
         
-        
+        //New Code
     
         System.out.println("Selected 2nd option of Dropdown");
 
