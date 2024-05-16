@@ -80,9 +80,9 @@ public class taskschedular {
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
             System.out.println("Performed Scroll");
-
+            Thread.sleep(3000);
             
-            WebElement dropdownTrigger1 = driver.findElement(By.className("select__indicator-separator css-168wdl6-indicatorSeparator"));
+            WebElement dropdownTrigger1 = driver.findElement(By.xpath("(//div[@class='select__input-container css-ackcql'])[5]"));
             dropdownTrigger1.click();
             System.out.println("Last Dropdown Opened");
             Thread.sleep(3000);
@@ -96,7 +96,6 @@ public class taskschedular {
             
         } finally {
             // Close the WebDriver instance
-            driver.quit();
         }
     }
 }
