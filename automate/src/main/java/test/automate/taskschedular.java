@@ -82,7 +82,7 @@ public class taskschedular {
             System.out.println("Performed Scroll");
 
             
-            WebElement dropdownTrigger1 = driver.findElement(By.id("react-select-6-input\""));
+            WebElement dropdownTrigger1 = driver.findElement(By.className("select__indicator-separator css-168wdl6-indicatorSeparator"));
             dropdownTrigger1.click();
             System.out.println("Last Dropdown Opened");
             Thread.sleep(3000);
