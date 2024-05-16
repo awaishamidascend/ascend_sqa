@@ -1,17 +1,11 @@
 package test.automate;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Efx_dental_DentalEquipment_Form_Submission {
@@ -59,17 +53,56 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         // Click on the dropdown to open it
         dropdown.click();
         System.out.println("Opened Dropdown");
-        
+        //select region
+        System.out.println("Selecting Region");               
+        driver.findElement(By.xpath("//*[@id=\"react-select-2-option-1\"]")).click(); 
         Thread.sleep(5000);
         
-     // Simulate pressing down arrow key twice to select the second option
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        //Click on PHCs dropdown
+        driver.findElement(By.xpath("//*[@id=\"hospital\"]/div/div[2]/div")).click();
+        Thread.sleep(3000);
+        //select PHc
+        System.out.println("Select PHC");
+        driver.findElement(By.xpath("//*[@id=\"react-select-3-option-2\"]")).click();
+        Thread.sleep(5000);
         
-        //New Code
-    
-        System.out.println("Selected 2nd option of Dropdown");
-
+        //Select status dropdown
+        System.out.println("click dropdown of status");
+        driver.findElement(By.xpath("//*[@id=\"cell-2-undefined\"]/div/div[1]/div/div[2]/div")).click();
+        Thread.sleep(2000);
+        //select available from dropdown
+        System.out.println("Available seleced");
+        driver.findElement(By.xpath("//*[@id=\"react-select-4-option-0\"]")).click();
+        Thread.sleep(3000);
+               
+        //click equipment dropdown
+        System.out.println("open quipment dropdown");
+        driver.findElement(By.xpath("//*[@id=\"cell-3-undefined\"]/div/div/div/div[2]/div")).click();
+        Thread.sleep(3000);
+        //select number from dropdown
+        System.out.println("select equipment number");
+        driver.findElement(By.xpath("//*[@id=\"react-select-5-option-45\"]")).click();
+        Thread.sleep(3000);       
+        
+        //select working dropdown
+        System.out.println("open working dropdown");
+        driver.findElement(By.xpath("//*[@id=\"cell-4-undefined\"]/div/div[1]/div/div[2]/div")).click();
+        Thread.sleep(3000);
+        //select value of working
+        driver.findElement(By.xpath("//*[@id=\"react-select-6-option-33\"]")).click();
+        Thread.sleep(3000);
+        
+        //select frequent dropdown
+        System.out.println("open working dropdown");
+        driver.findElement(By.xpath("//*[@id=\"cell-6-undefined\"]/div/div[1]/div/div[2]/div")).click();
+        Thread.sleep(3000);
+        //select value of frequent from dropdown
+        System.out.println("open working dropdown");
+        driver.findElement(By.xpath("//*[@id=\"react-select-7-option-17\"]")).click();
+        Thread.sleep(3000);
+       
+     
+        
 
     }    
 }
