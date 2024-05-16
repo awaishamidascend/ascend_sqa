@@ -44,7 +44,7 @@ public class taskschedular {
             
             Actions actions = new Actions(driver);
             //Click on Select Form
-            WebElement dropdownTrigger = driver.findElement(By.xpath("(//div[@class='select__value-container css-1d8n9bt'])[1]"));
+            WebElement dropdownTrigger = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]"));
             // Click on the dropdown trigger to open the dropdown
             dropdownTrigger.click();
             System.out.println("1st Dropdown Opened");
@@ -56,55 +56,58 @@ public class taskschedular {
             System.out.println("Option Selected medical Drugs");
 
             
+//            
+//    driver.findElement(By.xpath("(//div[@class='select__value-container css-1d8n9bt'])[1]")).click();
+//    Thread.sleep(1000);
+//    System.out.println("Clicked on First Dropdown");
+//    // select visit form
+//    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+//
+//    
+//    
+//    
+//    Thread.sleep(5000);
+//
+//    // click region tab
+//   
+//    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]")).click();
+//    Thread.sleep(1000);
+//    //select region from dropdown
+//    actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+//
+//    Thread.sleep(5000);
+//    
+//    //click sites
+//    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]")).click();
+//    Thread.sleep(6000);
+//    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+//
+//    // Select date
+//    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[6]/input[1]")).click();
+//    //select inspector
+//    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]")).click();
+//    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+//
+//    //select steps
+//    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]")).click();
+//    driver.findElement(By.xpath("")).click();
+//    //review
+//    driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
+//    //submit
+//    driver.findElement(By.xpath("//button[contains(@type,'submit')]")).click();
+//    //driver.findElement(By.xpath("")).click();
+//    //driver.findElement(By.xpath("")).click();
+//    //driver.findElement(By.xpath("")).click();
+//    //driver.findElement(By.xpath("")).click();
+
             
-    driver.findElement(By.xpath("(//div[@class='select__value-container css-1d8n9bt'])[1]")).click();
-    Thread.sleep(1000);
-    System.out.println("Clicked on First Dropdown");
-    // select visit form
-    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-
+            
+       } 
+        finally {
+           // Close the WebDriver instance
+         // driver.quit();
+        }
     
-    
-    
-    Thread.sleep(5000);
-
-    // click region tab
-   
-    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]")).click();
-    Thread.sleep(1000);
-    //select region from dropdown
-    actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-
-    Thread.sleep(5000);
-    
-    //click sites
-    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]")).click();
-    Thread.sleep(6000);
-    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-
-    // Select date
-    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[6]/input[1]")).click();
-    //select inspector
-    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]")).click();
-    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-
-    //select steps
-    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]")).click();
-    driver.findElement(By.xpath("")).click();
-    //review
-    driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
-    //submit
-    driver.findElement(By.xpath("//button[contains(@type,'submit')]")).click();
-    //driver.findElement(By.xpath("")).click();
-    //driver.findElement(By.xpath("")).click();
-    //driver.findElement(By.xpath("")).click();
-    //driver.findElement(By.xpath("")).click();
-
-    
-        } finally {
-            // Close the WebDriver instance
-           // driver.quit();
-}
 }
 }
 
