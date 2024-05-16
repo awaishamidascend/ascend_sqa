@@ -1,9 +1,12 @@
 package test.automate;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -30,49 +33,64 @@ public class taskschedular {
                     .sendKeys("eod777");
 
             driver.findElement(By.xpath("//button[@type='submit']")).click();
-            Thread.sleep(5000);
-            
-            String otp = "786786";
-            
-            // Find the OTP input field and enter OTP
-            for (int i = 0; i < otp.length(); i++) {
-                char digit = otp.charAt(i);
-                String digitAsString = Character.toString(digit);
-                String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
-                WebElement otpBox = driver.findElement(By.xpath(xpath));
-                otpBox.sendKeys(digitAsString);
-            }
-            
-            // Click on the OTP login button
-            driver.findElement(By.xpath("//button[@type='submit']")).click();
-
             Thread.sleep(10000);
-
-
-            driver.findElement(By.xpath("(//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form'])[1]")).click();
+            
+            driver.findElement(By.xpath("//span[contains(text(),'Schedule Task Form')]")).click();
             Thread.sleep(5000);
 
             driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
-            // Add more actions here... 
+            Thread.sleep(5000);
+            
+            
+            Actions actions = new Actions(driver);
+            //Click on Select Form
+            WebElement dropdownTrigger = driver.findElement(By.xpath("(//div[@class='select__value-container css-1d8n9bt'])[1]"));
+            // Click on the dropdown trigger to open the dropdown
+            dropdownTrigger.click();
+            System.out.println("1st Dropdown Opened");
+            Thread.sleep(3000);
+            
+         // Find and click on the specific option you want to select
+            WebElement optionToSelect = driver.findElement(By.xpath("//div[contains(text(), 'Medical Drugs')]"));
+            optionToSelect.click();
+            System.out.println("Option Selected medical Drugs");
 
-     
+            
+            
+    driver.findElement(By.xpath("(//div[@class='select__value-container css-1d8n9bt'])[1]")).click();
+    Thread.sleep(1000);
+    System.out.println("Clicked on First Dropdown");
+    // select visit form
+    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+
     
-    //Open task schedular
-    driver.findElement(By.xpath("//span[@class='menu-item text-truncate'][normalize-space()='Schedule Task Form']")).click();
-    driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
-    //first step select form
-    driver.findElement(By.xpath("//div[@class='select__control select__control--is-focused css-1u57jws-control']//div[@class='select__input-container css-ackcql']")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__value-container css-1d8n9bt')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__value-container css-1d8n9bt')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
+    
+    
+    Thread.sleep(5000);
+
+    // click region tab
+   
+    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[4]/div[1]/div[1]/div[1]/div[2]")).click();
+    Thread.sleep(1000);
+    //select region from dropdown
+    actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+
+    Thread.sleep(5000);
+    
+    //click sites
+    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[5]/div[1]/div[1]/div[1]/div[2]")).click();
+    Thread.sleep(6000);
+    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+
+    // Select date
+    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[6]/input[1]")).click();
     //select inspector
-    driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
-    driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
+    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]")).click();
+    actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+
     //select steps
-    driver.findElement(By.xpath("//div[contains(@class,'select__value-container select__value-container--is-multi css-1d8n9bt')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
-    driver.findElement(By.xpath("//div[@class='select__value-container select__value-container--is-multi select__value-container--has-value css-1hwfws3']//div[@class='select__input-container css-ackcql']")).click();
+    driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[8]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[2]")).click();
+    driver.findElement(By.xpath("")).click();
     //review
     driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
     //submit
