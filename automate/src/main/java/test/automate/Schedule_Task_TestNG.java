@@ -46,17 +46,32 @@ public class Schedule_Task_TestNG {
         System.out.println("Clicking on select region");
         Thread.sleep(5000);
         
-        // Find the dropdown element
-     // Find the dropdown element using a different selector strategy
-        WebElement dropdown = driver.findElement(By.xpath("//div[@class='select__input-container css-ackcql']"));
+        // Find the element that triggers the dropdown to open
+        WebElement dropdownTrigger = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]"));
         
-        // Initialize Select object
-        Select selectObject = new Select(dropdown);
-        // Get all available options
-        List<WebElement> allOptions = selectObject.getOptions();
-        // Print all options
-        for (WebElement option : allOptions) {
-            System.out.println(option.getText());
-        }
+        // Click on the dropdown trigger to open the dropdown
+        dropdownTrigger.click();
+        System.out.println("1st Dropdown Opened");
+        Thread.sleep(3000);
+
+
+        // Find and click on the specific option you want to select
+        WebElement optionToSelect = driver.findElement(By.xpath("//div[contains(text(), 'Riyadh First Health Cluster')]"));
+        optionToSelect.click();
+        
+     // Find the element that triggers the dropdown to open
+        WebElement dropdownTrigger1 = driver.findElement(By.xpath("//div[@class='select__value-container css-1d8n9bt']"));
+        
+        // Click on the dropdown trigger to open the dropdown
+        dropdownTrigger1.click();
+        System.out.println("2nd Dropdown Opened");
+        Thread.sleep(3000);
+
+
+        // Find and click on the specific option you want to select
+        WebElement optionToSelect1 = driver.findElement(By.xpath("//div[contains(text(), '(مركز صحي المربع)Almorbe')]"));
+        optionToSelect1.click();
+        
+
     }
 }
