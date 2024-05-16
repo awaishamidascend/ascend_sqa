@@ -15,11 +15,12 @@ public class Dashboard {
         WebDriver driver = new ChromeDriver();
         
         driver.get("https://nhcc.kakashi.app/login");
+        driver.manage().window().maximize();
      
         driver.findElement(By.xpath("//input[@id='email']")).sendKeys("user@test.com");
         driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Khadija@123");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
-        Thread.sleep(50000);
+        Thread.sleep(5000);
 		
 		//scroll down on Dashboard 
         
@@ -29,8 +30,6 @@ public class Dashboard {
         // Scroll down the page by pixel
         js.executeScript("window.scrollBy(0,1000)");
 
-     // Close the browser
-        driver.quit();
 	}
 
 }
