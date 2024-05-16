@@ -1,15 +1,15 @@
 package test.automate;
+
+import java.util.List;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.support.ui.Select;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Schedule_Task_TestNG {
-	
+
     public static void main(String[] args) throws InterruptedException {
         // Setup WebDriver
         WebDriverManager.chromedriver().setup();
@@ -25,41 +25,38 @@ public class Schedule_Task_TestNG {
         driver.manage().window().maximize();
         // Entering email and password
         System.out.println("Entering email and password...");
-        driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("rida.khan@ascend.com.sa");
-        driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("eod777");
+        driver.findElement(By.xpath("//input[@placeholder='Email']"))
+                .sendKeys("rida.khan@ascend.com.sa");
+        driver.findElement(By.xpath("//input[@placeholder='Password']"))
+                .sendKeys("eod777");
         // Clicking on login button
         System.out.println("Clicking on the login button...");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(5000);
-        //Clicking on Dental supplies menu
+        // Clicking on Dental supplies menu
         System.out.println("Clicking on menu items...");
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div[4]/ul[1]/li[2]")).click();
+        driver.findElement(By.xpath(
+                "//*[@id=\"root\"]/div[1]/div[1]/div[4]/ul[1]/li[2]"))
+                .click();
         Thread.sleep(5000);
         System.out.println("Clicking on form");
-        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[2]/ul[1]/div[2]/li[1]/a[1]/span[1]")).click();
+        driver.findElement(By.xpath(
+                "/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/ul[1]/li[2]/ul[1]/div[2]/li[1]/a[1]/span[1]"))
+                .click();
         System.out.println("Clicking on select region");
         Thread.sleep(5000);
-     // Find the dropdown element
         
-        List<WebElement> allAvailableOptions = selectObject.getOptions();
+        // Find the dropdown element
+     // Find the dropdown element using a different selector strategy
+        WebElement dropdown = driver.findElement(By.xpath("//div[@class='select__input-container css-ackcql']"));
         
-        List<WebElement> options = driver.findElements(By.className("css-8mmkcg"));
-        
-        for(WebElement option: options) {
-        	System.out.println(option.getText()); }
-
-        
-//        
-//        WebElement dropdown = driver.findElement(By.className("css-8mmkcg"));
-//        // Click on the dropdown to open it
-//        dropdown.click();
-//        System.out.println("Opened Dropdown");
-//        driver.findElement(By.xpath("//*[@id=\"react-select-2-option-1\"]")).click(); 
-//        Thread.sleep(5000);
-//     // Simulate pressing down arrow key twice to select the second option
-//        //Actions actions = new Actions(driver);
-//        //actions.sendKeys(Keys.ARROW_DOWN, Keys.ARROW_DOWN, Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-//        //New Code
-//        //System.out.println("Selected 2nd option of Dropdown");
+        // Initialize Select object
+        Select selectObject = new Select(dropdown);
+        // Get all available options
+        List<WebElement> allOptions = selectObject.getOptions();
+        // Print all options
+        for (WebElement option : allOptions) {
+            System.out.println(option.getText());
+        }
     }
 }
