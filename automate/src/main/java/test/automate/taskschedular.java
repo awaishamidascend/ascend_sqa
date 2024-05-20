@@ -87,8 +87,14 @@ public class taskschedular {
             System.out.println("Last Dropdown Opened");
             Thread.sleep(3000);
             
+            WebElement optionToSelect11 = driver.findElement(By.xpath("//div[contains(text(), 'Identification' )]"));
+            optionToSelect11.click();
             WebElement optionToSelect1 = driver.findElement(By.xpath("//div[contains(text(), 'الكوادر')]"));
             optionToSelect1.click();
+            WebElement optionToSelect111 = driver.findElement(By.xpath("//div[contains(text(), 'Additional Remarks')]"));
+            optionToSelect111.click();
+            
+            
             System.out.println("Option Selected الكوادر");
 
             driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
