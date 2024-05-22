@@ -1,5 +1,7 @@
 package test.automate;
 
+import java.util.Scanner;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -67,41 +69,95 @@ public class Efx_dental_DentalEquipment_Form_Submission {
         Thread.sleep(5000);
         
         //Select status dropdown
-        System.out.println("click dropdown of status");
-        driver.findElement(By.xpath("//*[@id=\"cell-2-undefined\"]/div/div[1]/div/div[2]/div")).click();
-        Thread.sleep(2000);
-        //select available from dropdown
-        System.out.println("Available seleced");
-        driver.findElement(By.xpath("//*[@id=\"react-select-4-option-0\"]")).click();
-        Thread.sleep(3000);
-               
-        //click equipment dropdown
-        System.out.println("open quipment dropdown");
-        driver.findElement(By.xpath("//*[@id=\"cell-3-undefined\"]/div/div/div/div[2]/div")).click();
-        Thread.sleep(3000);
-        //select number from dropdown
-        System.out.println("select equipment number");
-        driver.findElement(By.xpath("//*[@id=\"react-select-5-option-45\"]")).click();
-        Thread.sleep(3000);       
+//        System.out.println("click dropdown of status");
+//        driver.findElement(By.xpath("//*[@id=\"cell-2-undefined\"]/div/div[1]/div/div[2]/div")).click();
+//        Thread.sleep(2000);
+//        //select available from dropdown
+//        System.out.println("Available seleced");
+//        driver.findElement(By.xpath("//*[@id=\"react-select-4-option-0\"]")).click();
+//        Thread.sleep(3000);
+//               
+//        //click equipment dropdown
+//        System.out.println("open quipment dropdown");
+//        driver.findElement(By.xpath("//*[@id=\"cell-3-undefined\"]/div/div/div/div[2]/div")).click();
+//        Thread.sleep(3000);
+//        //select number from dropdown
+//        System.out.println("select equipment number");
+//        driver.findElement(By.xpath("//*[@id=\"react-select-5-option-45\"]")).click();
+//        Thread.sleep(3000);       
+//        
+//        //select working dropdown
+//        System.out.println("open working dropdown");
+//        driver.findElement(By.xpath("//*[@id=\"cell-4-undefined\"]/div/div[1]/div/div[2]/div")).click();
+//        Thread.sleep(3000);
+//        //select value of working
+//        driver.findElement(By.xpath("//*[@id=\"react-select-6-option-33\"]")).click();
+//        Thread.sleep(3000);
+//        
+//        //select frequent dropdown
+//        System.out.println("open working dropdown");
+//        driver.findElement(By.xpath("//*[@id=\"cell-6-undefined\"]/div/div[1]/div/div[2]/div")).click();
+//        Thread.sleep(3000);
+//        //select value of frequent from dropdown
+//        System.out.println("open working dropdown");
+//        driver.findElement(By.xpath("//*[@id=\"react-select-7-option-17\"]")).click();
+//        Thread.sleep(3000);
         
-        //select working dropdown
-        System.out.println("open working dropdown");
-        driver.findElement(By.xpath("//*[@id=\"cell-4-undefined\"]/div/div[1]/div/div[2]/div")).click();
-        Thread.sleep(3000);
-        //select value of working
-        driver.findElement(By.xpath("//*[@id=\"react-select-6-option-33\"]")).click();
-        Thread.sleep(3000);
-        
-        //select frequent dropdown
-        System.out.println("open working dropdown");
-        driver.findElement(By.xpath("//*[@id=\"cell-6-undefined\"]/div/div[1]/div/div[2]/div")).click();
-        Thread.sleep(3000);
-        //select value of frequent from dropdown
-        System.out.println("open working dropdown");
-        driver.findElement(By.xpath("//*[@id=\"react-select-7-option-17\"]")).click();
-        Thread.sleep(3000);
-       
+        //Row 2
+        //select status dropdown 
+//        driver.findElement(By.xpath("//*[@id=\"cell-2-undefined\"]/div/div[1]/div/div[2]/div")).click();
+//        Thread.sleep(2000);
+//        //select available from dropdown
+//        System.out.println("Available seleced");
+//        driver.findElement(By.xpath("//*[@id=\"react-select-4-option-0\"]")).click();
+//        Thread.sleep(3000);
      
+        //loop
+        
+     // Define the number of rows you want to fill
+        int numRows = 7;
+
+        for (int i = 0; i < numRows; i++) {
+            // Construct XPath for each row based on the index
+			String rowXPath = "//*[@id='row-" + i + "']";
+			System.out.println("Text of the element: " + rowXPath);
+			
+			//Select status dropdown
+			System.out.println("click dropdown of status NEWWWWW" + i);
+			driver.findElement(By.xpath(rowXPath+"//*[@id=\"cell-2-undefined\"]/div/div[1]/div/div[2]/div")).click();
+			Thread.sleep(1000);
+			//select available from dropdown
+			System.out.println("Available seleced");
+			driver.findElement(By.xpath("//*[@id=\"react-select-4-option-0\"]")).click();
+		    Thread.sleep(1000);
+			    
+		    //click equipment dropdown
+			System.out.println("open quipment dropdown" + " " + i);
+		    driver.findElement(By.xpath(rowXPath+"//*[@id=\"cell-3-undefined\"]/div/div/div/div[2]/div")).click();
+		    Thread.sleep(1000);
+		    //select number from dropdown
+		    System.out.println("select equipment number");
+		    driver.findElement(By.xpath("//*[@id=\"react-select-5-option-45\"]")).click();
+		    Thread.sleep(1000); 
+			  
+			    //select working dropdown
+			System.out.println("open working dropdown");
+			driver.findElement(By.xpath(rowXPath+"//*[@id=\"cell-4-undefined\"]/div/div[1]/div/div[2]/div")).click();
+			Thread.sleep(1000);
+			//select value of working
+			driver.findElement(By.xpath("//*[@id=\"react-select-6-option-33\"]")).click();
+			Thread.sleep(1000);
+			
+			//select frequent dropdown
+			System.out.println("open working dropdown");
+			driver.findElement(By.xpath(rowXPath+"//*[@id=\"cell-6-undefined\"]/div/div[1]/div/div[2]/div")).click();
+			Thread.sleep(1000);
+			//select value of frequent from dropdown
+			System.out.println("open working dropdown");
+			driver.findElement(By.xpath("//*[@id=\"react-select-7-option-17\"]")).click();
+			Thread.sleep(1000);
+
+        }
         
 
     }    
