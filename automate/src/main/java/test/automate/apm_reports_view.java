@@ -17,7 +17,7 @@ public class apm_reports_view {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-        // start reporters
+        // start reporters, Defining class ExtentHtmlReporter
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("GraphicalTestReport.html");
     
         // create ExtentReports and attach reporter(s)
