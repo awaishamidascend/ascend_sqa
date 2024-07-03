@@ -12,7 +12,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class apm_reports_view {
+public class Reports_View_Template {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
