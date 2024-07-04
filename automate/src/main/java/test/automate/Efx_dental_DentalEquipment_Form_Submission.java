@@ -34,7 +34,7 @@ public class Efx_dental_DentalEquipment_Form_Submission {
 
         // Open the webpage
         test.pass("web page open");
-        driver.get("https://efficax-dental.ascend.com.sa/");
+        driver.get("https://dev-efficax-dental.kakashi.app/login");
         
         // Wait for 10 seconds to allow the page to load fully
         System.out.println("Waiting for the page to load...");
