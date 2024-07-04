@@ -22,15 +22,16 @@ public class apm_login {
         driver.get("https://apm.ascend.com.sa/");
 		
         driver.findElement(By.cssSelector("input[placeholder='Email / Phone number']")).sendKeys("awais.hamid@ascend.com.sa");
-		
+        System.out.println("Email entered successfully");
         driver.findElement(By.cssSelector("input[placeholder='Password']")).sendKeys("Ascend@745382");
-		
+        System.out.println("Password entered successfully");
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-
+        System.out.println("Login Button Clicked successfully");
 		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath("(//span[@class='menu-item menu-title text-capitalize'][normalize-space()='All'])[1]")).click();
-		
+        System.out.println("All WO menu opened successfully");
+
 		Thread.sleep(5000);
 
 		driver.findElement(By.cssSelector("#Export")).click();
