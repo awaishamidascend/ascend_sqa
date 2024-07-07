@@ -64,6 +64,11 @@
     <artifactId>webdrivermanager</artifactId>
     <version>5.8.0</version>
 </dependency>
+  	<dependency>
+  		<groupId>test</groupId>
+  		<artifactId>selenium_jenkins</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
 
 
