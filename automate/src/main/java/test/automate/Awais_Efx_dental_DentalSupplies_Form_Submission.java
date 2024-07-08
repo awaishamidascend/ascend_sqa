@@ -30,6 +30,7 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
+        try {
             // Open the webpage
             test.pass("web page open");
             driver.get("https://dev-efficax-dental.kakashi.app/login");
@@ -97,39 +98,41 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
             optionToSelect111.click();
             System.out.println("Level Selected...");
             Thread.sleep(2000);
-            
-         // Locate all input fields by common class name
-            System.out.println("Select dropdown...");
+
+            // Locate all input fields by common class name
+            System.out.println("Select main dropdown...");
             // Step 1: Select option "Piece" from the first dropdown
-
-
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("window.scrollTo(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight, document.documentElement.clientHeight));");
 
-         // Wait for the dropdown input to be clickable
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement dropdownInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__input-container')]//input[@id='react-select-5-input']")));
+            System.out.println("Performed Scroll...");
+
+            // Wait for the dropdown input to be clickable
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15)); // Increased timeout to 15 seconds
+            WebElement dropdownInput1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__input-container')]//input[@id='react-select-5-input']")));
+            System.out.println("Wait for element done...");
 
             // Click the dropdown input to activate it
-            dropdownInput.click();
+            dropdownInput1.click();
+            System.out.println("click done...");
 
             // Type the desired option text into the input field
-            dropdownInput.sendKeys("Piece");
+            dropdownInput1.sendKeys("Piece");
 
             // Wait for the dropdown options to be visible and interactable
-            WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-5-option-0']")));
+            WebElement option1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-5-option-0']")));
 
             // Scroll the option into view
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", option);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", option1);
 
             // Click on the option
-            option.click();
+            option1.click();
 
             System.out.println("First Dropdown Selected...");
             Thread.sleep(2000);
 
-         // Locate the input field of the second dropdown
-            WebElement dropdownInput2 = driver.findElement(By.xpath("//input[@id='react-select-6-input']"));
+            // Locate the input field of the second dropdown
+            WebElement dropdownInput2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__input-container')]//input[@id='react-select-6-input']")));
 
             // Click to activate and open the dropdown
             dropdownInput2.click();
@@ -138,7 +141,7 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
             dropdownInput2.sendKeys("Not Available");
 
             // Wait for the dropdown options to be visible and interactable
-            WebElement option2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='react-select-6-input']")));
+            WebElement option2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-6-option-1']"))); // Corrected XPath
 
             // Scroll the option into view if needed
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", option2);
@@ -147,17 +150,10 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
             option2.click();
             System.out.println("Second Dropdown Selected...");
 
-
-
-
-
         } finally {
             // Close the browser
             driver.quit();
             extent.flush(); // Flush the extent report
         }
-            
     }
-    
-    
 }
