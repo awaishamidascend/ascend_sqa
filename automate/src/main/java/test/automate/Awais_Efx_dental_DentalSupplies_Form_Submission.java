@@ -149,10 +149,15 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
             // Click on the option to select it
             option2.click();
             System.out.println("Second Dropdown Selected...");
+            
+         // Locate the new input field by its ID and enter the value 45
+            System.out.println("Entering value in the amount left field...");
+            WebElement amountLeftInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']")));
+            amountLeftInput.sendKeys("45");
+            System.out.println("Value 45 entered in the amount left field...");
 
         } finally {
             // Close the browser
-            driver.quit();
             extent.flush(); // Flush the extent report
         }
     }
