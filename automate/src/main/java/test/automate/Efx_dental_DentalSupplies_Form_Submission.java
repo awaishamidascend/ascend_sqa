@@ -95,23 +95,33 @@ public class Efx_dental_DentalSupplies_Form_Submission {
             driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[1]/div[2]/div/div[4]/div[1]/div[2]/div/div")).click();
             Thread.sleep(2000); 
         
-            // Locate all dropdowns by class name
-            List<WebElement> dropdowns = driver.findElements(By.className("select__input-container css-ackcql"));
+            // Locate all input fields by common class name
             System.out.println("Select dropdown...");
+            List<WebElement> inputFields = driver.findElements(By.className("select__input-container css-ackcql"));
 
-            // Loop through each dropdown and select values
-            for (int i = 0; i < dropdowns.size(); i++) {
-                Select select = new Select(dropdowns.get(i));
-                select.selectByIndex(i + 1); // Example: selecting different index for each dropdown
+            
+            // Data to be input into the fields
+            String[] inputData = {"1", "22", "3"}; // Add as many values as needed
+
+            // Check if the number of input fields matches the data provided
+            if (inputFields.size() != inputData.length) {
+                System.out.println("Mismatch between number of input fields and input data.");
+                return;
             }
 
-            // Submit the form
-            driver.findElement(By.id("submit-button")).click();
-            test.pass("Form submitted successfully");
-            
+            // Loop through each input field and input the corresponding data
+            for (int i = 0; i < inputFields.size(); i++) {
+                WebElement inputField = inputFields.get(i);
+                inputField.clear(); // Clear any existing text
+                inputField.sendKeys(inputData[i]); // Enter the data
+            }
+
+            // Perform any other actions or assertions
+            // ...
+
         } finally {
-            // Write the report to the file
-            extent.flush();
+            // Quit the WebDriver
+            driver.quit();
         }
     }
 }
