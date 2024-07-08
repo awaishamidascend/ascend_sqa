@@ -30,7 +30,6 @@ public class Efx_dental_DentalSupplies_Form_Submission {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-        try {
             // Open the webpage
             test.pass("web page open");
             driver.get("https://dev-efficax-dental.kakashi.app/login");
@@ -98,64 +97,80 @@ public class Efx_dental_DentalSupplies_Form_Submission {
             optionToSelect111.click();
             System.out.println("Level Selected...");
             Thread.sleep(2000);
-
-            // Locate all input fields by common class name
-            System.out.println("Select dropdown...");
-            // Step 1: Select option "Piece" from the first dropdown
             
-            
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollTo(0, Math.max(document.documentElement.scrollHeight, document.body.scrollHeight, document.documentElement.clientHeight));");
-        
-         // Wait for the dropdown input to be clickable
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            WebElement dropdownInput = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__input-container')]//input[@id='react-select-5-input']")));
-
-            // Click the dropdown input to activate it
-            dropdownInput.click();
-
-            // Type the desired option text into the input field
-            dropdownInput.sendKeys("Piece");
-
-            // Wait for the dropdown options to be visible and interactable
-            WebElement option = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-5-option-0']")));
-
-            // Scroll the option into view
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", option);
-
-            // Click on the option
-            option.click();
-
-            System.out.println("First Dropdown Selected...");
+            //select UOM dropdown
+            System.out.println("Click UOM dropdown...");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div/div[2]/div")).click();
             Thread.sleep(2000);
-
-         // Locate the input field of the second dropdown
-            WebElement dropdownInput2 = driver.findElement(By.xpath("//input[@id='react-select-6-input']"));
-
-            // Click to activate and open the dropdown
-            dropdownInput2.click();
-
-            // Type the desired option text into the input field
-            dropdownInput2.sendKeys("Not Available");
-
-            // Wait for the dropdown options to be visible and interactable
-            WebElement option2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='react-select-6-input']")));
-
-            // Scroll the option into view if needed
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", option2);
-
-            // Click on the option to select it
-            option2.click();
-            System.out.println("Second Dropdown Selected...");
-
-
-
-
-
-        } finally {
-            // Close the browser
-            driver.quit();
-            extent.flush(); // Flush the extent report
-        }
+            
+            //Select value of UOM 
+            System.out.println("Select piece");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[2]/div/div/div[1]")).click();
+            Thread.sleep(2000);
+            
+            //select available dropdown
+            System.out.println("Select deopdown arrow");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[3]/div/div[1]/div/div[2]/div")).click();
+            Thread.sleep(2000);
+            
+            //select available from dropdown
+            System.out.println("Select available");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[3]/div/div[1]/div[2]/div/div[1]")).click();
+            Thread.sleep(2000);
+            
+            //input new stock received  
+            System.out.println("Enter new stock received number");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[6]/div/input[1]")).sendKeys("45");
+            Thread.sleep(2000);
+            
+            //input daily consumption 
+            System.out.println("Enter daily consumption");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[7]/div/input[1]")).sendKeys("42");
+            Thread.sleep(2000);
+            
+          //input stock on hand
+            System.out.println("Enter stock on hand");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[1]/div[8]/div/input[1]")).sendKeys("3");
+            Thread.sleep(2000);
+            
+           //row 2
+            //select dropdown
+            System.out.println("select dropdown arrow");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[3]/div/div[1]/div/div[2]/div")).click();
+            Thread.sleep(2000);
+            
+            //select not available from dropdown
+            System.out.println("select notavailable");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[3]/div/div[1]/div[2]/div/div[2]")).click();
+            Thread.sleep(2000);  
+            
+          //input MAWARED number
+            System.out.println("Enter MAWARED number");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[4]/div/input[1]")).sendKeys("75");
+            Thread.sleep(2000);  
+            
+          //click date
+            System.out.println("click date");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[5]/div/input[1]")).click();
+            Thread.sleep(2000);  
+            
+            //select date
+            System.out.println("select date");
+            driver.findElement(By.xpath("/html/body/div[5]/div[2]/div/div[2]/div/span[9]")).click();
+            Thread.sleep(2000); 
+            
+            //input new stock received 
+            System.out.println("Enter new stocked received");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[6]/div/input[1]")).sendKeys("100");
+            Thread.sleep(2000);  
+            
+            //input stock on hand number
+            System.out.println("Enter stock on hand number");
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div/div/div[2]/div[2]/div[8]/div/input[1]")).sendKeys("135");
+            Thread.sleep(2000);  
+            
+            
     }
+    
+    
 }
