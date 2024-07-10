@@ -136,10 +136,10 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
 
                     // Check and interact with "Stock on hand" field
                     WebElement stockonhandDiv = driver.findElement(By.id("cell-8-undefined"));
-                    WebElement stockonhandField = dailyConsumptionDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-                    dailyConsumptionField.clear();
-                    dailyConsumptionField.sendKeys("300");
-                    System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + i);
+                    WebElement stockonhandField = stockonhandDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    stockonhandField.clear();
+                    stockonhandField.sendKeys("300");
+                    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + i);
                     
                     Thread.sleep(500);  // Wait to ensure action is completed before moving to next
                 }
