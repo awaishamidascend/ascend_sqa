@@ -14,13 +14,13 @@ public class CreateTicket {
 		WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         
-        driver.get("https://nhcc.kakashi.app/login");
+        driver.get("https://nhcc.ascend.com.sa");
         
         driver.manage().window().maximize();
 
      
-        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("user@test.com");
-        driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Khadija@123");
+        driver.findElement(By.xpath("//input[@id='email']")).sendKeys("khadija.yasin@ascend.com.sa");
+        driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("Ascend@2040");
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(5000);
 		
