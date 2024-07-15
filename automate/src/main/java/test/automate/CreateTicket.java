@@ -52,9 +52,10 @@ public class CreateTicket {
         driver.findElement(By.xpath("//div[@id='General-Information']//button[contains(@type,'submit')][normalize-space()='Next']")).click();
         System.out.println("Proceeded to the next page.");
 
-        System.out.println("Selecting team...");
-        driver.findElement(By.xpath("//div[@id='Additional-Information']//div[contains(@class,'row')]//div[1]//div[1]//label[1]")).click();
-        System.out.println("Team selected.");
+        System.out.println("Opening the team selector...");
+        WebElement teamSelectContainer = driver.findElement(By.xpath("(//div)[154]"));
+        teamSelectContainer.click();
+        System.out.println("Team selector opened.");
 
         System.out.println("Selecting option in dropdown...");
         String option = "t";
@@ -67,4 +68,3 @@ public class CreateTicket {
         System.out.println("Browser closed.");
     }
 }
-s
