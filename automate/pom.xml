@@ -21,7 +21,6 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-<<<<<<< HEAD
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
@@ -42,11 +41,11 @@
 </dependency>
 
   	<dependency>
-  		<groupId>Test_Suite</groupId>
-  		<artifactId>Test_Cases</artifactId>
+  		<groupId>Automate</groupId>
+  		<artifactId>test.automate</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
-=======
+  	
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
@@ -63,12 +62,9 @@
       <version>7.5.1</version>
       <scope>test</scope>
     </dependency>
->>>>>>> branch 'khadija_NHCC' of https://github.com/awaishamidascend/ascend_sqa.git
   </dependencies>
-<<<<<<< HEAD
   
   
-=======
 
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
@@ -86,5 +82,4 @@
       </plugin>
     </plugins>
   </build>
->>>>>>> branch 'khadija_NHCC' of https://github.com/awaishamidascend/ascend_sqa.git
 </project>
