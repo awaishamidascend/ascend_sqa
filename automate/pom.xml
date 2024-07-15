@@ -41,8 +41,8 @@
 </dependency>
 
   	<dependency>
-  		<groupId>Automate</groupId>
-  		<artifactId>test.automate</artifactId>
+  		<groupId>test</groupId>
+  		<artifactId>Automate</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   	
@@ -51,11 +51,13 @@
       <artifactId>selenium-java</artifactId>
       <version>4.1.0</version>
     </dependency>
+    
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>5.8.0</version>
     </dependency>
+    
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
