@@ -31,14 +31,21 @@ public class CreateTicket {
         Thread.sleep(5000);
         System.out.println("Logged in successfully.");
 
-        System.out.println("Navigating to Tickets...");
-        driver.findElement(By.xpath("//span[@class='menu-title text-truncate']//span[contains(text(),'Tickets')]")).click();
-        System.out.println("Clicked on Tickets.");
-
-        System.out.println("Navigating to Create Ticket...");
-        driver.findElement(By.xpath("//span[contains(text(),'Create Ticket')]")).click();
-        Thread.sleep(5000);
-        System.out.println("Clicked on Create Ticket.");
+        // Selecting Tickets
+        System.out.println("Selecting Tickets...");
+        WebElement optionToSelect111 = driver.findElement(By.xpath("//div[contains(text(), 'Tickets')]"));
+        optionToSelect111.click();
+        System.out.println("Tickets Selected...");
+        Thread.sleep(2000);
+        
+        
+        // Selecting Create Ticket
+        System.out.println("Selecting Create Ticket...");
+        WebElement optionToSelect= driver.findElement(By.xpath("//div[contains(text(), 'Create Tickets')]"));
+        optionToSelect.click();
+        System.out.println("Create Ticket Selected...");
+        Thread.sleep(2000);
+        
 
         System.out.println("Entering subject...");
         driver.findElement(By.xpath("//input[@placeholder='Subject']")).sendKeys("test subject");
