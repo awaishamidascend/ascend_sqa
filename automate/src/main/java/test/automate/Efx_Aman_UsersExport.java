@@ -5,10 +5,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Efx_Aman_UsersExport {
     public static void main(String[] args) throws InterruptedException {
+ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("romeesa.html");
+    	
+    	// create ExtentReports and attach reporter(s)
+         ExtentReports extent = new ExtentReports();
+         extent.attachReporter(htmlReporter);
+         ExtentTest test = extent.createTest("MyFirstTest", "Sample description");
+         // log(Status, details)
+         test.log(Status.INFO, "Start log");
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
@@ -31,28 +44,29 @@ public class Efx_Aman_UsersExport {
         
         Thread.sleep(5000);
         
-        String otp = "786786";
-        
-        // Find the OTP input field and enter OTP
-        for (int i = 0; i < otp.length(); i++) {
-            char digit = otp.charAt(i);
-            String digitAsString = Character.toString(digit);
-            String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
-            WebElement otpBox = driver.findElement(By.xpath(xpath));
-            otpBox.sendKeys(digitAsString);
-        }
-        
-        // Click on the OTP login button
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
-        
+        System.out.println("Login Success");
+
         Thread.sleep(5000);
+
+        
+   
         
         // Perform click action on the desired element (e.g., export button)
-        driver.findElement(By.xpath("(//img)[8]")).click();
-        
+        driver.findElement(By.xpath("//span[normalize-space()='Forms']")).click();
+        System.out.println("Clicked on Forms");
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//span[contains(@class,'menu-item text-truncate')][contains(text(),'المستشفيات العامة')]")).click();
+        System.out.println("clicked on المستشفيات العامة ");
+        Thread.sleep(5000);
+
+        driver.findElement(By.xpath("//div[contains(@class,'icon')]//figure//*[name()='svg']")).click();
+        System.out.println("Export successfully");
+
         Thread.sleep(5000);
 
         // Close the WebDriver instance
         driver.quit();
+        extent.flush();
     }
 }

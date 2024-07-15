@@ -8,11 +8,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class taskschedular {
 
     public static void main(String[] args) throws InterruptedException {
+    	
+ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("romeesa.html");
+    	
+    	// create ExtentReports and attach reporter(s)
+         ExtentReports extent = new ExtentReports();
+         extent.attachReporter(htmlReporter);
+         ExtentTest test = extent.createTest("MyFirstTest", "Sample description");
+         // log(Status, details)
+         test.log(Status.INFO, "Start log");
+    	
+   
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
@@ -29,7 +45,7 @@ public class taskschedular {
             driver.findElement(By.xpath("//button[@type='submit']")).click();
             Thread.sleep(10000);
             
-            driver.findElement(By.xpath("//span[contains(text(),'Schedule Task Form')]")).click();
+            driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[3]/ul[1]/li[4]/a[1]/span[2]")).click();
             Thread.sleep(5000);
 
             driver.findElement(By.xpath("//p[normalize-space()='Add Schedule']")).click();
@@ -99,6 +115,10 @@ public class taskschedular {
 
             driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
             driver.findElement(By.xpath("//button[contains(@type,'submit')]")).click();
+            
+            
+            extent.flush();
+
             
         } finally {
             // Close the WebDriver instance
