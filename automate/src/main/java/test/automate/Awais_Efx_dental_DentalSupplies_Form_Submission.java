@@ -1,13 +1,14 @@
 package test.automate;
 
 import java.time.Duration;
-import java.util.List;
+import java.time.LocalDate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -26,7 +27,7 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("rida_report.html");
         ExtentReports extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-        ExtentTest test = extent.createTest("Equipment Form", "This is EfficaX Dental Test case");
+        ExtentTest test = extent.createTest("Equipment Form", "This is efficaX Dental Test case");
 
         // Setup WebDriver
         WebDriverManager.chromedriver().setup();
@@ -101,48 +102,100 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
             System.out.println("Level Selected...");
             Thread.sleep(2000);
 
-            // Wait for rows to be visible
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            List<WebElement> rows = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[contains(@id, 'row-')]")));
-            System.out.println("Total rows found: " + rows.size());
+            // Loop through each row and perform the required actions
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
 
-            // Iterate through each row and perform the required actions
-            for (WebElement row : rows) {
-                System.out.println("Processing row: " + row.getAttribute("id"));
+//            for (int i = 0; i <= 55; i++) {
+//                WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
+//                System.out.println(rowXPath);
+//
+//                // Scroll to the row (if necessary)
+//                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
+              //  Thread.sleep(500);
 
-                // Scroll to the row (if necessary)
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", row);
-                Thread.sleep(500);
+                // Nested loop for dropdown selection
+                for (int j = 0; j <= 55; j++) {
+                    int dropdownId = 6 + (j * 2); // Adjusting ID increment
+                    WebElement dropdownInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
+                    dropdownInput.sendKeys("Not Available");
+                    dropdownInput.sendKeys(Keys.ENTER);
+                    System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
+                    
+                    // Check and interact with "MAWARED request number" field
+                    WebElement newStockReceivedDiv = driver.findElement(By.id("cell-4-undefined"));
+                    WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    newStockReceivedField.clear();
+                    newStockReceivedField.sendKeys("100");
+                    System.out.println("Entered text '100' in 'New Stock Received' text field for row: " + j);
+                    
+                    
+                    
+                  
+                    
+                    
+                 
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    // Check and interact with "Date" field
+                    WebElement DateDiv = driver.findElement(By.id("cell-5-undefined"));
+                    WebElement dateInput = DateDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    dateInput.click();
+                    System.out.println("Date Row clicked");
 
-                // Find and interact with dropdowns in the row
-                List<WebElement> dropdowns = row.findElements(By.xpath(".//input[contains(@id, 'react-select-')]"));
-                for (WebElement dropdown : dropdowns) {
-                    dropdown.sendKeys("Available");
-                    dropdown.sendKeys(Keys.ENTER);
-                    System.out.println("Selected 'Available' for dropdown: " + dropdown.getAttribute("id"));
+                    // Select the date (e.g., 15th of the current month and year)
+                    LocalDate date = LocalDate.of(15, 07, 24); // Change to the desired date
+                    selectDate(driver, date); 
+                    System.out.println("Date Entered " + j + "time");
+
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    // Check and interact with "New Stock Received" field
+                    WebElement NewStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
+                    WebElement NewStockReceivedField = NewStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    NewStockReceivedField.clear();
+                    NewStockReceivedField.sendKeys("200");
+                    System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + j);
+
+                    // Check and interact with "Stock on hand" field
+                    WebElement stockonhandDiv = driver.findElement(By.id("cell-8-undefined"));
+                    WebElement stockonhandField = stockonhandDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    stockonhandField.clear();
+                    stockonhandField.sendKeys("300");
+                    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + j);
+                    
+                    Thread.sleep(500);  // Wait to ensure action is completed before moving to next
                 }
-
-                // Find and interact with text fields in the row
-                List<WebElement> textFields = row.findElements(By.xpath(".//input[contains(@id, 'amountLeft-amountLeft-')]"));
-                String[] texts = {"100", "200", "300"};
-                int textIndex = 0;
-                for (WebElement textField : textFields) {
-                    wait.until(ExpectedConditions.elementToBeClickable(textField)); // Ensure text field is clickable
-                    if (textIndex < texts.length) {
-                        textField.clear();
-                        textField.sendKeys(texts[textIndex]);
-                        System.out.println("Entered text '" + texts[textIndex] + "' in text field for row: " + row.getAttribute("id"));
-                        textIndex++;
-                    }
-                }
-
-                Thread.sleep(500);  // Wait to ensure action is completed before moving to next
-            }
-
+            
         } finally {
             // Close the browser
-            extent.flush(); // Flush the extent report
-            driver.quit();
+            //extent.flush(); // Flush the extent report
+            //driver.quit();
         }
     }
+
+	private static void selectDate(WebDriver driver, LocalDate date) {
+		// TODO Auto-generated method stub
+		
+	}
 }
+

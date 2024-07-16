@@ -104,13 +104,13 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
             // Loop through each row and perform the required actions
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
 
-            for (int i = 0; i <= 55; i++) {
-                WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
-                System.out.println(rowXPath);
-
-                // Scroll to the row (if necessary)
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-                Thread.sleep(500);
+//            for (int i = 0; i <= 55; i++) {
+//                WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
+//                System.out.println(rowXPath);
+//
+//                // Scroll to the row (if necessary)
+//                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
+              //  Thread.sleep(500);
 
                 // Nested loop for dropdown selection
                 for (int j = 0; j <= 55; j++) {
@@ -125,25 +125,25 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
                     WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
                     newStockReceivedField.clear();
                     newStockReceivedField.sendKeys("100");
-                    System.out.println("Entered text '100' in 'New Stock Received' text field for row: " + i);
+                    System.out.println("Entered text '100' in 'New Stock Received' text field for row: " + j);
 
                     // Check and interact with "Daily Consumption" field
                     WebElement dailyConsumptionDiv = driver.findElement(By.id("cell-7-undefined"));
                     WebElement dailyConsumptionField = dailyConsumptionDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
                     dailyConsumptionField.clear();
                     dailyConsumptionField.sendKeys("200");
-                    System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + i);
+                    System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + j);
 
                     // Check and interact with "Stock on hand" field
                     WebElement stockonhandDiv = driver.findElement(By.id("cell-8-undefined"));
                     WebElement stockonhandField = stockonhandDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
                     stockonhandField.clear();
                     stockonhandField.sendKeys("300");
-                    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + i);
+                    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + j);
                     
                     Thread.sleep(500);  // Wait to ensure action is completed before moving to next
                 }
-            }
+            
         } finally {
             // Close the browser
             extent.flush(); // Flush the extent report
@@ -151,3 +151,4 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
         }
     }
 }
+
