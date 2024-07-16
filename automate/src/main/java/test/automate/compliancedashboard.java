@@ -1,9 +1,15 @@
 package test.automate;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -11,7 +17,11 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+
 public class compliancedashboard {
+	
+
 	public static void main(String[] args) throws InterruptedException {
 		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("romeesa.html");
 		    	
@@ -46,18 +56,18 @@ public class compliancedashboard {
      Thread.sleep(5000);
      
      System.out.println("Login Success");
+     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
 
      Thread.sleep(5000);
-     for (int i = 1; i <= 51; i++) {
-         // Construct the ID
-         //String elementXpath = "/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]" + i;
-         //System.out.println("ID Success");
+     for (int i = 0; i <= 51; i++) {
+     
 
-         // Find the element by ID
-         WebElement element = driver.findElement((By.cssSelector("a[id='pr_id_1_header_0'] span[class='p-tabview-title']" +i))); 
-
-		// Perform any action on the element (e.g., click)
-         element.click();
+         // Find the element by ID    
+         driver.findElement(By.id("pr_id_1_header_" + i )).click();
+         Thread.sleep(1000);
+         System.out.println("Tab Selected" + i);
+         
+         
      }
 }
 }
