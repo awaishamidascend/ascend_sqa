@@ -1,14 +1,12 @@
 package test.automate;
 
 import java.time.Duration;
-import java.time.LocalDate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -33,7 +31,7 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-        try {
+
             // Open the webpage
             test.pass("Web page opened");
             driver.get("https://dev-efficax-dental.kakashi.app/");
@@ -100,89 +98,53 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
             WebElement optionToSelect111 = driver.findElement(By.xpath("//div[contains(text(), 'PHC Warehouse - Dental Service')]"));
             optionToSelect111.click();
             System.out.println("Level Selected...");
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
             // Loop through each row and perform the required actions
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
 
-//            for (int i = 0; i <= 55; i++) {
-//                WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
-//                System.out.println(rowXPath);
-//
-//                // Scroll to the row (if necessary)
-//                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-              //  Thread.sleep(500);
+            for (int i = 0; i <= 55; i++) {
+                WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
+                System.out.println(rowXPath);
 
-                // Nested loop for dropdown selection
-                for (int j = 0; j <= 55; j++) {
-                    int dropdownId = 6 + (j * 2); // Adjusting ID increment
+                // Scroll to the row (if necessary)
+                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
+                Thread.sleep(100);
+
+               
+                    int dropdownId = 6 + (i * 2); // Adjusting ID increment
                     WebElement dropdownInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
-                    dropdownInput.sendKeys("Not Available");
+                    dropdownInput.sendKeys("Available");
                     dropdownInput.sendKeys(Keys.ENTER);
                     System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
-                    
-                    // Check and interact with "MAWARED request number" field
-                    WebElement newStockReceivedDiv = driver.findElement(By.id("cell-4-undefined"));
-                    WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    Thread.sleep(3000);
+
+
+                    // Explicitly focus on the "New Stock Received" field
+                    WebElement newStockReceivedField = driver.switchTo().activeElement();
+                    newStockReceivedField.sendKeys(Keys.TAB); // Move to the next field
+                    newStockReceivedField = driver.switchTo().activeElement(); // Re-focus on the new active field
                     newStockReceivedField.clear();
                     newStockReceivedField.sendKeys("100");
-                    System.out.println("Entered text '100' in 'New Stock Received' text field for row: " + j);
-                    
-                    Thread.sleep(3000);
-                    
-                    // Check and interact with "Date" field
-                    //WebElement DateDiv = driver.findElement(By.id("cell-5-undefined"));
-                    //driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']")).click();
-                    //WebElement dateInput = DateDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-                    //dateInput.click();
-                    WebElement element = driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']"));
-                    //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-                    element.click();
-                    System.out.println("Date Row clicked");
+                    System.out.println("Entered text '100' in 'New Stock Received' text field for row: " + i);
 
-                    //element.sendKeys("July 1, 2024");
-                    
-                    // Set the desired date using JavaScript and trigger the change event
-                    Thread.sleep(2000);
-                    ((JavascriptExecutor) driver).executeScript("arguments[0].value = '15/07/24';", element);
-                    //((JavascriptExecutor) driver).executeScript("arguments[0].value = '2024-07-15'; arguments[0].dispatchEvent(new Event('change'));", element);
-                    
-                    // Select the date (e.g., 15th of the current month and year)
-//                    LocalDate date = LocalDate.of(2024, 07, 15); // Change to the desired date
-//                    selectDate(driver, date); 
-//                    WebElement element1 = driver.findElement(By.cssSelector(".flatpickr-day.today"));
-//                    element1.click();
+                    // Move to the "Daily Consumption" field using TAB key
+                    newStockReceivedField.sendKeys(Keys.TAB); // Move to the next field
+                    WebElement dailyConsumptionField = driver.switchTo().activeElement(); // Re-focus on the new active field
+                    dailyConsumptionField.clear();
+                    dailyConsumptionField.sendKeys("200");
+                    System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + i);
 
-                    System.out.println("Date Entered " + j + "time");
-
-                   
-                    
-                    // Check and interact with "New Stock Received" field
-                    WebElement NewStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
-                    WebElement NewStockReceivedField = NewStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-                    NewStockReceivedField.clear();
-                    NewStockReceivedField.sendKeys("200");
-                    System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + j);
-
-                    // Check and interact with "Stock on hand" field
-                    WebElement stockonhandDiv = driver.findElement(By.id("cell-8-undefined"));
-                    WebElement stockonhandField = stockonhandDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    // Move to the "Stock on Hand" field using TAB key
+                    dailyConsumptionField.sendKeys(Keys.TAB); // Move to the next field
+                    WebElement stockonhandField = driver.switchTo().activeElement(); // Re-focus on the new active field
                     stockonhandField.clear();
                     stockonhandField.sendKeys("300");
-                    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + j);
-                    
-                    Thread.sleep(500);  // Wait to ensure action is completed before moving to next
-                }
-            
-        } finally {
-            // Close the browser
-            //extent.flush(); // Flush the extent report
-            //driver.quit();
-        }
-    }
+                    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + i);
 
-	private static void selectDate(WebDriver driver, LocalDate date) {
-		// TODO Auto-generated method stub
-		
-	}
+                    Thread.sleep(100);
+            
+        }
+    
+}
 }
