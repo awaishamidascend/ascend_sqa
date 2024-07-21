@@ -109,7 +109,7 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
 
                 // Scroll to the row (if necessary)
                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-                Thread.sleep(100);
+                Thread.sleep(300);
 
                
                     int dropdownId = 6 + (i * 2); // Adjusting ID increment
@@ -117,7 +117,7 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
                     dropdownInput.sendKeys("Available");
                     dropdownInput.sendKeys(Keys.ENTER);
                     System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
-                    Thread.sleep(3000);
+                    Thread.sleep(300);
 
 
                     // Explicitly focus on the "New Stock Received" field
@@ -142,7 +142,7 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
                     stockonhandField.sendKeys("300");
                     System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + i);
 
-                    Thread.sleep(100);
+                    Thread.sleep(300);
             
         }
     
