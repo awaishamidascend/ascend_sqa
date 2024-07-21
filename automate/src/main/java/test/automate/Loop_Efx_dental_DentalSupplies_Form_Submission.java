@@ -109,7 +109,7 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
 
                 // Scroll to the row (if necessary)
                 ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-                Thread.sleep(300);
+                Thread.sleep(1000);
 
                
                     int dropdownId = 6 + (i * 2); // Adjusting ID increment
