@@ -1,6 +1,7 @@
 package test.automate;
 
 import java.time.Duration;
+import java.time.LocalDate;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -99,7 +100,7 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
             WebElement optionToSelect111 = driver.findElement(By.xpath("//div[contains(text(), 'PHC Warehouse - Dental Service')]"));
             optionToSelect111.click();
             System.out.println("Level Selected...");
-            Thread.sleep(2000);
+            Thread.sleep(3000);
 
             // Loop through each row and perform the required actions
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
@@ -116,22 +117,51 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
                 for (int j = 0; j <= 55; j++) {
                     int dropdownId = 6 + (j * 2); // Adjusting ID increment
                     WebElement dropdownInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
-                    dropdownInput.sendKeys("Available");
+                    dropdownInput.sendKeys("Not Available");
                     dropdownInput.sendKeys(Keys.ENTER);
                     System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
-
-                    // Check and interact with "New Stock Received" field
-                    WebElement newStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
+                    
+                    // Check and interact with "MAWARED request number" field
+                    WebElement newStockReceivedDiv = driver.findElement(By.id("cell-4-undefined"));
                     WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
                     newStockReceivedField.clear();
                     newStockReceivedField.sendKeys("100");
                     System.out.println("Entered text '100' in 'New Stock Received' text field for row: " + j);
+                    
+                    Thread.sleep(3000);
+                    
+                    // Check and interact with "Date" field
+                    //WebElement DateDiv = driver.findElement(By.id("cell-5-undefined"));
+                    //driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']")).click();
+                    //WebElement dateInput = DateDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    //dateInput.click();
+                    WebElement element = driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']"));
+                    //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+                    element.click();
+                    System.out.println("Date Row clicked");
 
-                    // Check and interact with "Daily Consumption" field
-                    WebElement dailyConsumptionDiv = driver.findElement(By.id("cell-7-undefined"));
-                    WebElement dailyConsumptionField = dailyConsumptionDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-                    dailyConsumptionField.clear();
-                    dailyConsumptionField.sendKeys("200");
+                    //element.sendKeys("July 1, 2024");
+                    
+                    // Set the desired date using JavaScript and trigger the change event
+                    Thread.sleep(2000);
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].value = '15/07/24';", element);
+                    //((JavascriptExecutor) driver).executeScript("arguments[0].value = '2024-07-15'; arguments[0].dispatchEvent(new Event('change'));", element);
+                    
+                    // Select the date (e.g., 15th of the current month and year)
+//                    LocalDate date = LocalDate.of(2024, 07, 15); // Change to the desired date
+//                    selectDate(driver, date); 
+//                    WebElement element1 = driver.findElement(By.cssSelector(".flatpickr-day.today"));
+//                    element1.click();
+
+                    System.out.println("Date Entered " + j + "time");
+
+                   
+                    
+                    // Check and interact with "New Stock Received" field
+                    WebElement NewStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
+                    WebElement NewStockReceivedField = NewStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
+                    NewStockReceivedField.clear();
+                    NewStockReceivedField.sendKeys("200");
                     System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + j);
 
                     // Check and interact with "Stock on hand" field
@@ -146,9 +176,13 @@ public class Loop_Efx_dental_DentalSupplies_Form_Submission {
             
         } finally {
             // Close the browser
-            extent.flush(); // Flush the extent report
-            driver.quit();
+            //extent.flush(); // Flush the extent report
+            //driver.quit();
         }
     }
-}
 
+	private static void selectDate(WebDriver driver, LocalDate date) {
+		// TODO Auto-generated method stub
+		
+	}
+}
