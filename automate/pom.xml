@@ -41,6 +41,11 @@
       <artifactId>slf4j-simple</artifactId>
       <version>2.0.7</version>
     </dependency>
+    <dependency>
+    	<groupId>test</groupId>
+    	<artifactId>selenium_jenkins</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
   
   <build>
