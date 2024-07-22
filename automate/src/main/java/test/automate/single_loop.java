@@ -22,7 +22,7 @@ public class single_loop {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("rida_report.html");
         ExtentReports extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-        ExtentTest test = extent.createTest("Equipment Form", "This is efficaX Dental Test case");
+        ExtentTest test = extent.createTest("Supplies Form", "This is efficaX Dental Test case");
 
         // Setup WebDriver
         WebDriverManager.chromedriver().setup();
