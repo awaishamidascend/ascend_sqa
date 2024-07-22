@@ -48,7 +48,7 @@ public class pharmacyform {
      
      System.out.println("Login Success");
 
-     Thread.sleep(5000);
+     Thread.sleep(8000);
 	
 	//click form
 	
