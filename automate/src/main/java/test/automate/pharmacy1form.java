@@ -1,8 +1,10 @@
 package test.automate;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -56,8 +58,16 @@ public class pharmacy1form {
      System.out.println("form");
 
      //region
-     driver.findElement(By.id("react-select-6-input")).click();
-     driver.findElement(By.id("react-select-6-option-4")).click();
+     WebElement region = driver.findElement(By.id("react-select-6-input"));
+     region.click();
+     region.sendKeys("QASSIM");
+     region.sendKeys(Keys.ENTER);
+     System.out.println("Selected Region");
+     
+     
+     
+//     driver.findElement(By.id("react-select-6-input")).click();
+//     driver.findElement(By.id("react-select-6-option-4")).click();
      //sites
      driver.findElement(By.id("react-select-7-live-region")).click();
      driver.findElement(By.id("react-select-7-option-4")).click();
