@@ -105,7 +105,7 @@ public class Dental_Supplies_Form_NotAvailable {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             
             for(int i = 0; i <= 55; i++) {
-            WebElement rowXpath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row- + i")));
+            WebElement rowXpath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
             System.out.println("row loop...");
             // Scroll to the row (if necessary)
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXpath);
