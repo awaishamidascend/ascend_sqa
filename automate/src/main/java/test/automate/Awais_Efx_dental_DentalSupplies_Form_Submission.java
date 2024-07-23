@@ -135,7 +135,10 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
                     //driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']")).click();
                     //WebElement dateInput = DateDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
                     //dateInput.click();
+                    
                     WebElement element = driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']"));
+
+                    //WebElement element = driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']"));
                     //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
                     element.click();
                     System.out.println("Date Row clicked");
@@ -144,8 +147,29 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
                     
                     // Set the desired date using JavaScript and trigger the change event
                     Thread.sleep(2000);
-                    ((JavascriptExecutor) driver).executeScript("arguments[0].value = '15/07/24';", element);
+                    
+                    // Click to open the calendar widget
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
+                    // Now locate the desired date element in the calendar popup and click it
+                    // You need to inspect the calendar widget to find the exact locators for the date
+                    WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[2]/div[1]/div[2]/div[1]/span[23]"));
+                    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
+                    
+                    
+                    //((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('readonly');", element);
+                    //((JavascriptExecutor) driver).executeScript("arguments[0].value = '2024-07-22'; arguments[0].dispatchEvent(new Event('change'));", element);
+                 // Trigger focus and blur events
+                   // ((JavascriptExecutor) driver).executeScript("arguments[0].focus();", element);
+                    //((JavascriptExecutor) driver).executeScript("arguments[0].blur();", element);
+                    
+                    //((JavascriptExecutor) driver).executeScript("arguments[0].value = '15/07/24';", element);
                     //((JavascriptExecutor) driver).executeScript("arguments[0].value = '2024-07-15'; arguments[0].dispatchEvent(new Event('change'));", element);
+                    
+                 // Locate the input field
+
+                    // Set the desired date using JavaScript and trigger the change event
+                    
                     
                     // Select the date (e.g., 15th of the current month and year)
 //                    LocalDate date = LocalDate.of(2024, 07, 15); // Change to the desired date
