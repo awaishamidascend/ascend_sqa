@@ -109,7 +109,7 @@ public class single_loop {
                 Thread.sleep(1000);
 
                 // Interact with dropdown
-                int dropdownId = 6 + (i * 2); // Adjusting ID increment
+                int dropdownId = 6 + (i * 2); // Adjusting ID increment  
                 WebElement dropdownInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
                 dropdownInput.sendKeys("Available");
                 dropdownInput.sendKeys(Keys.ENTER);
