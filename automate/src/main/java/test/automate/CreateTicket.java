@@ -94,17 +94,19 @@ public class CreateTicket {
             Thread.sleep(2000);
             
          // Opening the Team Selector
-            System.out.println("Opening the team selector...");
-            WebElement teamSelectContainer = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-5-input")));
+            System.out.println("Opening the Priority selector...");
+            driver.findElement(By.id("react-select-5-input")).click();
+            WebElement teamSelectContainer = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-5-option-0")));
             teamSelectContainer.click();
-            System.out.println("Team selector opened.");
+            System.out.println("Priorty selector opened.");
 
             // Wait for the options to load and be visible
             Thread.sleep(2000);
 
             // Selecting Dropdown Option
             System.out.println("Selecting option in dropdown...");
-            WebElement dropdownOption = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-5-option-0")));
+            driver.findElement(By.id("react-select-6-input")).click();            
+            WebElement dropdownOption = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-6-option-3")));
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dropdownOption);
             Thread.sleep(500); // Wait a bit to ensure the element is visible
             dropdownOption.click();
