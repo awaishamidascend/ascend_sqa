@@ -72,15 +72,20 @@ public class pharmacy1form {
 		WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
 		siteDropdown.click();
 		System.out.println("2nd Dropdown Selected");
-		Thread.sleep(2000); 
+		Thread.sleep(5000); 
 
-		WebElement siteInput = driver.findElement(By.xpath("(//div)[82]"));
-		System.out.println("Ready to enter SendKeys");
-
-        siteInput.sendKeys("6310303006100047 - Al Sharq Pharmaceutical Suppliers Company - شركة موردون الشرق للأدوية");
+		//WebElement siteInput = driver.findElement(By.xpath("(//div)[82]"));
+		//System.out.println("Ready to enter SendKeys");
+		
+				
+				
+        //siteInput.sendKeys("6310303006100047 - Al Sharq Pharmaceutical Suppliers Company - شركة موردون الشرق للأدوية");
         Thread.sleep(1000);
-        siteInput.sendKeys(Keys.ENTER);
-		System.out.println("Selected Site: 6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
+        WebElement siteSelect = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-9-option-0")));
+		siteSelect.click();
+
+        //siteInput.sendKeys(Keys.ENTER);
+		//System.out.println("Selected Site: 6300026519 - Health springs, fourth branch - ينابيع الصحة فرع رابع");
 
 
 		
