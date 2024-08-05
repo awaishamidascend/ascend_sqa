@@ -131,11 +131,10 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
 				System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
 
 				// Check and interact with "MAWARED request number" field
-				WebElement newStockReceivedDiv = driver.findElement(By.id("cell-4-undefined"));
-				WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-				newStockReceivedField.clear();
-				newStockReceivedField.sendKeys("100");
-				System.out.println("Entered text '100' in 'New Stock Received' text field for row: " + j);
+				WebElement mawaredField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-4-undefined']//input[@name='amountLeft']")));
+				mawaredField.clear();
+				mawaredField.sendKeys("100");
+				System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + j);
 
 				Thread.sleep(3000);
 
@@ -190,21 +189,22 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
 
 
 
-				// Check and interact with "New Stock Received" field
-				WebElement NewStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
-				WebElement NewStockReceivedField = NewStockReceivedDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-				NewStockReceivedField.clear();
-				NewStockReceivedField.sendKeys("200");
-				System.out.println("Entered text '200' in 'Daily Consumption' text field for row: " + j);
+			    // Check and interact with "New Stock Received" field using name attribute
+			    WebElement newStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
+			    WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-6-undefined']//input[@name='amountLeft']"));
+			    newStockReceivedField.clear();
+			    newStockReceivedField.sendKeys("200");
+			    System.out.println("Entered text '200' in 'New Stock Received' text field for row: " + j);
 
-				// Check and interact with "Stock on hand" field
-				WebElement stockonhandDiv = driver.findElement(By.id("cell-8-undefined"));
-				WebElement stockonhandField = stockonhandDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-				stockonhandField.clear();
-				stockonhandField.sendKeys("300");
-				System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + j);
+			    // Check and interact with "Stock on hand" field using name attribute
+			    WebElement stockOnHandDiv = driver.findElement(By.id("cell-8-undefined"));
+			    WebElement stockOnHandField = stockOnHandDiv.findElement(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-8-undefined']//input[@name='amountLeft']"));
+			    stockOnHandField.clear();
+			    stockOnHandField.sendKeys("300");
+			    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + j);
 
-				Thread.sleep(500);  // Wait to ensure action is completed before moving to next
+			    Thread.sleep(500);  // Wait to ensure action is completed before moving to next
+			    
 			}
 
 		} finally {
