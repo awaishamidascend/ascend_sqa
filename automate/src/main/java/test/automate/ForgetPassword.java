@@ -11,8 +11,9 @@ public class ForgetPassword {
 	public static void main(String[] args) throws InterruptedException{
 		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
-        
+		ChromeDriver drive= new ChromeDriver();
+		
+
         driver.get("https://nhcc.ascend.com.sa/");
         Thread.sleep(5000);
         
