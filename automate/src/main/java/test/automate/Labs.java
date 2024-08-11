@@ -13,7 +13,7 @@ public class Labs {
 		WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+//        WebDriverWait wait = new WebDriverWait(driver, 30);
         
         driver.get("https://nhcc.ascend.com.sa");
         driver.manage().window().maximize();
@@ -39,8 +39,8 @@ public class Labs {
        // driver.findElement(By.xpath("//button[normalize-space()='Copy']")).click();
         
      // Wait for Copy button to be visible
-        WebElement copyButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Copy']")));
-        copyButton.click();
+     //   WebElement copyButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Copy']")));
+   //     copyButton.click();
         
         
         System.out.println("Test completed. Closing the browser...");

@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -21,36 +21,10 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
-<<<<<<< HEAD
-    <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.19.1</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-<dependency>
-    <groupId>io.github.bonigarcia</groupId>
-    <artifactId>webdrivermanager</artifactId>
-    <version>5.8.0</version>
-</dependency>
-
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.1.0</version> <!-- or the latest version available -->
-</dependency>
-
-  	<dependency>
-  		<groupId>Test_Suite</groupId>
-  		<artifactId>Test_Cases</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-=======
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.1.0</version>
+      <version>4.19.1</version>
     </dependency>
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
@@ -58,18 +32,22 @@
       <version>5.8.0</version>
     </dependency>
     <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>7.5.1</version>
-      <scope>test</scope>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.7</version>
     </dependency>
->>>>>>> branch 'khadija_NHCC' of https://github.com/awaishamidascend/ascend_sqa.git
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.7</version>
+    </dependency>
+    <dependency>
+    	<groupId>test</groupId>
+    	<artifactId>selenium_jenkins</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
-<<<<<<< HEAD
   
-  
-=======
-
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
@@ -86,5 +64,4 @@
       </plugin>
     </plugins>
   </build>
->>>>>>> branch 'khadija_NHCC' of https://github.com/awaishamidascend/ascend_sqa.git
 </project>
