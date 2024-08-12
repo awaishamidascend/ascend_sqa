@@ -128,12 +128,12 @@ public class Awais_Part2_Efx_dental_DentalSupplies_Form_Submission {
 
 			    Thread.sleep(3000);
 
-			    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
+			    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
 			    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
 			    // Set the desired date using JavaScript and trigger the change event
-			    Thread.sleep(2000);
+			    Thread.sleep(5000);
 
 			    // Now locate the desired date element in the calendar popup and click it
 			    WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='flatpickr-day today' and @aria-label='August 12, 2024' and text()='12']")));
