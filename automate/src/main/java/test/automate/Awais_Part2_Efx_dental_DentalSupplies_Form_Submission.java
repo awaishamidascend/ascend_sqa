@@ -4,14 +4,13 @@ import java.time.Duration;
 import java.time.LocalDate;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -19,7 +18,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Awais_Efx_dental_DentalSupplies_Form_Submission {
+public class Awais_Part2_Efx_dental_DentalSupplies_Form_Submission {
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -105,89 +104,42 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
 			// Loop through each row and perform the required actions
 			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
 
-			//            for (int i = 0; i <= 55; i++) {
-			//                WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
-			//                System.out.println(rowXPath);
-			//
-			//                // Scroll to the row (if necessary)
-			//                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-			//  Thread.sleep(500);
-
 			// Nested loop for dropdown selection
 			for (int j = 0; j <= 55; j++) {
 
-				WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + j)));
-				System.out.println(rowXPath);
+			    WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + j)));
+			    System.out.println(rowXPath);
 
-				// Scroll to the row (if necessary)
-				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-				Thread.sleep(1000);
+			    // Scroll to the row (if necessary)
+			    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
+			    Thread.sleep(1000);
 
+			    int dropdownId = 6 + (j * 2); // Adjusting ID increment
+			    WebElement dropdownInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
+			    dropdownInput.sendKeys("Not Available");
+			    dropdownInput.sendKeys(Keys.ENTER);
+			    System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
 
-				int dropdownId = 6 + (j * 2); // Adjusting ID increment
-				WebElement dropdownInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
-				dropdownInput.sendKeys("Not Available");
-				dropdownInput.sendKeys(Keys.ENTER);
-				System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
+			    // Check and interact with "MAWARED request number" field
+			    WebElement mawaredField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-4-undefined']//input[@name='amountLeft']")));
+			    mawaredField.clear();
+			    mawaredField.sendKeys("100");
+			    System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + j);
 
-				// Check and interact with "MAWARED request number" field
-				WebElement mawaredField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-4-undefined']//input[@name='amountLeft']")));
-				mawaredField.clear();
-				mawaredField.sendKeys("100");
-				System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + j);
+			    Thread.sleep(3000);
 
-				Thread.sleep(3000);
+			    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
+			    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+			    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
-				// Check and interact with "Date" field
-				//WebElement DateDiv = driver.findElement(By.id("cell-5-undefined"));
-				//driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']")).click();
-				//WebElement dateInput = DateDiv.findElement(By.id("amountLeft-amountLeft-637f4d405f2288791101439f"));
-				//dateInput.click();
+			    // Set the desired date using JavaScript and trigger the change event
+			    Thread.sleep(2000);
 
-				WebElement element = driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@name='amountLeft']"));
+			    // Now locate the desired date element in the calendar popup and click it
+			    WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='flatpickr-day today' and @aria-label='August 12, 2024' and text()='12']")));
+			    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
 
-				//WebElement element = driver.findElement(By.xpath("//div[@id='cell-5-undefined']//input[@id='amountLeft-amountLeft-637f4d405f2288791101439f']"));
-				//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-				element.click();
-				System.out.println("Date Row clicked");
-
-				//element.sendKeys("July 1, 2024");
-
-				// Set the desired date using JavaScript and trigger the change event
-				Thread.sleep(2000);
-
-				// Click to open the calendar widget
-				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-
-				// Now locate the desired date element in the calendar popup and click it
-				// You need to inspect the calendar widget to find the exact locators for the date
-				WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[2]/div[1]/div[2]/div[1]/span[23]"));
-				((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
-
-
-				//((JavascriptExecutor) driver).executeScript("arguments[0].removeAttribute('readonly');", element);
-				//((JavascriptExecutor) driver).executeScript("arguments[0].value = '2024-07-22'; arguments[0].dispatchEvent(new Event('change'));", element);
-				// Trigger focus and blur events
-				// ((JavascriptExecutor) driver).executeScript("arguments[0].focus();", element);
-				//((JavascriptExecutor) driver).executeScript("arguments[0].blur();", element);
-
-				//((JavascriptExecutor) driver).executeScript("arguments[0].value = '15/07/24';", element);
-				//((JavascriptExecutor) driver).executeScript("arguments[0].value = '2024-07-15'; arguments[0].dispatchEvent(new Event('change'));", element);
-
-				// Locate the input field
-
-				// Set the desired date using JavaScript and trigger the change event
-
-
-				// Select the date (e.g., 15th of the current month and year)
-				//                    LocalDate date = LocalDate.of(2024, 07, 15); // Change to the desired date
-				//                    selectDate(driver, date); 
-				//                    WebElement element1 = driver.findElement(By.cssSelector(".flatpickr-day.today"));
-				//                    element1.click();
-
-				System.out.println("Date Entered " + j + "time");
-
-
+			    System.out.println("Date Entered " + j + "time");
 
 			    // Check and interact with "New Stock Received" field using name attribute
 			    WebElement newStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
@@ -208,9 +160,7 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
 			}
 
 		} finally {
-			// Close the browser
-			//extent.flush(); // Flush the extent report
-			//driver.quit();
+
 		}
 	}
 
@@ -218,4 +168,5 @@ public class Awais_Efx_dental_DentalSupplies_Form_Submission {
 		// TODO Auto-generated method stub
 
 	}
+
 }
