@@ -32,7 +32,7 @@ public class pharmacy1form {
         driver.manage().window().maximize();
 
         // Opening the web application and logging in
-        driver.get("https://dev-efficax-obligation.kakashi.app/login");
+        driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
         Thread.sleep(10000); // Using Thread.sleep for demonstration; prefer WebDriverWait in real scenarios
 
         // Login process
