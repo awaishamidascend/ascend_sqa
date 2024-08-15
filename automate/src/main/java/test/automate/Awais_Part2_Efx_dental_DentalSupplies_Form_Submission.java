@@ -136,7 +136,7 @@ public class Awais_Part2_Efx_dental_DentalSupplies_Form_Submission {
 			    Thread.sleep(5000);
 
 			    // Now locate the desired date element in the calendar popup and click it
-			    WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='flatpickr-day today' and @aria-label='August 12, 2024' and text()='12']")));
+			    WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[4]/div[2]/div[1]/div[2]/div[1]/span[19]")));
 			    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
 
 			    System.out.println("Date Entered " + j + "time");
