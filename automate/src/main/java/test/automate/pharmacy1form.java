@@ -106,8 +106,10 @@ public class pharmacy1form {
         driver.findElement(By.xpath("(//input[@placeholder='Street name'])[1]")).sendKeys("E7");
         driver.findElement(By.xpath("(//input[@placeholder='District Name'])[1]")).sendKeys("Lahorei");
         driver.findElement(By.xpath("(//span[normalize-space()='Get Location'])[1]")).click();
-        
+        System.out.println("EOD");
 
+        
+        
         // Logging test completion
         test.log(Status.INFO, "Test completed successfully");
         // Ending the test and closing the WebDriver
