@@ -109,21 +109,13 @@ public class pharmacy1form {
 
         System.out.println("Selected Site: 6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
 
-<<<<<<< HEAD
         
         driver.findElement(By.xpath("(//input[@placeholder='City'])[1]")).sendKeys("Lahore");
         driver.findElement(By.xpath("(//input[@placeholder='Street name'])[1]")).sendKeys("E7");
         driver.findElement(By.xpath("(//input[@placeholder='District Name'])[1]")).sendKeys("Lahorei");
         driver.findElement(By.xpath("(//span[normalize-space()='Get Location'])[1]")).click();
         System.out.println("EOD");
-=======
-        /*
-        driver.findElement(By.xpath("//input[@placeholder='Field1']")).sendKeys("test");
-        driver.findElement(By.xpath("//input[@placeholder='Field2']")).sendKeys("test");
-        driver.findElement(By.xpath("//input[@placeholder='District Name']")).sendKeys("test");
-        driver.findElement(By.xpath("//span[normalize-space()='Get Location']")).click();
-        */
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
+
 
         
         
