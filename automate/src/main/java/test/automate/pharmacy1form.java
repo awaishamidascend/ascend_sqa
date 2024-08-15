@@ -32,7 +32,7 @@ public class pharmacy1form {
         driver.manage().window().maximize();
 
         // Opening the web application and logging in
-        driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
+        driver.get("https://dev-efficax-obligation.kakashi.app/login");
         Thread.sleep(10000); // Using Thread.sleep for demonstration; prefer WebDriverWait in real scenarios
 
         // Login process
@@ -41,13 +41,24 @@ public class pharmacy1form {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(5000);
         System.out.println("Login Success");
-
+        String otp = "786786";
+	    
+	    // Find the OTP input field and enter OTP
+	   for (int i = 0; i < otp.length(); i++) {
+	        char digit = otp.charAt(i);
+	        String digitAsString = Character.toString(digit);
+	        String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
+	        WebElement otpBox = driver.findElement(By.xpath(xpath));
+	        otpBox.sendKeys(digitAsString);
+	    }
+	// Click on the OTP login button
+	    driver.findElement(By.xpath("//button[@type='submit']")).click();
+	    System.out.println("Login successfully");
+	    Thread.sleep(5000);
         // Navigate to Forms and Self Assessment form
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Forms']"))).click();
         Thread.sleep(5000);
-        System.out.println("Clicked Forms");
-
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(@class,'menu-item text-truncate')][normalize-space()='Pharmacies Self Assessment - Medicine Availability']"))).click();
         Thread.sleep(5000);
 
@@ -70,21 +81,18 @@ public class pharmacy1form {
 
         // Wait for the site dropdown to be clickable
         WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]")));
-        siteDropdown.click();
-        Thread.sleep(5000);
+        //siteDropdown.click();
+        Thread.sleep(2000);
 
         // Input the value and press Enter to select it
-        WebElement optionToSelect = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(text(), '6300027951 - Kiwan Medical Company - شركة كيوان الطبية')]")));
-        optionToSelect.click();
+        siteDropdown.sendKeys("6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
+        Thread.sleep(1000); // Adjust timing as needed
+        siteDropdown.sendKeys(Keys.ENTER);
+		// Fill in Site dropdown
+		WebElement siteDropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
+		siteDropdown1.click();
 		System.out.println("2nd Dropdown Selected");
-
-        Thread.sleep(5000);
-
-//		// Fill in Site dropdown
-//		WebElement siteDropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
-//		siteDropdown.click();
-//		System.out.println("2nd Dropdown Selected");
-//		Thread.sleep(5000); 
+		Thread.sleep(5000); 
 
 		//WebElement siteInput = driver.findElement(By.xpath("(//div)[82]"));
 		//System.out.println("Ready to enter SendKeys");
@@ -92,21 +100,30 @@ public class pharmacy1form {
 				
 				
         //siteInput.sendKeys("6310303006100047 - Al Sharq Pharmaceutical Suppliers Company - شركة موردون الشرق للأدوية");
-//        Thread.sleep(1000);
-//        WebElement siteSelect = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-9-option-0")));
-//		siteSelect.click();
+        Thread.sleep(1000);
+        WebElement siteSelect = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-9-option-0")));
+		siteSelect.click();
 
         //siteInput.sendKeys(Keys.ENTER);
 		//System.out.println("Selected Site: 6300026519 - Health springs, fourth branch - ينابيع الصحة فرع رابع");
 
-//        System.out.println("Selected Site: 6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
+        System.out.println("Selected Site: 6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
 
+<<<<<<< HEAD
         
         driver.findElement(By.xpath("(//input[@placeholder='City'])[1]")).sendKeys("Lahore");
         driver.findElement(By.xpath("(//input[@placeholder='Street name'])[1]")).sendKeys("E7");
         driver.findElement(By.xpath("(//input[@placeholder='District Name'])[1]")).sendKeys("Lahorei");
         driver.findElement(By.xpath("(//span[normalize-space()='Get Location'])[1]")).click();
         System.out.println("EOD");
+=======
+        /*
+        driver.findElement(By.xpath("//input[@placeholder='Field1']")).sendKeys("test");
+        driver.findElement(By.xpath("//input[@placeholder='Field2']")).sendKeys("test");
+        driver.findElement(By.xpath("//input[@placeholder='District Name']")).sendKeys("test");
+        driver.findElement(By.xpath("//span[normalize-space()='Get Location']")).click();
+        */
+>>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
 
         
         
