@@ -62,6 +62,7 @@ public class pharmacyform {
      Thread.sleep(8000);
 //select region
      driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]")).click();
+     Thread.sleep(8000);
      driver.findElement(By.xpath("//div[contains(@class,'select__value-container select__value-container--has-value css-1d8n9bt')]//div[contains(@class,'select__input-container css-ackcql')]")).click();
   // select site   
      driver.findElement(By.xpath("//div[contains(@class,'select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control')]//div[contains(@class,'select__input-container css-ackcql')]")).click();

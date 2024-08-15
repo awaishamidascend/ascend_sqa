@@ -41,7 +41,20 @@ public class pharmacy1form {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(5000);
         System.out.println("Login Success");
-
+        String otp = "786786";
+	    
+	    // Find the OTP input field and enter OTP
+	   for (int i = 0; i < otp.length(); i++) {
+	        char digit = otp.charAt(i);
+	        String digitAsString = Character.toString(digit);
+	        String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
+	        WebElement otpBox = driver.findElement(By.xpath(xpath));
+	        otpBox.sendKeys(digitAsString);
+	    }
+	// Click on the OTP login button
+	    driver.findElement(By.xpath("//button[@type='submit']")).click();
+	    System.out.println("Login successfully");
+	    Thread.sleep(5000);
         // Navigate to Forms and Self Assessment form
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[normalize-space()='Forms']"))).click();
@@ -71,15 +84,13 @@ public class pharmacy1form {
         //siteDropdown.click();
         Thread.sleep(2000);
 
-<<<<<<< HEAD
         // Input the value and press Enter to select it
         siteDropdown.sendKeys("6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
         Thread.sleep(1000); // Adjust timing as needed
         siteDropdown.sendKeys(Keys.ENTER);
-=======
 		// Fill in Site dropdown
-		WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
-		siteDropdown.click();
+		WebElement siteDropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
+		siteDropdown1.click();
 		System.out.println("2nd Dropdown Selected");
 		Thread.sleep(5000); 
 
@@ -95,7 +106,6 @@ public class pharmacy1form {
 
         //siteInput.sendKeys(Keys.ENTER);
 		//System.out.println("Selected Site: 6300026519 - Health springs, fourth branch - ينابيع الصحة فرع رابع");
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
 
         System.out.println("Selected Site: 6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
 
