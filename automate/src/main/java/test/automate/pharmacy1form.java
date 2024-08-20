@@ -44,16 +44,16 @@ public class pharmacy1form {
         String otp = "786786";
 	    
 	    // Find the OTP input field and enter OTP
-	   for (int i = 0; i < otp.length(); i++) {
+	   /*for (int i = 0; i < otp.length(); i++) {
 	        char digit = otp.charAt(i);
 	        String digitAsString = Character.toString(digit);
 	        String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
 	        WebElement otpBox = driver.findElement(By.xpath(xpath));
 	        otpBox.sendKeys(digitAsString);
-	    }
+	    }*/
 	// Click on the OTP login button
-	    driver.findElement(By.xpath("//button[@type='submit']")).click();
-	    System.out.println("Login successfully");
+	    //driver.findElement(By.xpath("//button[@type='submit']")).click();
+	    //System.out.println("Login successfully");
 	    Thread.sleep(5000);
         // Navigate to Forms and Self Assessment form
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -80,19 +80,20 @@ public class pharmacy1form {
         System.out.println("Selected Region: QASSIM");
 
         // Wait for the site dropdown to be clickable
-        WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]")));
-        //siteDropdown.click();
-        Thread.sleep(2000);
+        WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]")));
+        siteDropdown.click();
+        Thread.sleep(5000);
+        WebElement siteDropdown1 = driver.findElement(By.cssSelector("div[class='select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control'] div[class='select__input-container css-ackcql']"));
 
         // Input the value and press Enter to select it
-        siteDropdown.sendKeys("6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
+        siteDropdown1.sendKeys("6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
         Thread.sleep(1000); // Adjust timing as needed
-        siteDropdown.sendKeys(Keys.ENTER);
+        siteDropdown1.sendKeys(Keys.ENTER);
 		// Fill in Site dropdown
-		WebElement siteDropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
+		/*WebElement siteDropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
 		siteDropdown1.click();
 		System.out.println("2nd Dropdown Selected");
-		Thread.sleep(5000); 
+		Thread.sleep(5000); */
 
 		//WebElement siteInput = driver.findElement(By.xpath("(//div)[82]"));
 		//System.out.println("Ready to enter SendKeys");
