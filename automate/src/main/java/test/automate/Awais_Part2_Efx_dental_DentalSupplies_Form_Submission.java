@@ -132,12 +132,15 @@ public class Awais_Part2_Efx_dental_DentalSupplies_Form_Submission {
 			    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 			    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
-			    // Set the desired date using JavaScript and trigger the change event
 			    Thread.sleep(5000);
 
-			    // Now locate the desired date element in the calendar popup and click it
-			    WebElement dateElement = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[4]/div[2]/div[1]/div[2]/div[1]/span[19]")));
-			    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
+				// Click to open the calendar widget
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
+				// Now locate the desired date element in the calendar popup and click it
+				WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[2]/div[1]/div[2]/div[1]/span[23]"));
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
+
 
 			    System.out.println("Date Entered " + j + "time");
 
