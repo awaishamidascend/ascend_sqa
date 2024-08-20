@@ -18,28 +18,28 @@ public class efficonX_login_page {
 
 	public static WebElement password (WebDriver driver) {
 		
-		driver.findElement(By.xpath("(//input[@id='password'])[1]"));
+		element = driver.findElement(By.xpath("(//input[@id='password'])[1]"));
 		return element;
 		
 	}
 	
 	public static WebElement submit (WebDriver driver) {
 		
-		driver.findElement(By.xpath("(//button[@class='btn'])[1]"));
+		element = driver.findElement(By.xpath("(//button[@class='btn'])[1]"));
 		return element;
 		
 	}
 	
 	public static WebElement options (WebDriver driver) {
 		
-		driver.findElement(By.xpath("(//*[name()='svg'][@type='button'])[1]"));
+		element = driver.findElement(By.xpath("(//*[name()='svg'][@type='button'])[1]"));
 		return element;
 		
 	}
 	
 	public static WebElement logout (WebDriver driver) {
 		
-		driver.findElement(By.xpath("(//a[normalize-space()='Logout'])[1]"));
+		element = driver.findElement(By.xpath("(//a[normalize-space()='Logout'])[1]"));
 		return element;
 		
 	}
