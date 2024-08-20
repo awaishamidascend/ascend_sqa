@@ -83,33 +83,10 @@ public class pharmacy1form {
         WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]")));
         siteDropdown.click();
         Thread.sleep(5000);
-        WebElement siteDropdown1 = driver.findElement(By.cssSelector("div[class='select__control select__control--is-focused select__control--menu-is-open css-1u57jws-control'] div[class='select__input-container css-ackcql']"));
+        System.out.println("Second Dropdown Clicked");
 
-        // Input the value and press Enter to select it
-        siteDropdown1.sendKeys("6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
-        Thread.sleep(1000); // Adjust timing as needed
-        siteDropdown1.sendKeys(Keys.ENTER);
-		// Fill in Site dropdown
-		/*WebElement siteDropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='identification']//div[2]//div[1]//div[1]//div[1]//div[2]")));
-		siteDropdown1.click();
-		System.out.println("2nd Dropdown Selected");
-		Thread.sleep(5000); */
-
-		//WebElement siteInput = driver.findElement(By.xpath("(//div)[82]"));
-		//System.out.println("Ready to enter SendKeys");
-		
-				
-				
-        //siteInput.sendKeys("6310303006100047 - Al Sharq Pharmaceutical Suppliers Company - شركة موردون الشرق للأدوية");
-        Thread.sleep(1000);
-        WebElement siteSelect = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-9-option-0")));
-		siteSelect.click();
-
-        //siteInput.sendKeys(Keys.ENTER);
-		//System.out.println("Selected Site: 6300026519 - Health springs, fourth branch - ينابيع الصحة فرع رابع");
-
-        System.out.println("Selected Site: 6300027951 - Kiwan Medical Company - شركة كيوان الطبية");
-
+        WebElement DropdownSelection = wait.until(ExpectedConditions.elementToBeClickable( By.xpath("//div[@id='react-select-5-option-1' and contains(@class, 'select__option')]")));
+        DropdownSelection.click();
         
         driver.findElement(By.xpath("(//input[@placeholder='City'])[1]")).sendKeys("Lahore");
         driver.findElement(By.xpath("(//input[@placeholder='Street name'])[1]")).sendKeys("E7");
