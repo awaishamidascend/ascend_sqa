@@ -138,7 +138,7 @@ public class Awais_Part2_Efx_dental_DentalSupplies_Form_Submission {
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
 				// Now locate the desired date element in the calendar popup and click it
-				WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[2]/div[1]/div[2]/div[1]/span[23]"));
+				WebElement dateElement = driver.findElement(By.xpath("//span[@class='flatpickr-day' and @aria-label='August 5, 2024']"));
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
 
 
