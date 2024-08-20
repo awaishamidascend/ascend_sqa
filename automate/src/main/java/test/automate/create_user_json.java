@@ -5,7 +5,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -49,10 +48,10 @@ public class create_user_json {
 
         // End the test
         extent.flush();
+        driver.quit();
     }
 
-    @SuppressWarnings("unchecked")
-	public static void readAndCreateUsers(WebDriver driver, WebDriverWait wait, ExtentTest test) throws InterruptedException, IOException, org.json.simple.parser.ParseException {
+    public static void readAndCreateUsers(WebDriver driver, WebDriverWait wait, ExtentTest test) throws InterruptedException, IOException, org.json.simple.parser.ParseException {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("C:\\Users\\HamidAwais(Ascend)\\Downloads\\new_user.json")) {
             // Read JSON file
@@ -85,53 +84,38 @@ public class create_user_json {
         try {
             // Navigate to Users section
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Settings')]"))).click();
-            Thread.sleep(2000); // Consider using a more reliable wait mechanism
+            Thread.sleep(2000);
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Settings')]"))).click();
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[@class='menu-item text-truncate'][normalize-space()='Users'])[1]"))).click();
             wait.until(ExpectedConditions.elementToBeClickable(By.id("add"))).click();
 
             // Fill in user details
             WebElement nameField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@id='nameMulti'])[1]")));
-            nameField.clear(); // Clear field before entering new value
             nameField.sendKeys("User: " + username);
 
-            WebElement emailField = driver.findElement(By.xpath("//input[@placeholder='email@email.com']"));
-            emailField.clear(); // Clear field before entering new value
-            emailField.sendKeys(username);
-
-            WebElement passwordField = driver.findElement(By.xpath("//input[@placeholder='Password']"));
-            passwordField.clear(); // Clear field before entering new value
-            passwordField.sendKeys(password);
+            driver.findElement(By.xpath("//input[@placeholder='email@email.com']")).sendKeys(username);
+            driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys(password);
 
             // Handle the dropdown and phone number entry
-            WebElement dropdown;
-            try {
-                dropdown = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-2-input")));
-                dropdown.click();
-            } catch (TimeoutException e) {
-                System.out.println("Timeout waiting for dropdown. Attempting alternative method.");
-                // Recheck if dropdown is available
-                JavascriptExecutor js = (JavascriptExecutor) driver;
-                dropdown = (WebElement) js.executeScript("return document.getElementById('react-select-2-input');");
-                if (dropdown != null) {
-                    dropdown.click();
-                } else {
-                    System.out.println("Dropdown element not found.");
-                    throw new RuntimeException("Dropdown element not found.");
-                }
-            }
+            
+            WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("react-select-2-input")));
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].scrollIntoView(true);", dropdown);
+            dropdown.click();
+            Thread.sleep(2000);
 
-            // Wait for options and select the first one
             WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__menu')]//div[contains(@class, 'select__option')][1]")));
             firstOption.click();
 
-            // Enter phone number using JavaScript
+            Thread.sleep(2000);
             WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputmask")));
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].value='6564646';", phoneField);
+            JavascriptExecutor js1 = (JavascriptExecutor) driver;
+            js1.executeScript("arguments[0].value='6564646';", phoneField);
+            Thread.sleep(2000);
 
-            // Submit the form
-            WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']")));
+
+            // Hit Compliance Dashboard form to refresh
+            WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[normalize-space()='Compliance Dashboard'])[1]")));
             submitButton.click();
 
             // Return success status
@@ -141,7 +125,6 @@ public class create_user_json {
             return "Failed";
         }
     }
-
 
     private static void performLogin(WebDriver driver, WebDriverWait wait) throws InterruptedException {
         WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Email']")));
