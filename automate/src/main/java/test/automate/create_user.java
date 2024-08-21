@@ -33,7 +33,7 @@ public class create_user {
         driver.manage().window().maximize();
 
         // Open the web application and wait until the email field is visible
-        driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
+        driver.get("https://dev-efficax-obligation.kakashi.app/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         // Wait for the email input field to be visible and then proceed with the login
@@ -85,11 +85,15 @@ public class create_user {
         WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__menu')]//div[contains(@class, 'select__option')][1]")));
         firstOption.click();
         
+        Thread.sleep(2000);
+        
         WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputmask")));
-        phoneField.clear();  // Clear any existing text
+        //phoneField.clear();  // Clear any existing text
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.getElementById('inputmask').value='6564646';");
 
+        WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Submit')]")));
+        submit.click();
 
         // Finalizing the report
         extent.flush();

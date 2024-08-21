@@ -37,7 +37,7 @@ public class create_user_json {
         driver.manage().window().maximize();
 
         // Open the web application
-        driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
+        driver.get("https://dev-efficax-obligation.kakashi.app/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         // Perform login
@@ -48,7 +48,6 @@ public class create_user_json {
 
         // End the test
         extent.flush();
-        driver.quit();
     }
 
     public static void readAndCreateUsers(WebDriver driver, WebDriverWait wait, ExtentTest test) throws InterruptedException, IOException, org.json.simple.parser.ParseException {
@@ -110,14 +109,15 @@ public class create_user_json {
             Thread.sleep(2000);
             WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputmask")));
             JavascriptExecutor js1 = (JavascriptExecutor) driver;
-            js1.executeScript("arguments[0].value='6564646';", phoneField);
-            Thread.sleep(2000);
+            js.executeScript("arguments[0].value='6564646';", phoneField);
+            Thread.sleep(5000);
+     	   	System.out.println("Phone Number Entered successfully");
 
+            WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Submit')]")));
+            submit.click();
 
-            // Hit Compliance Dashboard form to refresh
-            WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[normalize-space()='Compliance Dashboard'])[1]")));
-            submitButton.click();
-
+            Thread.sleep(5000);
+            
             // Return success status
             return "Success";
         } catch (Exception e) {
