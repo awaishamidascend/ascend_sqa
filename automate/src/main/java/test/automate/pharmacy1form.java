@@ -1,6 +1,7 @@
 package test.automate;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,7 +33,7 @@ public class pharmacy1form {
         driver.manage().window().maximize();
 
         // Opening the web application and logging in
-        driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
+        driver.get("https://dev-efficax-obligation.kakashi.app/login");
         Thread.sleep(10000); // Using Thread.sleep for demonstration; prefer WebDriverWait in real scenarios
 
         // Login process
@@ -42,18 +43,7 @@ public class pharmacy1form {
         Thread.sleep(5000);
         System.out.println("Login Success");
         String otp = "786786";
-	    
-	    // Find the OTP input field and enter OTP
-	   /*for (int i = 0; i < otp.length(); i++) {
-	        char digit = otp.charAt(i);
-	        String digitAsString = Character.toString(digit);
-	        String xpath = "//input[@aria-label='Please enter OTP character " + (i + 1) + "']";
-	        WebElement otpBox = driver.findElement(By.xpath(xpath));
-	        otpBox.sendKeys(digitAsString);
-	    }*/
-	// Click on the OTP login button
-	    //driver.findElement(By.xpath("//button[@type='submit']")).click();
-	    //System.out.println("Login successfully");
+	   
 	    Thread.sleep(5000);
         // Navigate to Forms and Self Assessment form
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -91,15 +81,61 @@ public class pharmacy1form {
         driver.findElement(By.xpath("(//input[@placeholder='City'])[1]")).sendKeys("Lahore");
         driver.findElement(By.xpath("(//input[@placeholder='Street name'])[1]")).sendKeys("E7");
         driver.findElement(By.xpath("(//input[@placeholder='District Name'])[1]")).sendKeys("Lahorei");
+        Thread.sleep(2000);
         driver.findElement(By.xpath("(//span[normalize-space()='Get Location'])[1]")).click();
+        Thread.sleep(2000);
+
         System.out.println("EOD");
-
-
-        
-        
         // Logging test completion
         test.log(Status.INFO, "Test completed successfully");
         // Ending the test and closing the WebDriver
+        driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]")).click();
+        Thread.sleep(3000);
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-10-option-4"))).click();
+        Thread.sleep(2000);
+        //driver.findElement(By.xpath("//div[@class='select__control select__control--is-focused select__control--menu-is-open css-1pahdxg-control']//div[@class='select__input-container css-ackcql']")).click();
+        driver.findElement(By.xpath("//div[@id='general_medicine']//input[@value='Yes']")).click();
+        driver.findElement(By.xpath("//input[@placeholder='Comments']")).sendKeys("test");
+        driver.findElement(By.xpath("//input[@placeholder='Enter Quantity']")).sendKeys("12");
+        driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
+        
+       //respiratory medicine
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//div[@class='select__value-container css-1d8n9bt']//div[@class='select__input-container css-ackcql']")).click();
+        Thread.sleep(4000);
+       // WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#react-select-19-option-4.css-yt9ioa-option")));
+       // element.click();
+        
+        
+        WebElement DropdownIssue = wait.until(ExpectedConditions.elementToBeClickable( By.xpath("//div[@id='react-select-11-option-4' and contains(@class, 'select__option')]")));
+        DropdownIssue.click();
+        
+        Thread.sleep(4000);
+
+    
+        
+        //wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-19-input"))).click();
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[@id='respiratory_medicine']//input[@value='Yes']")).click();
+        driver.findElement(By.xpath("//div[@id='respiratory_medicine']//input[@placeholder='Comments']")).sendKeys("test");
+        driver.findElement(By.xpath("//div[@id='respiratory_medicine']//input[@placeholder='Enter Quantity']")).sendKeys("12");
+        driver.findElement(By.xpath("//span[normalize-space()='Next']")).click();
+        // additional remarks
+        driver.findElement(By.xpath("//input[@placeholder='john doe']")).sendKeys("test");
+        driver.findElement(By.xpath("//div[@class='card-body']//canvas")).click();
+        //Delegated Person
+        driver.findElement(By.xpath("//input[@placeholder='Delegated Person']")).sendKeys("test");
+        driver.findElement(By.xpath("//input[@placeholder='Id Number']")).sendKeys("456");
+        //driver.findElement(By.xpath("//input[@class='form-control flatpickr-input active']")).click();
+        driver.findElement(By.xpath("//input[@placeholder='Issue Place']")).sendKeys("test");
+        driver.findElement(By.xpath("//input[@placeholder='Position']")).sendKeys("test");
+        driver.findElement(By.xpath("//body/div[@id='root']/div[@class='wrapper vertical-layout navbar-sticky footer-static vertical-menu-modern menu-expanded']/div[@class='app-content content overflow-hidden']/div[@class='container-xxl p-0 mt-2 animate__animated animate__fadeInLeft']/div[@class='row']/div[@class='col']/div/div[@class='bs-stepper linear']/div[@class='bs-stepper-content']/div[@id='additionalRemarks']/div[@class='row']/div[@class='col-sm-12 col-md-6']/div[@class='signature']/canvas[1]")).click();
+
+    
+
+
      
     }
 }
