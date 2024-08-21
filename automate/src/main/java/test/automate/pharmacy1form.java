@@ -125,22 +125,18 @@ public class pharmacy1form {
 	    
 	    
 	    
-	    
-        //date
-        //driver.findElement(By.xpath("//input[@placeholdertext='Select Date in Hijri' and @class='form-control flatpickr-input']")).click();
-        //driver.findElement(By.xpath("//span[@aria-label='August 21, 2024']")).click();
+	    // Locate the calendar input field using its class name or another selector
+        WebElement calendarField = driver.findElement(By.xpath("//input[@class='form-control flatpickr-input' and @placeholdertext='Select Date in Hijri']"));
 
+        // Use JavaScript to click on the calendar input field
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", calendarField);
         
-        WebElement DateRow = driver.findElement(By.xpath("//div[@class='mb-1 col-sm-12 col-md-6']//input[@class='form-control flatpickr-input active' and @type='text']"));
-		DateRow.click();
+        
 		System.out.println("Date Row clicked");
 		
-		// Set the desired date using JavaScript and trigger the change event
 		Thread.sleep(2000);
-		// Click to open the calendar widget
 		
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", DateRow);
-		// Now locate the desired date element in the calendar popup and click it
 		
 		WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[2]/div[1]/div[2]/div[1]/span[25]"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
