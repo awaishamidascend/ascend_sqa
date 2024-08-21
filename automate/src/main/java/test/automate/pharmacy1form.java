@@ -105,18 +105,9 @@ public class pharmacy1form {
         Thread.sleep(5000);
         driver.findElement(By.xpath("//div[@class='select__value-container css-1d8n9bt']//div[@class='select__input-container css-ackcql']")).click();
         Thread.sleep(4000);
-       // WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div#react-select-19-option-4.css-yt9ioa-option")));
-       // element.click();
-        
-        
         WebElement DropdownIssue = wait.until(ExpectedConditions.elementToBeClickable( By.xpath("//div[@id='react-select-11-option-4' and contains(@class, 'select__option')]")));
         DropdownIssue.click();
-        
         Thread.sleep(4000);
-
-    
-        
-        //wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-19-input"))).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div[@id='respiratory_medicine']//input[@value='Yes']")).click();
         driver.findElement(By.xpath("//div[@id='respiratory_medicine']//input[@placeholder='Comments']")).sendKeys("test");
@@ -128,10 +119,46 @@ public class pharmacy1form {
         //Delegated Person
         driver.findElement(By.xpath("//input[@placeholder='Delegated Person']")).sendKeys("test");
         driver.findElement(By.xpath("//input[@placeholder='Id Number']")).sendKeys("456");
-        //driver.findElement(By.xpath("//input[@class='form-control flatpickr-input active']")).click();
+        //scroll
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Id Number']")));
+	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	    
+	    
+	    
+	    
+        //date
+        //driver.findElement(By.xpath("//input[@placeholdertext='Select Date in Hijri' and @class='form-control flatpickr-input']")).click();
+        //driver.findElement(By.xpath("//span[@aria-label='August 21, 2024']")).click();
+
+        
+        WebElement DateRow = driver.findElement(By.xpath("//div[@class='mb-1 col-sm-12 col-md-6']//input[@class='form-control flatpickr-input active' and @type='text']"));
+		DateRow.click();
+		System.out.println("Date Row clicked");
+		
+		// Set the desired date using JavaScript and trigger the change event
+		Thread.sleep(2000);
+		// Click to open the calendar widget
+		
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", DateRow);
+		// Now locate the desired date element in the calendar popup and click it
+		
+		WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[2]/div[1]/div[2]/div[1]/span[25]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
+		System.out.println("Date Entered");
+        
+        
+        
+        
+        
+        
         driver.findElement(By.xpath("//input[@placeholder='Issue Place']")).sendKeys("test");
         driver.findElement(By.xpath("//input[@placeholder='Position']")).sendKeys("test");
-        driver.findElement(By.xpath("//body/div[@id='root']/div[@class='wrapper vertical-layout navbar-sticky footer-static vertical-menu-modern menu-expanded']/div[@class='app-content content overflow-hidden']/div[@class='container-xxl p-0 mt-2 animate__animated animate__fadeInLeft']/div[@class='row']/div[@class='col']/div/div[@class='bs-stepper linear']/div[@class='bs-stepper-content']/div[@id='additionalRemarks']/div[@class='row']/div[@class='col-sm-12 col-md-6']/div[@class='signature']/canvas[1]")).click();
+        //Sign 2
+        driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/div[1]/div[8]/div[1]/canvas[1]")).click();
+        //Click review
+        driver.findElement(By.xpath("//span[normalize-space()='Review']")).click();
+        driver.findElement(By.xpath("//button[contains(@type,'submit')]")).click();
+
 
     
 
