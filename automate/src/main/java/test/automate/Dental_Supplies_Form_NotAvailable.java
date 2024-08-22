@@ -176,8 +176,9 @@ public class Dental_Supplies_Form_NotAvailable {
 				Thread.sleep(500);  // Wait to ensure action is completed before moving to next
 
 				//next tab Endodontic Treatment
-				WebElement EndodonticTreatment = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Endodontic Treatment'])[1]")));
-				// Loop through each row and perform the required actions
+				WebElement Endo = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Endodontic Treatment'])[1]")));
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Endo);
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", Endo);
 				WebDriverWait Wait = new WebDriverWait(driver, Duration.ofSeconds(2)); // Explicit wait
 				System.out.println("Clicked on Second module");
 
