@@ -98,10 +98,10 @@ public class Dental_Supplies_Form_NotAvailable {
 			WebElement optionToSelect111 = driver.findElement(By.xpath("//div[contains(text(), 'PHC Warehouse - Dental Service')]"));
 			optionToSelect111.click();
 			System.out.println("Level Selected...");
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 
 			// reset form
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2)); // Explicit wait
 			WebElement reset = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Reset'])[1]")));
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reset);
 			driver.findElement(By.xpath("(//button[normalize-space()='Reset'])[1]")).click();
@@ -111,10 +111,10 @@ public class Dental_Supplies_Form_NotAvailable {
 			// reset form click
 			System.out.println("click okay to reset");
 			driver.findElement(By.xpath("(//button[normalize-space()='Okay'])[1]")).click();
-			Thread.sleep(500);
+			Thread.sleep(2000);
 
 			// Loop through each row and perform the required actions
-			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(2)); // Explicit wait
 
 			// Nested loop for dropdown selection
 			for (int j = 0; j <= 55; j++) {
@@ -138,13 +138,13 @@ public class Dental_Supplies_Form_NotAvailable {
 				mawaredField.sendKeys("100");
 				System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + j);
 
-				Thread.sleep(3000);
+				Thread.sleep(500);
 
 				WebElement element = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
 				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
-				Thread.sleep(5000);
+				Thread.sleep(500);
 
 				// Click to open the calendar widget
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
@@ -176,11 +176,11 @@ public class Dental_Supplies_Form_NotAvailable {
 				Thread.sleep(500);  // Wait to ensure action is completed before moving to next
 
 				//next tab Endodontic Treatment
-				WebElement EndodonticTreatment = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[1]/div[1]/div/div/button[2]")));
+				WebElement EndodonticTreatment = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Endodontic Treatment'])[1]")));
 				// Loop through each row and perform the required actions
-				WebDriverWait Wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
-				
-				
+				WebDriverWait Wait = new WebDriverWait(driver, Duration.ofSeconds(2)); // Explicit wait
+				System.out.println("Clicked on Second module");
+
 
 				// Nested loop for dropdown selection
 				for (int i = 0; i <= 55; i++) {
@@ -190,7 +190,7 @@ public class Dental_Supplies_Form_NotAvailable {
 
 					// Scroll to the row (if necessary)
 					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath2);
-					Thread.sleep(1000);
+					Thread.sleep(500);
 
 					int dropdownId2 = 6 + (i * 2); // Adjusting ID increment
 					WebElement dropdownInput2 = wait1.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId2 + "-input")));
@@ -210,7 +210,7 @@ public class Dental_Supplies_Form_NotAvailable {
 					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element2);
 					((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
 
-					Thread.sleep(5000);
+					Thread.sleep(500);
 
 					// Click to open the calendar widget
 					((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
