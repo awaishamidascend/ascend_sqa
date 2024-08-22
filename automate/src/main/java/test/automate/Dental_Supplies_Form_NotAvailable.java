@@ -18,7 +18,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Dental_Supplies_Form_NotAvailable {
 
-    public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException {
 
 
 		// Initialize Extent Reports
@@ -31,7 +31,7 @@ public class Dental_Supplies_Form_NotAvailable {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 
-		try {
+	
 			// Open the webpage
 			test.pass("Web page opened");
 			driver.get("https://dev-efficax-dental.kakashi.app/");
@@ -99,49 +99,52 @@ public class Dental_Supplies_Form_NotAvailable {
 			optionToSelect111.click();
 			System.out.println("Level Selected...");
 			Thread.sleep(3000);
-			
+
 			// reset form
-			System.out.println("reset form.");
-			driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[2]/div[1]/button")).click();
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
+			WebElement reset = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Reset'])[1]")));
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", reset);
+			driver.findElement(By.xpath("(//button[normalize-space()='Reset'])[1]")).click();
+			System.out.println("Reset Form Clicked");
 			Thread.sleep(2000);
-			
-			// reset form
+
+			// reset form click
 			System.out.println("click okay to reset");
 			driver.findElement(By.xpath("(//button[normalize-space()='Okay'])[1]")).click();
 			Thread.sleep(500);
 
 			// Loop through each row and perform the required actions
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
+			WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
 
 			// Nested loop for dropdown selection
 			for (int j = 0; j <= 55; j++) {
 
-			    WebElement rowXPath = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + j)));
-			    System.out.println(rowXPath);
+				WebElement rowXPath = wait1.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + j)));
+				System.out.println(rowXPath);
 
-			    // Scroll to the row (if necessary)
-			    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-			    Thread.sleep(1000);
+				// Scroll to the row (if necessary)
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
+				Thread.sleep(1000);
 
-			    int dropdownId = 6 + (j * 2); // Adjusting ID increment
-			    WebElement dropdownInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
-			    dropdownInput.sendKeys("Not Available");
-			    dropdownInput.sendKeys(Keys.ENTER);
-			    System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
+				int dropdownId = 6 + (j * 2); // Adjusting ID increment
+				WebElement dropdownInput = wait1.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
+				dropdownInput.sendKeys("Not Available");
+				dropdownInput.sendKeys(Keys.ENTER);
+				System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
 
-			    // Check and interact with "MAWARED request number" field
-			    WebElement mawaredField = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-4-undefined']//input[@name='amountLeft']")));
-			    mawaredField.clear();
-			    mawaredField.sendKeys("100");
-			    System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + j);
+				// Check and interact with "MAWARED request number" field
+				WebElement mawaredField = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-4-undefined']//input[@name='amountLeft']")));
+				mawaredField.clear();
+				mawaredField.sendKeys("100");
+				System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + j);
 
-			    Thread.sleep(3000);
+				Thread.sleep(3000);
 
-			    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
-			    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-			    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+				WebElement element = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
+				((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
-			    Thread.sleep(5000);
+				Thread.sleep(5000);
 
 				// Click to open the calendar widget
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
@@ -151,92 +154,95 @@ public class Dental_Supplies_Form_NotAvailable {
 				((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
 
 
-			    System.out.println("Date Entered " + j + "time");
+				System.out.println("Date Entered " + j + "time");
 
-			    // Check and interact with "New Stock Received" field using name attribute
-			    WebElement newStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
-			    WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-6-undefined']//input[@name='amountLeft']"));
-			    newStockReceivedField.clear();
-			    newStockReceivedField.sendKeys("200");
-			    System.out.println("Entered text '200' in 'New Stock Received' text field for row: " + j);
+				// Check and interact with "New Stock Received" field using name attribute
+				WebElement newStockReceivedDiv = driver.findElement(By.id("cell-6-undefined"));
+				WebElement newStockReceivedField = newStockReceivedDiv.findElement(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-6-undefined']//input[@name='amountLeft']"));
+				newStockReceivedField.clear();
+				newStockReceivedField.sendKeys("200");
+				System.out.println("Entered text '200' in 'New Stock Received' text field for row: " + j);
 
-			    // Check and interact with "Stock on hand" field using name attribute
-			    WebElement stockOnHandDiv = driver.findElement(By.id("cell-8-undefined"));
-			    WebElement stockOnHandField = stockOnHandDiv.findElement(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-8-undefined']//input[@name='amountLeft']"));
-			    stockOnHandField.clear();
-			    stockOnHandField.sendKeys("300");
-			    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + j);
+				// Check and interact with "Stock on hand" field using name attribute
+				WebElement stockOnHandDiv = driver.findElement(By.id("cell-8-undefined"));
+				WebElement stockOnHandField = stockOnHandDiv.findElement(By.xpath("//div[@id='row-" + j + "']//div[@id='cell-8-undefined']//input[@name='amountLeft']"));
+				stockOnHandField.clear();
+				stockOnHandField.sendKeys("300");
+				System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + j);
+				
+				
+			}
 
-			    Thread.sleep(500);  // Wait to ensure action is completed before moving to next
-			    
-			    //next tab Endodontic Treatment
-			    WebElement EndodonticTreatment = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[1]/div[1]/div/div/button[2]']")));
-			 // Loop through each row and perform the required actions
+				Thread.sleep(500);  // Wait to ensure action is completed before moving to next
+
+				//next tab Endodontic Treatment
+				WebElement EndodonticTreatment = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[1]/div[2]/div[3]/div/div[2]/div[1]/div[1]/div[1]/div/div/button[2]")));
+				// Loop through each row and perform the required actions
 				WebDriverWait Wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Explicit wait
+				
+				
 
 				// Nested loop for dropdown selection
 				for (int i = 0; i <= 55; i++) {
 
-				    WebElement rowXPath2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
-				    System.out.println(rowXPath);
+					WebElement rowXPath2 = wait1.until(ExpectedConditions.presenceOfElementLocated(By.id("row-" + i)));
+					System.out.println(rowXPath2);
 
-				    // Scroll to the row (if necessary)
-				    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath);
-				    Thread.sleep(1000);
+					// Scroll to the row (if necessary)
+					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", rowXPath2);
+					Thread.sleep(1000);
 
-				    int dropdownId2 = 6 + (i * 2); // Adjusting ID increment
-				    WebElement dropdownInput2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId + "-input")));
-				    dropdownInput.sendKeys("Not Available");
-				    dropdownInput.sendKeys(Keys.ENTER);
-				    System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId + "-input");
+					int dropdownId2 = 6 + (i * 2); // Adjusting ID increment
+					WebElement dropdownInput2 = wait1.until(ExpectedConditions.presenceOfElementLocated(By.id("react-select-" + dropdownId2 + "-input")));
+					dropdownInput2.sendKeys("Not Available");
+					dropdownInput2.sendKeys(Keys.ENTER);
+					System.out.println("Selected 'Available' for dropdown with ID: react-select-" + dropdownId2 + "-input");
 
-				    // Check and interact with "MAWARED request number" field
-				    WebElement mawaredField2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-4-undefined']//input[@name='amountLeft']")));
-				    mawaredField.clear();
-				    mawaredField.sendKeys("100");
-				    System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + i);
+					// Check and interact with "MAWARED request number" field
+					WebElement mawaredField2 = wait1.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-4-undefined']//input[@name='amountLeft']")));
+					mawaredField2.clear();
+					mawaredField2.sendKeys("100");
+					System.out.println("Entered text '100' in 'MAWARED request number' text field for row: " + i);
 
-				    Thread.sleep(3000);
+					Thread.sleep(500);
 
-				    WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
-				    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-				    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+					WebElement element2 = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-5-undefined']//input[@name='amountLeft']")));
+					((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element2);
+					((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
 
-				    Thread.sleep(5000);
+					Thread.sleep(5000);
 
 					// Click to open the calendar widget
-					((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+					((JavascriptExecutor) driver).executeScript("arguments[0].click();", element2);
 
 					// Now locate the desired date element in the calendar popup and click it
 					WebElement dateElement2 = driver.findElement(By.xpath("//span[@class='flatpickr-day' and @aria-label='August 5, 2024']"));
-					((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
+					((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement2);
 
 
-				    System.out.println("Date Entered " + i + "time");
+					System.out.println("Date Entered " + i + "time");
 
-				    // Check and interact with "New Stock Received" field using name attribute
-				    WebElement newStockReceivedDiv2 = driver.findElement(By.id("cell-6-undefined"));
-				    WebElement newStockReceivedField2 = newStockReceivedDiv.findElement(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-6-undefined']//input[@name='amountLeft']"));
-				    newStockReceivedField.clear();
-				    newStockReceivedField.sendKeys("200");
-				    System.out.println("Entered text '200' in 'New Stock Received' text field for row: " + i);
+					// Check and interact with "New Stock Received" field using name attribute
+					WebElement newStockReceivedDiv2 = driver.findElement(By.id("cell-6-undefined"));
+					WebElement newStockReceivedField2 = newStockReceivedDiv2.findElement(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-6-undefined']//input[@name='amountLeft']"));
+					newStockReceivedField2.clear();
+					newStockReceivedField2.sendKeys("200");
+					System.out.println("Entered text '200' in 'New Stock Received' text field for row: " + i);
 
-				    // Check and interact with "Stock on hand" field using name attribute
-				    WebElement stockOnHandDiv2 = driver.findElement(By.id("cell-8-undefined"));
-				    WebElement stockOnHandField2 = stockOnHandDiv.findElement(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-8-undefined']//input[@name='amountLeft']"));
-				    stockOnHandField.clear();
-				    stockOnHandField.sendKeys("300");
-				    System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + i);
+					// Check and interact with "Stock on hand" field using name attribute
+					WebElement stockOnHandDiv2 = driver.findElement(By.id("cell-8-undefined"));
+					WebElement stockOnHandField2 = stockOnHandDiv2.findElement(By.xpath("//div[@id='row-" + i + "']//div[@id='cell-8-undefined']//input[@name='amountLeft']"));
+					stockOnHandField2.clear();
+					stockOnHandField2.sendKeys("300");
+					System.out.println("Entered text '300' in 'Stock On Hand' text field for row: " + i);
 
-				    Thread.sleep(500);  // Wait to ensure action is completed before moving to next
-				    
-			    
+					Thread.sleep(500);  // Wait to ensure action is completed before moving to next
+
+
+				}
 			}
-			}
-		} finally {
-
-		}
-	}
+		
+	
 
 	private static void selectDate(WebDriver driver, LocalDate date) {
 		// TODO Auto-generated method stub
