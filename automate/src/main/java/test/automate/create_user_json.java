@@ -40,16 +40,18 @@ public class create_user_json {
         driver.get("https://dev-efficax-obligation.kakashi.app/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        // Perform login
+        // Perform login (Its a simple method)
         performLogin(driver, wait);
 
-        // Read credentials from JSON and create users
-        readAndCreateUsers(driver, wait, test);
+        // Read credentials from JSON and create users (Its a simple method)
+        readAndCreateUsers(driver, wait, test); //Parameterized Method (Sequence, Type, No of parameters shoudl be same)
 
         // End the test
         extent.flush();
     }
 
+    //Execution stops here (IDE only read till here)
+    
     public static void readAndCreateUsers(WebDriver driver, WebDriverWait wait, ExtentTest test) throws InterruptedException, IOException, org.json.simple.parser.ParseException {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("C:\\Users\\HamidAwais(Ascend)\\Downloads\\new_user.json")) {
