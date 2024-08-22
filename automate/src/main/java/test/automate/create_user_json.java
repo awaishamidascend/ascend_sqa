@@ -99,24 +99,37 @@ public class create_user_json {
 
             // Handle the dropdown and phone number entry
             
-            WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("react-select-2-input")));
+            WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'select__control') and contains(@class, 'css-k3ockt-control')]//input[@id='react-select-2-input']")));
             JavascriptExecutor js = (JavascriptExecutor) driver;
             js.executeScript("arguments[0].scrollIntoView(true);", dropdown);
             dropdown.click();
             Thread.sleep(2000);
+            System.out.println("Role Clicked");
+
 
             WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__menu')]//div[contains(@class, 'select__option')][1]")));
             firstOption.click();
+            System.out.println("Role Clicked");
 
-            Thread.sleep(2000);
+
             WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputmask")));
-            JavascriptExecutor js1 = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].value='6564646';", phoneField);
-            Thread.sleep(5000);
-     	   	System.out.println("Phone Number Entered successfully");
+            phoneField.clear(); // Clear any pre-filled value
+            phoneField.sendKeys("6564646");
+
+            // Adding a slight delay to let the field settle, if necessary
+            Thread.sleep(1000);
+
+            System.out.println("Phone Number Entered successfully");
 
             WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Submit')]")));
-            submit.click();
+
+         // Re-set phone number before clicking submit
+         WebElement phoneField1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputmask")));
+         phoneField1.clear(); // Just in case
+         phoneField1.sendKeys("1234567890");
+
+         submit.click();
+
 
             Thread.sleep(5000);
             
