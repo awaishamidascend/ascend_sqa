@@ -16,7 +16,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.mongodb.MapReduceCommand.OutputType;
+import org.openqa.selenium.OutputType; // Correct import for OutputType
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -25,6 +25,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Duration;
+
 
 public class create_user_json {
 
@@ -105,7 +106,7 @@ public class create_user_json {
             // Handle the dropdown and phone number entry
             
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            WebElement dropdown = driver.findElement(By.xpath("//div[contains(@class, 'select__control') and contains(@class, 'css-k3ockt-control')]//input[@id='react-select-2-input']"));
+            WebElement dropdown = driver.findElement(By.cssSelector("div[class='mb-1 col-sm-12 col-md-6'] div[class='select__input-container css-ackcql']"));
             js.executeScript("arguments[0].scrollIntoView(true);", dropdown);
             dropdown.click();
             Thread.sleep(2000);
