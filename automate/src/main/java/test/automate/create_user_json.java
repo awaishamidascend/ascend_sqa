@@ -1,10 +1,12 @@
 package test.automate;
 
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,8 +16,11 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.mongodb.MapReduceCommand.OutputType;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -99,12 +104,15 @@ public class create_user_json {
 
             // Handle the dropdown and phone number entry
             
-            WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(@class, 'select__control') and contains(@class, 'css-k3ockt-control')]//input[@id='react-select-2-input']")));
             JavascriptExecutor js = (JavascriptExecutor) driver;
+            WebElement dropdown = driver.findElement(By.xpath("//div[contains(@class, 'select__control') and contains(@class, 'css-k3ockt-control')]//input[@id='react-select-2-input']"));
             js.executeScript("arguments[0].scrollIntoView(true);", dropdown);
             dropdown.click();
             Thread.sleep(2000);
             System.out.println("Role Clicked");
+            
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(screenshot, new File("screenshot.png"));
 
 
             WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__menu')]//div[contains(@class, 'select__option')][1]")));
