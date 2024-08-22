@@ -110,10 +110,6 @@ public class create_user_json {
             dropdown.click();
             Thread.sleep(2000);
             System.out.println("Role Clicked");
-            
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshot, new File("screenshot.png"));
-
 
             WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__menu')]//div[contains(@class, 'select__option')][1]")));
             firstOption.click();
@@ -140,7 +136,14 @@ public class create_user_json {
 
 
             Thread.sleep(5000);
-            
+            // Save screenshot for debugging
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            try {
+                FileUtils.copyFile(screenshot, new File("screenshot.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             // Return success status
             return "Success";
         } catch (Exception e) {
@@ -148,6 +151,7 @@ public class create_user_json {
             return "Failed";
         }
     }
+
 
     private static void performLogin(WebDriver driver, WebDriverWait wait) throws InterruptedException {
         WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Email']")));
