@@ -8,15 +8,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WebDriver {
-    public static void main(String[] args) throws InterruptedException {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+//public class WebDriver {
+    //public static void main(String[] args) throws InterruptedException {
+        //WebDriverManager.chromedriver().setup();
+        //WebDriver driver = new ChromeDriver();
 
-        driver.get("https://efficax-717.kakashi.app/");
+        //driver.get("https://efficax-717.kakashi.app/");
 
         // Fill in email field
-        WebElement emailField = driver.findElement(By.xpath("//input[@placeholder='Email']"));
+        /*WebElement emailField = driver.findElement(By.xpath("//input[@placeholder='Email']"));
         emailField.sendKeys("dev-romeesa.ashfaq@ascend.com.sa");
 
         // Fill in password field
@@ -44,4 +44,4 @@ public class WebDriver {
         Thread.sleep(10000);
         //open event form
         driver.findElement(By.xpath("//button[contains(@class,'btn btn-primary my-1 btn btn-outline-secondary')]")).click();
-        Thread.sleep(10000);
+        Thread.sleep(10000);*/
