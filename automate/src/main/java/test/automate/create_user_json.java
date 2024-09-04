@@ -1,10 +1,12 @@
 package test.automate;
 
+import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,12 +16,16 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import org.openqa.selenium.OutputType; // Correct import for OutputType
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.Duration;
+
 
 public class create_user_json {
 
@@ -40,16 +46,18 @@ public class create_user_json {
         driver.get("https://dev-efficax-obligation.kakashi.app/");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
-        // Perform login
+        // Perform login (Its a simple method)
         performLogin(driver, wait);
 
-        // Read credentials from JSON and create users
-        readAndCreateUsers(driver, wait, test);
+        // Read credentials from JSON and create users (Its a simple method)
+        readAndCreateUsers(driver, wait, test); //Parameterized Method (Sequence, Type, No of parameters shoudl be same)
 
         // End the test
         extent.flush();
     }
 
+    //Execution stops here (IDE only read till here)
+    
     public static void readAndCreateUsers(WebDriver driver, WebDriverWait wait, ExtentTest test) throws InterruptedException, IOException, org.json.simple.parser.ParseException {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader("C:\\Users\\HamidAwais(Ascend)\\Downloads\\new_user.json")) {
@@ -97,27 +105,46 @@ public class create_user_json {
 
             // Handle the dropdown and phone number entry
             
-            WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("react-select-2-input")));
             JavascriptExecutor js = (JavascriptExecutor) driver;
+            WebElement dropdown = driver.findElement(By.cssSelector("div[class='mb-1 col-sm-12 col-md-6'] div[class='select__input-container css-ackcql']"));
             js.executeScript("arguments[0].scrollIntoView(true);", dropdown);
             dropdown.click();
             Thread.sleep(2000);
+            System.out.println("Role Clicked");
 
             WebElement firstOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__menu')]//div[contains(@class, 'select__option')][1]")));
             firstOption.click();
+            System.out.println("Role Clicked");
 
-            Thread.sleep(2000);
+
             WebElement phoneField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputmask")));
-            JavascriptExecutor js1 = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].value='6564646';", phoneField);
-            Thread.sleep(5000);
-     	   	System.out.println("Phone Number Entered successfully");
+            phoneField.clear(); // Clear any pre-filled value
+            phoneField.sendKeys("6564646");
+
+            // Adding a slight delay to let the field settle, if necessary
+            Thread.sleep(1000);
+
+            System.out.println("Phone Number Entered successfully");
 
             WebElement submit = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Submit')]")));
-            submit.click();
+
+         // Re-set phone number before clicking submit
+         WebElement phoneField1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputmask")));
+         phoneField1.clear(); // Just in case
+         phoneField1.sendKeys("1234567890");
+
+         submit.click();
+
 
             Thread.sleep(5000);
-            
+            // Save screenshot for debugging
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            try {
+                FileUtils.copyFile(screenshot, new File("screenshot.png"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             // Return success status
             return "Success";
         } catch (Exception e) {
@@ -125,6 +152,7 @@ public class create_user_json {
             return "Failed";
         }
     }
+
 
     private static void performLogin(WebDriver driver, WebDriverWait wait) throws InterruptedException {
         WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Email']")));

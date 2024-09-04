@@ -14,7 +14,7 @@ public class random {
 	        WebDriver driver = new ChromeDriver();
 	        
 	        // Navigate to the page
-	        driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
+	        //driver.get("https://efficax-obligation.ascend.com.sa/login?isQA=true");
 
 	        // Locate elements to select from (example: list of options in a dropdown)
 	        List<WebElement> options = driver.findElements(By.cssSelector("div[class='select__control select__control--is-focused css-1u57jws-control'] div[class='select__input-container css-ackcql']"));
@@ -27,13 +27,13 @@ public class random {
 
 	        // Select the element at the random index
 	        WebElement selectedElement = options.get(randomIndex);
-	        selectedElement.click();
+	        //selectedElement.click();
 
 	        // Optional: Print the text of the selected element
-	        System.out.println("Selected element: " + selectedElement.getText());
+	        //system.out.println("Selected element: " + selectedElement.getText());
 
 	        // Close the browser
-	        driver.quit();
+	        //driver.quit();
 	    }
 	
 
