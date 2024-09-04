@@ -11,11 +11,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class OperationListing {
+public class OperationExport {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-     
 		WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
      
@@ -56,6 +55,13 @@ public class OperationListing {
         driver.findElement(By.xpath("//span[contains(text(),'Operation Center List')]")).click();
         
         System.out.println("operation center listing");
+        
+        //operation cemter export click
+        Thread.sleep(7000);
+        driver.findElement(By.xpath("//span[@class='text']")).click();
+        Thread.sleep(10000);
+
+        
 	}
 
 }

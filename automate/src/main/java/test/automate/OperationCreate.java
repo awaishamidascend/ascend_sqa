@@ -3,6 +3,7 @@ package test.automate;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,11 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class OperationListing {
+public class OperationCreate {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-     
 		WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
      
@@ -52,10 +52,33 @@ public class OperationListing {
         Thread.sleep(10000);
         driver.findElement(By.xpath("//span[contains(text(),'Operation Centers')]")).click();
         Thread.sleep(7000);
-      
-        driver.findElement(By.xpath("//span[contains(text(),'Operation Center List')]")).click();
+        System.out.println("Clicked on the operation cenbter");
         
-        System.out.println("operation center listing");
+        //create operation center click
+        driver.findElement(By.xpath("(//span[contains(text(),'Create Operation Center')])[1]")).click();
+        System.out.println("Clicked on the create operation");
+        
+        
+        //name operation center
+        driver.findElement(By.xpath("//input[@id='orgName']")).sendKeys("New");
+        
+        //select show fields
+        
+        System.out.println("Opening show fields");
+      
+        WebElement orgSelectContainer1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]")));
+        //((JavascriptExecutor) driver).executeScript("arguments[0].click();", orgSelectContainer1);
+
+       orgSelectContainer1.click();
+        System.out.println("show fields Opened successfully.");
+        
+        // Wait for the dropdown to load
+        Thread.sleep(2000);
+        
+        // Locate the element by its XPath and click it
+        WebElement optionElement1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id='react-select-3-option-5']")));
+        optionElement1.click();
+        System.out.println("Clicked on the Dropdown Options TEAMS");
 	}
 
 }

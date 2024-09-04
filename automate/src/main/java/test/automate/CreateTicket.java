@@ -58,18 +58,26 @@ public class CreateTicket {
             
             Thread.sleep(7000);
             
+          //click on Tickets
+            Thread.sleep(10000);
+            driver.findElement(By.xpath("//span[@class='menu-title text-truncate']//span[contains(text(),'Tickets')]")).click();
+
+            
             // Selecting Tickets
-            System.out.println("Selecting Tickets...");
-            WebElement ticketsElement = driver.findElement(By.xpath("//span[text()='Tickets']"));
-            ticketsElement.click();
-            System.out.println("Tickets Selected...");
+           // System.out.println("Selecting Tickets...");
+            //WebElement ticketsElement = driver.findElement(By.xpath("//span[text()='Tickets']"));
+            //ticketsElement.click();
+            //System.out.println("Tickets Selected...");
             Thread.sleep(2000);
             
             // Selecting Create Ticket
-            System.out.println("Selecting Create Ticket...");
+           // System.out.println("Selecting Create Ticket...");
          // Locate the element using XPath and click it
-            WebElement createTicketElement = driver.findElement(By.xpath("//span[contains(text(), 'Create Ticket')]"));
-            createTicketElement.click();
+           // WebElement createTicketElement = driver.findElement(By.xpath("//span[contains(text(), 'Create Ticket')]"));
+           // createTicketElement.click();
+            
+            driver.findElement(By.xpath("//span[contains(text(),'Create Ticket')]")).click();
+ 
             System.out.println("Create Ticket Selected...");
             Thread.sleep(2000);
 
@@ -94,14 +102,14 @@ public class CreateTicket {
             Thread.sleep(2000);
             
          // Opening the Team Selector
-            System.out.println("Opening the Priority selector...");
+           /* System.out.println("Opening the Priority selector...");
             driver.findElement(By.id("react-select-5-input")).click();
             WebElement teamSelectContainer = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-5-option-0")));
             teamSelectContainer.click();
-            System.out.println("Priorty selector opened.");
+            System.out.println("Priorty selector opened.");*/
 
             // Wait for the options to load and be visible
-            Thread.sleep(2000);
+            //Thread.sleep(2000);
 
             // Selecting Dropdown Option
             System.out.println("Selecting option in dropdown...");
@@ -112,7 +120,29 @@ public class CreateTicket {
             dropdownOption.click();
             System.out.println("Dropdown option 'QA Automation' selected.");
             
+            // Selecting Dropdown Option
+           /* System.out.println("Selecting option in Region dropdown...");
+            driver.findElement(By.id("react-select-3-input")).click();            
+            WebElement dropdownOption1 = wait.until(ExpectedConditions.elementToBeClickable(By.id("react-select-3-option-2")));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dropdownOption1);
+            Thread.sleep(500); // Wait a bit to ensure the element is visible
+            dropdownOption1.click();
+            System.out.println("Dropdown option Baha region selectED.");*/
+            
+            
+            
             Thread.sleep(2000);
+            
+         //CLICK ON NEXT
+            driver.findElement(By.xpath("(//button[@type='submit'][normalize-space()='Next'])[2]")).click();
+            Thread.sleep(2000);
+            
+            //SUBMIT TICKET
+            driver.findElement(By.xpath("//button[normalize-space()='Review & Submit']")).click();
+            System.out.println("TICKET CREATED");
+     
+            
+
 
             
         }
