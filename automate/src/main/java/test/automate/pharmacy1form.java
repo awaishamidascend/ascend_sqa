@@ -8,14 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import java.time.Duration;
 
 public class pharmacy1form {
@@ -133,11 +130,8 @@ public class pharmacy1form {
         js.executeScript("arguments[0].click();", calendarField);
         
         
-		System.out.println("Date Row clicked");
-		
+		System.out.println("Date Row clicked");		
 		Thread.sleep(2000);
-		
-		
 		WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[2]/div[1]/div[2]/div[1]/span[25]"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
 		System.out.println("Date Entered");
