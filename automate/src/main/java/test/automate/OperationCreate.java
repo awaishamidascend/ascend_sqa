@@ -64,7 +64,7 @@ public class OperationCreate {
         
         WebElement drop = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__option css-10wo9uf-option') and text()='Teams']")));
         drop.click();
-        System.out.println("Clicked on the Dropdown Option 'Teams'");
+        System.out.println("Clicked on the Dropdown Option 'Teamsss'");
 
     }
 }
