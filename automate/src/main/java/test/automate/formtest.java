@@ -178,7 +178,7 @@ public class formtest {
              WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
              wait1.until(ExpectedConditions.elementToBeClickable(complyRadioButton));
 
-             // Click the "Comply" radio button
+             // Click the "Comply" radio button=
              complyRadioButton.click();
          }
 
