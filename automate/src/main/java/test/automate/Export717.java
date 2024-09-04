@@ -62,11 +62,13 @@ public class Export717 {
         
         driver.findElement(By.xpath("//button[contains(@class, 'export-label') and span[text()='Export']]")).click();
         System.out.println("Method 1 Done");
+        
+        Thread.sleep(5000);
 
         driver.findElement(By.xpath("(//button[@class='export-label'])[1]")).click();
         System.out.println("Method 2 Done");
 
-        System.out.println("export");
+        System.out.println("Export Successful");
 
 	}
 }
