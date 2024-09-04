@@ -1,10 +1,17 @@
 package efx_reports;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 public class reportsPOM extends WebDriver.webdriverSetup {
+
+    private static WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     public static void username(String username) {
 
@@ -25,15 +32,20 @@ public class reportsPOM extends WebDriver.webdriverSetup {
         driver.findElement(By.xpath("(//button[@class='btn'])[1]")).click();
     }
 
-    public static void options() {
+    public static void reports() {
 
-        driver.findElement(By.xpath("(//*[name()='svg'][@type='button'])[1]")).click();
+        WebElement scroll = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[normalize-space()='Reports'])[1]")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scroll);
+
+        driver.findElement(By.xpath("(//span[normalize-space()='Reports'])[1]")).click();
 
     }
 
-    public static void logout() {
+    public static void export() throws InterruptedException {
 
-        driver.findElement(By.xpath("(//a[normalize-space()='Logout'])[1]")).click();
+        WebElement export = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[contains(text(),'Export')]")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", export);
+        //driver.findElement(By.xpath("//button[contains(text(),'Export')]")).click();
 
     }
 
