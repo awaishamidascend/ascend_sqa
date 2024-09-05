@@ -39,13 +39,13 @@ public class OperationCreate {
         WebElement continueButton = driver.findElement(By.xpath("//button[contains(@class, 'CustomButton') and text()='Continue']"));
         continueButton.click();
 
-        Thread.sleep(5000);
-
+        //Opening Operation Centers
         Thread.sleep(10000);
         driver.findElement(By.xpath("//span[contains(text(),'Operation Centers')]")).click();
         Thread.sleep(5000);
-        System.out.println("Clicked on the operation center");
+        System.out.println("Clicked on the Operation Centers");
 
+        //Creating New Operation Center
         driver.findElement(By.xpath("(//span[contains(text(),'Create Operation Center')])[1]")).click();
         System.out.println("Clicked on the create operation");
 
@@ -54,7 +54,7 @@ public class OperationCreate {
         driver.findElement(By.xpath("//input[@id='orgName']")).sendKeys("New");
         Thread.sleep(5000);
 
-        System.out.println("Opening SHOW FIELDS");
+        System.out.println("Opening SHOW FIELDS dropdown");
 
         WebElement dropdownContainer = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]"));
         dropdownContainer.click();
@@ -62,32 +62,42 @@ public class OperationCreate {
 
         Thread.sleep(2000);
         
-        WebElement drop = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__option css-10wo9uf-option') and text()='Description']")));
-        drop.click();
-        System.out.println("Clicked on the Dropdown Option 'Teamsss'");
-// subject
+        //Opening dropdown to add 1st Field
+        WebElement first = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]")));
+        first.click();
+        System.out.println("Clicked on the Dropdown for the 1st Time");
+        
+        //Adding 1st Field
         Thread.sleep(2000);
-        WebElement dropdownContainer1 = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]"));
-        dropdownContainer1.click();
-        System.out.println("SHOW FIELDS for subject dropdown opened successfully.");
+        WebElement firstdrop = driver.findElement(By.xpath("//div[contains(@class, 'select__option css-10wo9uf-option') and text()='Subject']"));
+        firstdrop.click();
+        System.out.println("Entered 1st Field");
 
         Thread.sleep(2000);
         
-        WebElement drop1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__option css-10wo9uf-option') and text()='Subject']")));
-        drop1.click();
-        System.out.println("Clicked on the Dropdown Option 'Subject'");
+        //Opening dropdown to add 2nd Field
+        WebElement second = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]")));
+        second.click();
+        System.out.println("Clicked on the Dropdown for the 2nd Time");
         
-        //Description
+        //Adding 2nd Field
         Thread.sleep(2000);
-        WebElement dropdownContainer2 = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]"));
-        dropdownContainer2.click();
-        System.out.println("SHOW FIELDS dropdown opened successfully.");
+        WebElement seconddrop = driver.findElement(By.xpath("//div[contains(@class, 'select__option css-10wo9uf-option') and text()='Teams']"));
+        seconddrop.click();
+        System.out.println("Entered 2nd Field");
+
+        
+        //Opening dropdown to add 3rd Field
+        Thread.sleep(2000);
+        WebElement third = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]"));
+        third.click();
+        System.out.println("Clicked on the Dropdown for the 3rd Time");
 
         Thread.sleep(2000);
         
-        WebElement drop2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__option css-10wo9uf-option') and text()='Teams']")));
+        WebElement drop2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, 'select__option css-10wo9uf-option') and text()='Attachment']")));
         drop2.click();
-        System.out.println("Clicked on the Dropdown Option Description");
+        System.out.println("Entered 3rd Field");
     }
 }
  
