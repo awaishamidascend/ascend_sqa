@@ -17,11 +17,14 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeoutException;
 
 public class formtest {
 	
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, TimeoutException {
     	
         // Setting up ExtentReports for logging test execution
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("romeesa.html");
@@ -166,51 +169,48 @@ public class formtest {
          //Is the department available?
          driver.findElement(By.xpath("//input[contains(@value,'Yes')]")).click();
          
-      // Locate all divs containing the questions and radio buttons
-         List<WebElement> questions = driver.findElements(By.xpath("//div[contains(@class, 'ant-formily-item')]"));
+      // Step 1: Find all label elements and store in an array, excluding "Comply", "Not Comply", and "N/A"
+         List<String> questions = new ArrayList<>();
+         List<WebElement> labels = driver.findElements(By.xpath("//div[contains(@class, 'ant-formily-layout ant-form-vertical')]//label"));
 
-         // Loop through each question and select the "Comply" radio button
-         for (WebElement question : questions) {
-             // Use a context-specific XPath to find the "Comply" radio button within the current question's div
-             WebElement complyRadioButton = question.findElement(By.xpath(".//input[@type='radio' and @value='Comply']"));
-
-             // Add a wait to ensure the element is clickable
-             WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(10));
-             wait1.until(ExpectedConditions.elementToBeClickable(complyRadioButton));
-
-             // Click the "Comply" radio button=
-             complyRadioButton.click();
+         for (WebElement label : labels) {
+             String questionText = label.getText().trim();
+             
+             // Exclude "Comply", "Not Comply", "N/A"
+             if (!questionText.equalsIgnoreCase("Comply") && 
+                 !questionText.equalsIgnoreCase("Not Comply") && 
+                 !questionText.equalsIgnoreCase("N/A")) {
+                 
+                 // Add the question text to the questions array
+                 questions.add(questionText);
+             }
          }
 
-         // Optionally, close the driver after completing the task
-         // driver.quit();
-     
-         
-         //driver.findElement(By.xpath("")).sendKeys("test");
-//        driver.findElement(By.xpath("")).click();
-//        driver.findElement(By.xpath("")).click();
-//        driver.findElement(By.xpath("")).click();
-//        driver.findElement(By.xpath("")).click();
+         // Step 2: Loop through the questions array and select "Comply" for each question
+         for (String question : questions) {
+             try {
+                 // Find the corresponding label element by its text
+                 WebElement label = driver.findElement(By.xpath("//label[text()='" + question + "']"));
+                 
+                 // Locate the "Comply" radio button relative to the current label
+                 WebElement complyOption = label.findElement(By.xpath("following::div//input[@value='Comply']"));
+                 
+                 // Click the "Comply" option
+                 WebElement clickableComplyOption = wait.until(ExpectedConditions.elementToBeClickable(complyOption));
+                 clickableComplyOption.click();
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    }}
+             } catch (NoSuchElementException e) {
+                 System.out.println("Comply option not found for question: " + question);
+                 
+                 try {
+                     // As a fallback, use JavaScript to click the element
+                     WebElement label = driver.findElement(By.xpath("//label[text()='" + question + "']"));
+                     WebElement complyOption = label.findElement(By.xpath("following::div//input[@value='Comply']"));
+                     ((JavascriptExecutor) driver).executeScript("arguments[0].click();", complyOption);
+                 } catch (NoSuchElementException e2) {
+                     System.out.println("Comply option not clickable via JavaScript for question: " + question);
+                 }
+             }
+         }
+}
+}
