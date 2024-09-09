@@ -181,7 +181,6 @@ public class formtest {
          // Iterate over the list of labels and select the "Comply" option for each question
          for (WebElement label : labels) {
              String labelText = label.getText();
-             JavascriptExecutor jsExecutor = (JavascriptExecutor) driver; jsExecutor.executeScript("arguments[0].click();", labels);
 
              // Check if the label contains 'Comply', 'Not Comply', or 'N/A' and skip these labels
              if (!(labelText.contains("Comply") || labelText.contains("Not Comply") || labelText.contains("N/A"))) {
@@ -190,10 +189,11 @@ public class formtest {
                  // Locate the corresponding "Comply" radio button for this question
                  // Assuming the "Comply" radio button is the next sibling of the label
                  WebElement complyOption = label.findElement(By.xpath(".//following::input[@value='Comply'][1]"));
+                 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, arguments[0].getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2 - arguments[0].offsetHeight / 2));",complyOption);
+                 Thread.sleep(2000);
 
                  // Click the "Comply" option
-                 JavascriptExecutor jsExecutor1 = (JavascriptExecutor) driver; jsExecutor.executeScript("arguments[0].click();", complyOption);
-                 //complyOption.click();
+                 complyOption.click();
                  System.out.println("Selected 'Comply' for: " + labelText);
              }
          }
