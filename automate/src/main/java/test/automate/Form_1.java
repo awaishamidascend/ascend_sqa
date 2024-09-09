@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeoutException;
 
-public class formtest {
+public class Form_1 {
 	
     public static void main(String[] args) throws InterruptedException, TimeoutException {
     	
