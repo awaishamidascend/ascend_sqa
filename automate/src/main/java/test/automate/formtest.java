@@ -171,40 +171,37 @@ public class formtest {
          wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='Is the department available?']")));
 
          driver.findElement(By.xpath("//input[contains(@value,'Yes')]")).click();
-         
-      // Step 1: Find all label elements and store in an array, excluding "Comply", "Not Comply", and "N/A"
-         List<String> questions = new ArrayList<>();
-         List<WebElement> labels = driver.findElements(By.xpath("//div[contains(@class, 'ant-formily-layout ant-form-vertical')]//label"));
+     
+      // Locate the parent container of the labels
+         WebElement parentContainer = driver.findElement(By.xpath("//div[contains(@class, 'ant-formily-layout ant-form-vertical')]"));
 
+         // Find all label elements within the parent container
+         List<WebElement> labels = parentContainer.findElements(By.xpath(".//label"));
+
+         // Iterate over the list of labels and select the "Comply" option for each question
          for (WebElement label : labels) {
-             String questionText = label.getText().trim();
-             
-             // Exclude "Comply", "Not Comply", "N/A"
-             if (!questionText.equalsIgnoreCase("Comply") && 
-                 !questionText.equalsIgnoreCase("Not Comply") && 
-                 !questionText.equalsIgnoreCase("N/A")) {
-                 
-                 // Add the question text to the questions array
-                 questions.add(questionText);
+             String labelText = label.getText();
+             JavascriptExecutor jsExecutor = (JavascriptExecutor) driver; jsExecutor.executeScript("arguments[0].click();", labels);
+
+             // Check if the label contains 'Comply', 'Not Comply', or 'N/A' and skip these labels
+             if (!(labelText.contains("Comply") || labelText.contains("Not Comply") || labelText.contains("N/A"))) {
+                 System.out.println("Question: " + labelText);
+
+                 // Locate the corresponding "Comply" radio button for this question
+                 // Assuming the "Comply" radio button is the next sibling of the label
+                 WebElement complyOption = label.findElement(By.xpath(".//following::input[@value='Comply'][1]"));
+
+                 // Click the "Comply" option
+                 JavascriptExecutor jsExecutor1 = (JavascriptExecutor) driver; jsExecutor.executeScript("arguments[0].click();", complyOption);
+                 //complyOption.click();
+                 System.out.println("Selected 'Comply' for: " + labelText);
              }
          }
 
-         // Step 2: Loop through the questions array and select "Comply" for each question
-         for (String question : questions) {
-        	    try {
-        	        WebElement label = driver.findElement(By.xpath("//label[text()='" + question + "']"));
-        	        WebElement complyOption = label.findElement(By.xpath("following::div//input[@value='Comply']"));
 
-        	        // Wait until the "Comply" button is clickable
-        	        WebElement clickableComplyOption = wait.until(ExpectedConditions.elementToBeClickable(complyOption));
-        	        clickableComplyOption.click();
-        	        
-        	    } catch (NoSuchElementException e) {
-        	        System.out.println("Comply option not found for question: " + question);
-        	    }
-        	
-                 }
+     
+         }
+
          
 }
     
-}
