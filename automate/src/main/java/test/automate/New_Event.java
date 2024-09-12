@@ -99,16 +99,18 @@ public class New_Event {
         Thread.sleep(1000);
  
         
-		WebElement date = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[contains(@name,'emergence.date_of_emergence')]")));
+		WebElement date = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@placeholder='Date'])[1]")));
         System.out.println("Detected Calender Box");
         date.click();
-		WebElement dateElement = driver.findElement(By.xpath("/html[1]/body[1]/div[4]/div[2]/div[1]/div[2]/div[1]/span[11]"));
+		WebElement dateElement = driver.findElement(By.xpath("(//span[@aria-label='September 12, 2024'][normalize-space()='12'])[1]"));
 		System.out.println("Detected date");
 		dateElement.click();
 		//((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
 		Thread.sleep(500);
 		
-        
+
+		WebElement check = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='select__input-container css-ackcql'])[5]")));
+        check.click();
 	
 	
 	}}
