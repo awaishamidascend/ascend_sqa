@@ -111,6 +111,22 @@ public class New_Event {
 
 		WebElement check = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='select__input-container css-ackcql'])[5]")));
         check.click();
-	
-	
+        
+        Thread.sleep(1000);
+	     //Health Directorate dropdown
+        WebElement healthDirectorateDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[@class='select__value-container css-1d8n9bt'])[2]")));
+        healthDirectorateDropdown.click();
+
+        System.out.println("dropdown clicked");
+        
+        // Locate the input field inside the dropdown and enter the search term
+        WebElement dropdownInput = driver.findElement(By.xpath("(//div[@class='select__value-container css-1d8n9bt'])[2]"));
+        dropdownInput.sendKeys("Qassim Health Directorate");
+
+        // Wait for the option to be visible and then click on the desired option
+        WebElement qassimOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[text()='Qassim Health Directorate']")));
+        qassimOption.click();
+        Thread.sleep(1000);
+        
+        
 	}}
