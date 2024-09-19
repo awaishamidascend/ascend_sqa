@@ -12,7 +12,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class pharmacyform {
+public class PharmacyForm {
 	public static void main(String[] args) throws InterruptedException {
 		ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("romeesa.html");
 		    	

@@ -15,7 +15,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.Duration;
 
-public class pharmacy1form {
+public class PharmacyForm1 {
     public static void main(String[] args) throws InterruptedException {
         // Setting up ExtentReports for logging test execution
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("romeesa.html");

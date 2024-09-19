@@ -19,7 +19,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class compliancedashboarddatefilter {
+public class ComplianceDashboardDateFilter {
 	
 
 	public static void main(String[] args) throws InterruptedException {
