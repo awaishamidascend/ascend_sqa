@@ -72,7 +72,7 @@ public class New_Event {
         Thread.sleep(3000);
         
      // Click on the dropdown to expand it
-        driver.findElement(By.xpath("//div[@class='mb-1 col-sm-12 col-md-6']//div[@class='select__value-container select__value-container--has-value css-1d8n9bt']//div[@class='select__input-container css-ackcql']")).click();
+        driver.findElement(By.xpath("(//div)[69]")).click();
         System.out.println("Dropdown clicked");
 
         // Wait for the option to be visible
@@ -189,17 +189,45 @@ public class New_Event {
         WebElement nextpage2 = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='button' and contains(@class, 'next-btn')]/span[text()='Next']")));
         System.out.println("next button detected");      
 	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", nextpage2);
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Scroll to the bottom of the page
+		js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+
 	    nextpage2.click();
 	    
         //page 2 
+	    
+	    JavascriptExecutor js1 = (JavascriptExecutor) driver;
+	    // Scroll to the top of the page
+	    js1.executeScript("window.scrollTo(0, 0);");
+		Thread.sleep(2000);
+
         //Date of detection*
-        WebElement datedetection = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@placeholder='yyyy-mm-dd | 24:45'])[1]")));
-        System.out.println("Detected Calender Box");
-        datedetection.click();
-		WebElement datePick = driver.findElement(By.xpath("//div[@class='flatpickr-calendar hasTime animate open arrowTop']//div[@class='flatpickr-days']"));
-		System.out.println("Detected date");
-		datePick.click();
-		//((JavascriptExecutor) driver).executeScript("arguments[0].click();", dateElement);
+		
+		// Locate the disabled calendar input element
+		WebElement calendarInput = driver.findElement(By.xpath("//input[@name='detection.date_of_detection']"));
+
+		// Use JavaScriptExecutor to click on the disabled calendar input
+		JavascriptExecutor js2 = (JavascriptExecutor) driver; // Cast the WebDriver, not the element
+		js2.executeScript("arguments[0].removeAttribute('readonly', 0);", calendarInput); // Removes the readonly attribute
+		js2.executeScript("arguments[0].click();", calendarInput); // Simulates the click action
+		
+		WebElement calendarBox = driver.findElement(By.xpath("(//input[@placeholder='yyyy-mm-dd | 24:45'])[1]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", calendarBox);
+		calendarBox.click();
+
+
+
+		Thread.sleep(3000); // Adjust timing as needed
+
+		// Select the desired date
+		WebElement datePick = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[@aria-label='September 10, 2024'][normalize-space()='10'])[2]")));
+		((JavascriptExecutor) datePick).executeScript("arguments[0].scrollIntoView(true);", datePick);
+		JavascriptExecutor js3 = (JavascriptExecutor) driver;
+		js3.executeScript("arguments[0].click();", datePick);
+
+
 		Thread.sleep(2000);
 		
 		//Detection Narrative
