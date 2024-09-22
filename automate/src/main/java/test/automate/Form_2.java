@@ -1,6 +1,7 @@
 package test.automate;
 
 import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
@@ -74,11 +75,11 @@ public class Form_2 {
 	        Thread.sleep(5000);
 
 	        
-	        //cluster 
+	      //cluster 
 	        driver.findElement(By.xpath("//input[@id='rc_select_1']")).click();
 
 	        // Wait for the site dropdown to be clickable
-	        WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]")));
+	        WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]")));
 	        siteDropdown.click();
 	        Thread.sleep(5000);
 	        System.out.println("Second Dropdown Clicked");
@@ -96,7 +97,7 @@ public class Form_2 {
 	        //WebElement hafarhealthclusterOption = driver.findElement(By.xpath("//div[@name='Hafar Health Cluster' and @class='ant-select-item ant-select-item-option' and @title='Hafar Health Cluster']"
 	        //	)); hafarhealthclusterOption.click();
 
-	        // site
+	     // site
 	        driver.findElement(By.xpath("//input[@id='rc_select_2']")).click();
 
 	        
@@ -105,7 +106,7 @@ public class Form_2 {
 	        Thread.sleep(7000);
 	        
 	        // Locate the element using the appropriate selector
-	        WebElement element = driver.findElement(By.xpath("//div[@class='ant-select-item-option-content' and contains(text(), '3610103006110009 - Al-Dawaa Pharmacy Ninety-Two')]"));
+	        WebElement element = driver.findElement(By.xpath("/html/body/div[4]/div/div/div[2]/div[1]/div/div/div[2]/div"));
 
 	        // Perform the click action
 	        element.click();
@@ -170,7 +171,105 @@ public class Form_2 {
 	         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='Is the department available?']")));
 
 	         driver.findElement(By.xpath("//input[contains(@value,'Yes')]")).click();
-	     
+	         
+	      // Locate the parent container of the labels
+	         WebElement parentContainer = driver.findElement(By.xpath("//div[contains(@class, 'ant-formily-layout ant-form-vertical')]"));
+
+	         // Find all label elements within the parent container
+	         List<WebElement> labels = parentContainer.findElements(By.xpath(".//label"));
+
+	         // Iterate over the list of labels and select the "Comply" option for each question
+	         for (WebElement label : labels) {
+	             String labelText = label.getText();
+
+	             // Check if the label contains 'Comply', 'Not Comply', or 'N/A' and skip these labels
+	             if (!(labelText.contains("Comply") || labelText.contains("Not Comply") || labelText.contains("N/A"))) {
+	                 System.out.println("Question: " + labelText);
+
+	                 // Locate the corresponding "Comply" radio button for this question
+	                 // Assuming the "Comply" radio button is the next sibling of the label
+	                 WebElement complyOption = label.findElement(By.xpath(".//following::input[@value='Comply'][1]"));
+	                 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, arguments[0].getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2 - arguments[0].offsetHeight / 2));",complyOption);
+	                 Thread.sleep(2000);
+
+	                 // Click the "Comply" option
+	                 complyOption.click();
+	                 System.out.println("Selected 'Comply' for: " + labelText);
+	             }
+	         }
+
+	         // Next step
+	         driver.findElement(By.xpath("//span[normalize-space()='Next step']")).click();
+
+             //Is the department available?
+	         
+	         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//label[text()='Is the department available?']")));
+
+	         driver.findElement(By.xpath("//input[contains(@value,'Yes')]")).click();
+	         
+	      // Locate the parent container of the labels
+	         WebElement parentContainer1 = driver.findElement(By.xpath("//div[contains(@class, 'ant-formily-layout ant-form-vertical')]"));
+
+	         // Find all label elements within the parent container
+	         List<WebElement> labels1 = parentContainer1.findElements(By.xpath(".//label"));
+
+	         // Iterate over the list of labels and select the "Comply" option for each question
+	         for (WebElement label : labels1) {
+	             String labelText = label.getText();
+
+	             // Check if the label contains 'Comply', 'Not Comply', or 'N/A' and skip these labels
+	             if (!(labelText.contains("Comply") || labelText.contains("Not Comply") || labelText.contains("N/A"))) {
+	                 System.out.println("Question: " + labelText);
+
+	                 // Locate the corresponding "Comply" radio button for this question
+	                 // Assuming the "Comply" radio button is the next sibling of the label
+	                 WebElement complyOption = label.findElement(By.xpath(".//following::input[@value='Comply'][1]"));
+	                 ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, arguments[0].getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2 - arguments[0].offsetHeight / 2));",complyOption);
+	                 Thread.sleep(2000);
+
+	                 // Click the "Comply" option
+	                 complyOption.click();
+	                 System.out.println("Selected 'Comply' for: " + labelText);
+	             }
+	         }
+	         
+	          // Next step
+	         driver.findElement(By.xpath("//span[normalize-space()='Next step']")).click();
+             //note
+	         driver.findElement(By.xpath("//textarea[@class='ant-input css-14mobv6']")).sendKeys("test");
+             //scroll
+	         
+	         WebElement element11 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]/input[1]")));
+	  	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element11);
+	          
+	         	         
+	         //Delegated Person Information
+	         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]/input[1]")).sendKeys("test");
+
+	         driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]/input[1]")).sendKeys("852111");
+
+	         //issue date
+	         
+	         WebElement scrolling1 = wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//input[contains(@class, 'date-picker-input') and contains(@placeholder, 'Select date')]"))));
+		  	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrolling1);
+		        Thread.sleep(3000);
+
+		         driver.findElement(By.xpath("//input[contains(@class, 'date-picker-input') and contains(@placeholder, 'Select date')]")).click();
+		      //scroll 2
+		         WebElement element111 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/canvas[1]")));
+			  	    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element111);
+			          
+	         //issue place
+		     driver.findElement(By.xpath("//span[@class='ant-input-affix-wrapper ant-input-affix-wrapper-focused css-14mobv6']//input[@type='text']")).sendKeys("test");
+		     driver.findElement(By.xpath("//span[@class='ant-input-affix-wrapper ant-input-affix-wrapper-focused css-14mobv6']//input[@type='text']")).sendKeys("test");
+             
+		     //signature
+		     driver.findElement(By.xpath("//div[@class='signature-wrapper']//canvas")).click();
+
+	         // submit form
+		     
+		     driver.findElement(By.xpath("//button[@class='ant-btn css-14mobv6 ant-btn-primary submitButton']")).click();
+
 	}
 
 }
