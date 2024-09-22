@@ -1,7 +1,4 @@
 package test.automate;
-
-
-
 	import java.time.Duration;
 	import java.util.List;
 	import java.util.concurrent.TimeoutException;
@@ -104,15 +101,7 @@ package test.automate;
 		        WebElement dropdown1 = driver.findElement(By.xpath("//input[@id='rc_select_2']"));
 		        dropdown1.click();
 
-		     // Select the span element by its class and title
-		        let spanElement = document.querySelector('span.ant-select-selection-item[title="3610102004910001 - Medical skin care clinic - عيادة رعاية الجلد الطبية"]');
-
-		        // Access the upper (parent) element
-		        let parentElement = spanElement.parentElement;  // This will select the immediate parent of the span element
-
-		        // Now you can do whatever you need with the parent element, e.g., log it
-		        console.log(parentElement);
-
+		   
 		        
 		        
 		        
