@@ -246,6 +246,9 @@ public class Form_3{
 		jsExecutor1.executeScript("window.scrollTo(0, 0);");
 		Thread.sleep(2000);
 
+		System.out.println("Scrolled to Top");
+
+		
 		//note
 		driver.findElement(By.xpath("//textarea[@class='ant-input css-14mobv6']")).sendKeys("test");
 		//scroll
