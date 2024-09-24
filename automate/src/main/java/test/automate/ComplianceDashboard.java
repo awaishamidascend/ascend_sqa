@@ -19,7 +19,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class compliancedashboard {
+public class ComplianceDashboard {
 
 
 	public static void main(String[] args) throws InterruptedException {

@@ -15,7 +15,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class taskschedular {
+public class TaskSchedular {
 
     public static void main(String[] args) throws InterruptedException {
     	
