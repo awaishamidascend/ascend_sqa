@@ -42,34 +42,34 @@ public class efficonXLoginTest {
         return Stream.empty();
     }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("setUpData")
-    public void testLoginAndLogout(efficonXLoginVO obj_efficonXVO) throws InterruptedException {
-        System.out.println("Executing test with user: " + obj_efficonXVO.getUsername());
+     @ParameterizedTest(name = "{0}")
+     @MethodSource("setUpData")
+     public void testLoginAndLogout(efficonXLoginVO obj_efficonXVO) throws InterruptedException {
+            System.out.println("Executing test with user: " + obj_efficonXVO.getUsername());
 
-        // Perform login
-        efficonXLoginPOM.username(obj_efficonXVO.getUsername());
-        efficonXLoginPOM.password(obj_efficonXVO.getPassword());
-        Thread.sleep(3000);
-        efficonXLoginPOM.submit();
+         // Perform login
+         efficonXLoginPOM.username(obj_efficonXVO.getUsername());
+         efficonXLoginPOM.password(obj_efficonXVO.getPassword());
+         Thread.sleep(3000);
+         efficonXLoginPOM.submit();
 
-        // Wait for a while
-        Thread.sleep(10000);
+         // Wait for a while
+         Thread.sleep(10000);
 
-        // Perform logout
-        efficonXLoginPOM.options();
-        efficonXLoginPOM.logout();
+         // Perform logout
+         efficonXLoginPOM.options();
+         efficonXLoginPOM.logout();
 
-        // Wait before finishing the test
-        Thread.sleep(5000);
-    }
+         // Wait before finishing the test
+         Thread.sleep(5000);
+     }
 
-    @AfterAll
-    public static void tearDown() {
-        // Quit the driver after each test
-        System.out.println("AfterEach: Quitting WebDriver");
-        if (setupClass != null) {
-            setupClass.quitDriver();
-        }
+     @AfterAll
+     public static void tearDown() {
+         // Quit the driver after each test
+         System.out.println("AfterEach: Quitting WebDriver");
+         if (setupClass != null) {
+             setupClass.quitDriver();
+         }
     }
 }

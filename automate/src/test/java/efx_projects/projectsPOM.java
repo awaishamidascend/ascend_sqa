@@ -56,17 +56,31 @@ public class projectsPOM extends WebDriver.webdriverSetup {
 
         //Entering Date
         WebElement date = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@id='date'])[1]")));
-        date.click();
-        date.sendKeys("01012024");
+        //date.click();
+        System.out.println("Clicked Date");
+        Thread.sleep(3000);
 
-        //Entering Client
-        WebElement client = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//span[@class='multiselect__single'])[1]")));
-        client.click(); // Click to open the dropdown
-        client.sendKeys("MOMRA");
-        // Wait for the option to become visible and clickable
-        WebElement optionToSelect = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(@class, 'multiselect__option') and contains(text(),'MOMRA')]")));
-        // Click the option once it's visible
-        optionToSelect.click();
+//        //((JavascriptExecutor) driver).executeScript("arguments[0].value = '12/09/2024';", date);
+//        date.sendKeys("12092024");
+//
+//        //date.sendKeys("11111111");
+//        System.out.println("Entered Date");
+//
+//
+//        //Entering Client
+//        WebElement client = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@placeholder='Select client'])[1]")));
+//        client.click(); // Click to open the dropdown
+//        client.sendKeys("NUPCO");
+//        System.out.println("Sent keys NUPCO");
+//
+//        // Wait for the option to become visible and clickable
+//        WebElement optionToSelect = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/form[1]/div[1]/div[4]/div[2]/div[2]/input[1]")));
+//        // Click the option once it's visible
+//        optionToSelect.click();
+//        System.out.println("Opened New Projects");
+
+
+
 
 
     }
