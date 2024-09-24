@@ -80,9 +80,9 @@ public class Form_3{
 		// Wait for the site dropdown to be clickable
 		WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]")));
 		siteDropdown.click();
-		
+
 		Thread.sleep(5000);
-		
+
 		System.out.println("Second Dropdown Clicked");
 
 		// Locate the dropdown element
@@ -102,15 +102,13 @@ public class Form_3{
 		dropdown1.click();
 		Thread.sleep(5000);
 
-		// Locate and select "Site"
-		WebElement option = driver.findElement(By.xpath("//label[text()='Sites']"));
-		option.click();		     		       
+		
 		System.out.println("Site Dropdown Clicked");
 
 		Thread.sleep(5000);
 
 		// Locate the dropdown option
-		WebElement dropdownOption = driver.findElement(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]"));
+		WebElement dropdownOption = driver.findElement(By.xpath("//div[@title='3610102004910001 - Medical skin care clinic - عيادة رعاية الجلد الطبية']"));
 
 		// Click the dropdown option using JavaScript Executor
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
