@@ -228,7 +228,7 @@ public class Form_3{
 				// Assuming the "Comply" radio button is the next sibling of the label
 				WebElement complyOption = label.findElement(By.xpath(".//following::input[@value='Comply'][1]"));
 				((JavascriptExecutor) driver).executeScript("window.scrollTo(0, arguments[0].getBoundingClientRect().top + window.pageYOffset - (window.innerHeight / 2 - arguments[0].offsetHeight / 2));",complyOption);
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 
 				// Click the "Comply" option
 				complyOption.click();
