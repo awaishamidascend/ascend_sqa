@@ -235,7 +235,7 @@ public class New_Event {
         
         //page 3
         
-
+//
 //        //Date of detection* 
 // 		WebElement date3 = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@placeholder='Date'])[1]")));
 //         System.out.println("Detected Calender Box");
