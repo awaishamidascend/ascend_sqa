@@ -44,7 +44,8 @@ package test.automate;
 		        driver.findElement(By.xpath("//button[@type='submit']")).click();
 		        Thread.sleep(5000);
 		        System.out.println("Login Success");
-		        String otp = "786786";
+		        @SuppressWarnings("unused")
+				String otp = "786786";
 			   
 			    Thread.sleep(5000);
 		        // Navigate to Forms and Self Assessment form
@@ -106,10 +107,15 @@ package test.automate;
 		        
 		        
 		        
-		        // Locate and select the desired option using XPath
-		        WebElement option = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]"));
+		        // Locate and select "Site"
+		        WebElement option = driver.findElement(By.xpath("//div[@class='ant-formily-item-label-content']/label[text()='Sites']/ancestor::div[contains(@class,'ant-formily-item')]//div[contains(@class,'ant-select-selector')]"));
 		        option.click();		     		       
-		        System.out.println("third Dropdown Clicked");
+		        System.out.println("Site Dropdown Clicked");
+		        
+		        WebElement dropdownoption = driver.findElement(By.xpath("//div[@class='rc-virtual-list-holder-inner']//div[@name='Medical skin care clinic' and contains(@class, 'ant-select-item-option')]"));
+		        dropdownoption.clear();
+		        System.out.println("Site Selected");
+
 		        
 		        Thread.sleep(5000);
 		        

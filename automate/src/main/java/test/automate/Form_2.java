@@ -57,17 +57,15 @@ public class Form_2 {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'المركز الصحي المناوب')]"))).click();
 		Thread.sleep(5000);
 
-<<<<<<< HEAD
+
 	        
 	      //cluster 
 	        driver.findElement(By.xpath("//input[@id='rc_select_1']")).click();
-=======
+
 		// Clicking Add new form
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[normalize-space()='Create']"))).click();
 		//wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//p[normalize-space()='Create']"))).click();
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
 
-<<<<<<< HEAD
 	        // Wait for the site dropdown to be clickable
 	        WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]")));
 	        siteDropdown.click();
@@ -78,22 +76,19 @@ public class Form_2 {
 	        
 	     // Locate the dropdown element
 	        //WebElement dropdown1 = driver.findElement(By.xpath("//input[@id='rc_select_1']"));
-=======
+
 		Thread.sleep(5000);
 		System.out.println("Clicked Add New Form");
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
 
 
-<<<<<<< HEAD
+
 	     // site
 	        driver.findElement(By.xpath("//input[@id='rc_select_2']")).click();
-=======
+
 		//Clicking "Region" dropdown 
 		WebElement dropdown = driver.findElement(By.xpath("(//input[@id='rc_select_0'])[1]")); // Click the dropdown to open it
 		dropdown.click();
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
 
-<<<<<<< HEAD
 	        
 	        System.out.println("third Dropdown Clicked");
 	        
@@ -101,10 +96,8 @@ public class Form_2 {
 	        
 	        // Locate the element using the appropriate selector
 	        WebElement element = driver.findElement(By.xpath("/html/body/div[4]/div/div/div[2]/div[1]/div/div/div[2]/div"));
-=======
 		//Clicking item in "Region" dropdown 
 		WebElement hafarOption = driver.findElement(By.xpath("//div[@title='HAFAR']")); hafarOption.click();
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
 
 		Thread.sleep(5000);
 
@@ -114,11 +107,10 @@ public class Form_2 {
 		Thread.sleep(3000);
 
 		//Clicking items in "Cluster" dropdown
-		WebElement siteDropdown = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(text(),'Hafar Health Cluster')])[1]")));
+		WebElement siteDropdown1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//div[contains(text(),'Hafar Health Cluster')])[1]")));
 		//siteDropdown.click();
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", siteDropdown);
+		((JavascriptExecutor) driver).executeScript("arguments[0].click();", siteDropdown1);
 
-<<<<<<< HEAD
 	         driver.findElement(By.xpath("//input[contains(@value,'Yes')]")).click();
 	         
 	      // Locate the parent container of the labels
@@ -218,7 +210,7 @@ public class Form_2 {
 	         // submit form
 		     
 		     driver.findElement(By.xpath("//button[@class='ant-btn css-14mobv6 ant-btn-primary submitButton']")).click();
-=======
+
 		Thread.sleep(5000);
 		System.out.println("Second Dropdown Clicked");
 
@@ -231,10 +223,10 @@ public class Form_2 {
 		Thread.sleep(5000);
 
 		//Clicking items in "Site" dropdown
-		WebElement element = driver.findElement(By.xpath("//div[@class='ant-select-item-option-content' and text()='N/A - السليمانية']"));
+		WebElement element1 = driver.findElement(By.xpath("//div[@class='ant-select-item-option-content' and text()='N/A - السليمانية']"));
 
 		// Perform the click action
-		element.click();
+		element1.click();
 		Thread.sleep(5000);
 
 		//City name
@@ -255,8 +247,8 @@ public class Form_2 {
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/span[1]/input[1]")).sendKeys("test");
 
 		//scroll
-		WebElement element1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[3]/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]")));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element1);
+		WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[3]/div[4]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element2);
 
 
 		//Institution email
@@ -266,8 +258,8 @@ public class Form_2 {
 		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[5]/div[3]/div[3]/div[2]/div[1]/div[1]/span[1]/input[1]")).sendKeys("123456");
 
 		//scroll1
-		WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ant-card ant-card-bordered ant-card-small ant-card-type-default dn-signature css-14mobv6']//div[@class='ant-card-body']")));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element2);
+		WebElement element21 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ant-card ant-card-bordered ant-card-small ant-card-type-default dn-signature css-14mobv6']//div[@class='ant-card-body']")));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element21);
 		//date
 		System.out.println("Clicking on 1st Date Element");
 
@@ -311,7 +303,6 @@ public class Form_2 {
 		complyOption.click();
 
 
->>>>>>> branch 'romeesa_efficax_aman' of https://github.com/awaishamidascend/ascend_sqa.git
 
 	}
 
