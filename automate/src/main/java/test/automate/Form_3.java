@@ -18,7 +18,7 @@ package test.automate;
 
 	import io.github.bonigarcia.wdm.WebDriverManager;
 
-	public class form3{
+	public class Form_3{
 
 		   public static void main(String[] args) throws InterruptedException, TimeoutException {
 		    	
