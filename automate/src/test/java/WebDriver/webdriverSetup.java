@@ -1,8 +1,9 @@
 package WebDriver;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class webdriverSetup {
     private String baseUrl = "https://dev.efficonx.com";
@@ -18,30 +19,23 @@ public class webdriverSetup {
         return driverManager;
     }
 
-    // Initialize the WebDriver with a headless flag
+    // Initialize the WebDriver
     public void webdriverSetup() {
         try {
             System.out.println("Setting up WebDriver...");
-            String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe";
+            String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Adjust path as necessary
             System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
-
-            // Configure FirefoxOptions with the headless option
-            FirefoxOptions options = new FirefoxOptions();
-            boolean headless = false;
-            if (headless) {
-                options.setHeadless(true);  // Enable headless mode
-                System.out.println("Running in headless mode");
-            } else {
-                System.out.println("Running in non-headless mode");
-            }
-
-            driver = new FirefoxDriver(options);  // Pass options to FirefoxDriver
+//            ChromeOptions options = new ChromeOptions();
+//            // If Chrome is in a non-standard location, set the binary path
+//            options.setBinary("C:/Program Files/Google/Chrome/Application/chrome.exe"); // Replace with your Chrome path if different
+            driver = new FirefoxDriver();
             System.out.println("WebDriver initialized: " + (driver != null));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    // Load the base URL
     public void loadBaseUrl() throws InterruptedException {
         if (driver != null) {
             System.out.println("Loading base URL: " + baseUrl);
@@ -53,6 +47,7 @@ public class webdriverSetup {
         }
     }
 
+    // Quit the WebDriver
     public void quitDriver() {
         if (driver != null) {
             System.out.println("Quitting WebDriver...");
