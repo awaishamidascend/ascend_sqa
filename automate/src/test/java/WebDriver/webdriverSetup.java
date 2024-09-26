@@ -5,7 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-
 public class webdriverSetup {
     private String baseUrl = "https://dev.efficonx.com";
     protected static WebDriver driver;
@@ -20,26 +19,15 @@ public class webdriverSetup {
         return driverManager;
     }
 
-    // Initialize the WebDriver with platform detection
+    // Initialize the WebDriver
     public void webdriverSetup() {
         try {
             System.out.println("Setting up WebDriver...");
-
-            // Detect OS and set the appropriate WebDriver path
-            String os = System.getProperty("os.name").toLowerCase();
-            String fireFoxDriverPath;
-
-            if (os.contains("win")) {
-                // Windows path
-                fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe";
-            } else {
-                // Linux/Mac path
-                fireFoxDriverPath = "src/test/resources/drivers/geckodriver";
-            }
-
+            String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Adjust path as necessary
             System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
-
-            // Initialize the FirefoxDriver
+//            ChromeOptions options = new ChromeOptions();
+//            // If Chrome is in a non-standard location, set the binary path
+//            options.setBinary("C:/Program Files/Google/Chrome/Application/chrome.exe"); // Replace with your Chrome path if different
             driver = new FirefoxDriver();
             System.out.println("WebDriver initialized: " + (driver != null));
         } catch (Exception e) {
