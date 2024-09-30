@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-import pageObjects.efficonX_login_page;
+import pageObjects.efficonX_POM;
 
 public class efficonX_login_test {
 	
@@ -26,14 +26,14 @@ public class efficonX_login_test {
             // Wait for the page to load
             Thread.sleep(5000);  // Handle the InterruptedException
 
-            efficonX_login_page.username(driver).sendKeys("awais.hamid@ascend.com.sa");
-            efficonX_login_page.password(driver).sendKeys("eod777");
-            efficonX_login_page.submit(driver).click();
+            efficonX_POM.username(driver).sendKeys("awais.hamid@ascend.com.sa");
+            efficonX_POM.password(driver).sendKeys("eod777");
+            efficonX_POM.submit(driver).click();
 
             Thread.sleep(10000); 
 
-            efficonX_login_page.options(driver).click();
-            efficonX_login_page.logout(driver).click();
+            efficonX_POM.options(driver).click();
+            efficonX_POM.logout(driver).click();
            
             Thread.sleep(5000); 
 

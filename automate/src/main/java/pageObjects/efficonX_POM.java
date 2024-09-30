@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class efficonX_login_page {
+public class efficonX_POM {
 
 	private static WebElement element = null;
 	
