@@ -47,7 +47,7 @@ public class projectsTest {
     public void testLoginAndLogout(projectsVO obj_reporterVO) throws InterruptedException {
         System.out.println("Executing test with user: " + obj_reporterVO.getUsername());
 
-        // Perform login
+        // Perform login ok
         projectsPOM.username(obj_reporterVO.getUsername());
         projectsPOM.password(obj_reporterVO.getPassword());
         Thread.sleep(3000);
