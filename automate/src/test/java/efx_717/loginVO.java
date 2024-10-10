@@ -11,12 +11,15 @@ public class loginVO {
 
     private String username;
     private String password;
+    private String otp;
 
     // Getters and setters
 
     public String getUsername() {return username;}
 
     public String getPassword() {return password;}
+
+    public String getOtp() {return otp;}
 
     public void setUsername(String username) {
         this.username = username;
@@ -25,6 +28,12 @@ public class loginVO {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public void setOtp(String otp) {
+        System.out.println("NEWWWWWWW");
+        this.otp = otp;
+    }
+
 
     public void setUsers(List<loginVO> users) {
         Users = users;

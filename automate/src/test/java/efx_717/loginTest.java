@@ -31,7 +31,7 @@ public class loginTest {
 
         // Read credentials from JSON file using Gson
         Gson gson = new Gson();
-        try (FileReader reader = new FileReader("jsons/Users/Users.json")) {
+        try (FileReader reader = new FileReader("jsons/Users/717_Users.json")) {
             // Deserialize into UsersWrapper
             loginVO wrapper = gson.fromJson(reader, loginVO.class);
             // Return the stream of users
@@ -52,6 +52,7 @@ public class loginTest {
         loginPOM.password(obj_loginVO.getPassword());
         Thread.sleep(3000);
         loginPOM.submit();
+        loginPOM.OTP(obj_loginVO.getOtp());
 
         // Wait for a while
         Thread.sleep(10000);

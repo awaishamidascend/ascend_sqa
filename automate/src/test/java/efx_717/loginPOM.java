@@ -31,7 +31,8 @@ public class loginPOM extends WebDriver.webdriverSetup {
         }
 
         public static void OTP () {
-                String otp = "786786";
+            System.out.println("Umairrrrrr");
+                String otp = "otp";
                 // Find the OTP input field
                 //WebElement otpInput = driver.findElement(By.xpath("//input[@aria-label='Please enter OTP character 1']"));
                 // Loop through each digit of the OTP and enter it into the input field
