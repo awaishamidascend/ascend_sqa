@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class webdriverSetup {
-    private String baseUrl = "https://dev.efficonx.com";
+    private String baseUrl = "https://efficax-717.kakashi.app/login";
     protected static WebDriver driver;
     private static webdriverSetup driverManager;
 

@@ -22,7 +22,6 @@ public class reportTest {
     public static void setUpClass() throws InterruptedException {
         // Initialize WebDriver once before all tests
         System.out.println("BeforeAll: Initializing WebDriver");
-        ds
         setupClass = webdriverSetup.getInstance();
         setupClass.webdriverSetup();
         setupClass.loadBaseUrl();
