@@ -4,38 +4,42 @@ import java.util.List;
 
 public class loginVO {
 
-    private List<efx_717.loginVO> Users;
-    public List<efx_717.loginVO> getUsers() {
-        return Users;
-    }
-
+    private List<loginVO> users;
     private String username;
     private String password;
     private String otp;
 
-    // Getters and setters
+    // Getters and Setters
+    public List<loginVO> getUsers() {
+        return users;
+    }
 
-    public String getUsername() {return username;}
+    public void setUsers(List<loginVO> users) {
+        this.users = users;
+    }
 
-    public String getPassword() {return password;}
-
-    public String getOtp() {return otp;}
+    public String getUsername() {
+        return username;
+    }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setOtp(String otp) {
-        System.out.println("NEWWWWWWW");
-        this.otp = otp;
+    public String getOtp() {
+        return otp;
     }
 
-
-    public void setUsers(List<loginVO> users) {
-        Users = users;
+    public void setOtp(String otp) {
+        System.out.println("Setting OTP");
+        this.otp = otp;
     }
 }

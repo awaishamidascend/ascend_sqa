@@ -1,12 +1,7 @@
 package efx_717;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 
 public class loginPOM extends WebDriver.webdriverSetup {
@@ -30,9 +25,9 @@ public class loginPOM extends WebDriver.webdriverSetup {
             driver.findElement(By.xpath("//button[@type='submit']")).click();
         }
 
-        public static void OTP () {
+        public static void OTP (String otp) {
             System.out.println("Umairrrrrr");
-                String otp = "otp";
+                String otp1 = "otp";
                 // Find the OTP input field
                 //WebElement otpInput = driver.findElement(By.xpath("//input[@aria-label='Please enter OTP character 1']"));
                 // Loop through each digit of the OTP and enter it into the input field

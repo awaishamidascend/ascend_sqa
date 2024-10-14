@@ -3,17 +3,12 @@ package efx_717;
 import WebDriver.webdriverSetup;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.stream.Stream;
-
 
 public class loginTest {
     private static webdriverSetup setupClass;
@@ -28,13 +23,11 @@ public class loginTest {
     }
 
     public static Stream<loginVO> setUpData() {
-
         // Read credentials from JSON file using Gson
         Gson gson = new Gson();
         try (FileReader reader = new FileReader("jsons/Users/717_Users.json")) {
-            // Deserialize into UsersWrapper
+            // Deserialize into UsersWrapper or list directly
             loginVO wrapper = gson.fromJson(reader, loginVO.class);
-            // Return the stream of users
             return wrapper.getUsers().stream();
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,24 +37,25 @@ public class loginTest {
 
     @ParameterizedTest(name = "{0}")
     @MethodSource("setUpData")
-    public void testLoginAndLogout(loginVO obj_loginVO) throws InterruptedException {
-        System.out.println("Executing test with user: " + obj_loginVO.getUsername());
+    public void testLoginAndLogout(loginVO objLoginVO) throws InterruptedException {
+        System.out.println("Executing test with user: " + objLoginVO.getUsername());
 
         // Perform login
-        loginPOM.username(obj_loginVO.getUsername());
-        loginPOM.password(obj_loginVO.getPassword());
-        Thread.sleep(3000);
+        loginPOM.username(objLoginVO.getUsername());
+        loginPOM.password(objLoginVO.getPassword());
+        Thread.sleep(3000); // Consider replacing with WebDriverWait
         loginPOM.submit();
-        loginPOM.OTP(obj_loginVO.getOtp());
+        loginPOM.OTP(objLoginVO.getOtp());
 
-        // Wait for a while
-        Thread.sleep(10000);
+        // Wait for OTP to be entered and proceed with submission
+        Thread.sleep(10000); // Replace with WebDriverWait if possible
+        loginPOM.SubmitOTP();
     }
 
     @AfterAll
     public static void tearDown() {
-        // Quit the driver after each test
-        System.out.println("AfterEach: Quitting WebDriver");
+        // Quit the driver after all tests
+        System.out.println("AfterAll: Quitting WebDriver");
         if (setupClass != null) {
             setupClass.quitDriver();
         }
