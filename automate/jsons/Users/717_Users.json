@@ -3,7 +3,7 @@
 		{
 			"username": "system@efficax.com",
 			"password": "eod777",
-			"otp": "786786"
+			"otp": "123456" // Add OTP field
 		}
 	]
 }
