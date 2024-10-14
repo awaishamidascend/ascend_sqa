@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class webdriverSetup {
-    private String baseUrl = "https://dev.efficonx.com";
+    private String baseUrl = "https://dev-efficax-obligation.kakashi.app/login?isQA=true";
     protected static WebDriver driver;
     private static webdriverSetup driverManager;
 
@@ -41,7 +41,7 @@ public class webdriverSetup {
             System.out.println("Loading base URL: " + baseUrl);
             driver.get(baseUrl);
             driver.manage().window().maximize();
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } else {
             throw new IllegalStateException("WebDriver is not initialized. Please initialize the WebDriver before calling loadBaseUrl().");
         }
