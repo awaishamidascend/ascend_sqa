@@ -46,11 +46,14 @@ public class loginTest {
         Thread.sleep(3000); // Consider replacing with WebDriverWait
         loginPOM.submit();
 
+        Thread.sleep(3000); // Consider replacing with WebDriverWait
         // Retrieve OTP from the user object
         String otp = objLoginVO.getOtp(); // Now we can get the OTP directly from objLoginVO
         loginPOM.OTP(otp); // Input OTP
         Thread.sleep(3000); // Wait for OTP input to complete (use WebDriverWait if possible)
         loginPOM.SubmitOTP(); // Submit OTP
+        Thread.sleep(3000); // Wait for OTP input to complete (use WebDriverWait if possible)
+
     }
 
 
