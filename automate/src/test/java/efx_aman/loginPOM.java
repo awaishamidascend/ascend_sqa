@@ -47,6 +47,28 @@ public class loginPOM extends WebDriver.webdriverSetup {
         driver.get("https://dev-efficax-obligation.kakashi.app/login?isQA=true");
     }
 
+    public static void FORM() {
+
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div[1]/div[1]/div[3]/ul[1]/li[2]/a")).click();
+    }
+
+    public static void الصيدليات() {
+
+        driver.findElement(By.xpath("//span[contains(text(),'الصيدليات')]")).click();
+    }
+
+    public static void export() {
+
+        driver.findElement(By.xpath("//div[contains(@class,'icon')]//figure")).click();
+    }
+
+
+
+
+
+
+
+
 }
 
 
