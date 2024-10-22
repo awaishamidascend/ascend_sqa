@@ -62,7 +62,10 @@ public class loginPOM extends WebDriver.webdriverSetup {
         driver.findElement(By.xpath("//div[contains(@class,'icon')]//figure")).click();
     }
 
+    public static void pdf() {
 
+        driver.findElement(By.xpath("//div[@id='row-0']//div[@class='cursorPointer']//*[name()='svg']")).click();
+    }
 
 
 

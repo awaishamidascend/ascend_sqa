@@ -58,6 +58,9 @@ public class EXPORT {
             loginPOM.export();
             Thread.sleep(2000);
 
+            loginPOM.pdf();
+            Thread.sleep(10000);
+
             loginPOM.profile();
             Thread.sleep(2000);
             loginPOM.logout();

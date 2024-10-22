@@ -1,22 +1,18 @@
 package efx_aman;
 
 import WebDriver.webdriverSetup;
-import com.google.gson.Gson;
-import efx_projects.projectsPOM;
-import efx_projects.projectsVO;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.stream.Stream;
 
-public class loginTest {
-
-
+public class login {
 
     private static webdriverSetup setupClass;
+    //private static LoginHelper loginHelper;
+    private static loginPOM loginPOM;
+
 
     @BeforeAll
     public static void setUpClass() throws InterruptedException {
@@ -43,30 +39,5 @@ public class loginTest {
         loginPOM.password(obj_reporterVO.getPassword());
         Thread.sleep(3000);
         loginPOM.submit();
-
-        Thread.sleep(5000);
-
-
-        loginPOM.profile();
-        Thread.sleep(2000);
-        loginPOM.logout();
-
-        // Wait for a while
-        Thread.sleep(10000);
-
-        loginPOM.Secondurl();
-        Thread.sleep(10000);
-
-
-    }
-
-    @AfterAll
-    public static void tearDown() {
-        // Quit the driver after each test
-        System.out.println("AfterEach: Quitting WebDriver");
-        if (setupClass != null) {
-            setupClass.quitDriver();
-        }
     }
 }
-
