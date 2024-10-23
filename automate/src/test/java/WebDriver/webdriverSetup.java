@@ -11,17 +11,18 @@ public class webdriverSetup {
     protected static WebDriver driver;
     private static webdriverSetup driverManager;
 
-    // Singleton pattern to ensure only one instance of webdriverSetup exists
-    public static webdriverSetup getInstance() {
+    // Singleton pattern to ensure only one instance of WebDriverSetup exists
+    public static synchronized webdriverSetup getInstance() {
         if (driverManager == null) {
-            System.out.println("Creating new instance of webdriverSetup");
+            System.out.println("Creating new instance of WebDriverSetup");
             driverManager = new webdriverSetup();
+            driverManager.initializeWebDriver(); // Initialize the WebDriver upon instance creation
         }
         return driverManager;
     }
 
     // Initialize the WebDriver with Firefox or Chrome in headless mode
-    public void webdriverSetup() {
+    private void initializeWebDriver() {
         try {
             System.out.println("Setting up WebDriver...");
 
@@ -72,16 +73,17 @@ public class webdriverSetup {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException("Failed to initialize WebDriver: " + e.getMessage());
         }
     }
 
     // Load the base URL
-    public void loadBaseUrl() throws InterruptedException {
+    public void loadBaseUrl() {
         if (driver != null) {
             System.out.println("Loading base URL: " + baseUrl);
             driver.get(baseUrl);
             driver.manage().window().maximize();
-            Thread.sleep(3000);
+            // Use explicit waits here instead of Thread.sleep()
         } else {
             throw new IllegalStateException("WebDriver is not initialized. Please initialize the WebDriver before calling loadBaseUrl().");
         }
