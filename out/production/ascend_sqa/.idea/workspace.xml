@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e15a4303-9a7b-482d-813d-598fc56ad140" name="Changes" comment="efficax 717">
+      <change beforePath="$PROJECT_DIR$/automate/src/test/java/efx_717/loginVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/automate/src/test/java/efx_717/loginVO.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="IntelliJ" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;awaishamidascend&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/awaishamidascend/ascend_sqa.git&quot;,
+    &quot;accountId&quot;: &quot;9b07df71-add0-4243-8b54-c967471efc5b&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/automate/src/test/java/efx_projects/projectsPOM.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2lKacakxD486AVpuIGoiPcWmQdo" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.efficonX_login.executor&quot;: &quot;Run&quot;,
+    &quot;Application.efficonX_login_test.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.efficonXLoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.loginTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.loginTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.loginTest.testLoginAndLogout.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.projectsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.projectsTest.testLoginAndLogout.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.reportTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.reportTest.testLoginAndLogout.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.usersTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.selenium-java [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.selenium-java [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.selenium-java [test].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rida__IntelliJ&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HamidAwais(Ascend)/Downloads/ascend_sqa/automate/jsons/Users&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HamidAwais(Ascend)\Downloads\ascend_sqa\automate\jsons\Users" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.loginTest.testLoginAndLogout">
+    <configuration name="loginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenium-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="efx_717.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
+      <option name="PACKAGE_NAME" value="efx_717" />
+      <option name="MAIN_CLASS_NAME" value="efx_717.loginTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="loginTest.testLoginAndLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ascend_sqa" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="efx_717.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="efx_717" />
+      <option name="MAIN_CLASS_NAME" value="efx_717.loginTest" />
+      <option name="METHOD_NAME" value="testLoginAndLogout(efx_717.loginVO)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="reportTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenium-java" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="efx_reports.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="efx_reports" />
+      <option name="MAIN_CLASS_NAME" value="efx_reports.reportTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.loginTest.testLoginAndLogout" />
+      <item itemvalue="JUnit.loginTest" />
+      <item itemvalue="JUnit.reportTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.loginTest.testLoginAndLogout" />
+        <item itemvalue="JUnit.loginTest" />
+        <item itemvalue="JUnit.reportTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e15a4303-9a7b-482d-813d-598fc56ad140" name="Changes" comment="" />
+      <created>1724931301553</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724931301553</updated>
+    </task>
+    <task id="LOCAL-00001" summary="changes">
+      <option name="closed" value="true" />
+      <created>1724931378224</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1724931378224</updated>
+    </task>
+    <task id="LOCAL-00002" summary="changes 2">
+      <option name="closed" value="true" />
+      <created>1724931399893</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1724931399893</updated>
+    </task>
+    <task id="LOCAL-00003" summary="changes 5">
+      <option name="closed" value="true" />
+      <created>1725371089462</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725371089462</updated>
+    </task>
+    <task id="LOCAL-00004" summary="changes 6">
+      <option name="closed" value="true" />
+      <created>1725371156162</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725371156162</updated>
+    </task>
+    <task id="LOCAL-00005" summary="changes 7">
+      <option name="closed" value="true" />
+      <created>1725371487144</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1725371487144</updated>
+    </task>
+    <task id="LOCAL-00006" summary="changes 8">
+      <option name="closed" value="true" />
+      <created>1725431335357</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725431335357</updated>
+    </task>
+    <task id="LOCAL-00007" summary="changes pakistan">
+      <option name="closed" value="true" />
+      <created>1726134740970</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726134740970</updated>
+    </task>
+    <task id="LOCAL-00008" summary="changes pakistan 1">
+      <option name="closed" value="true" />
+      <created>1726134833871</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726134833871</updated>
+    </task>
+    <task id="LOCAL-00009" summary="changes pakistan 2">
+      <option name="closed" value="true" />
+      <created>1726135863544</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726135863544</updated>
+    </task>
+    <task id="LOCAL-00010" summary="changes pakistan 3">
+      <option name="closed" value="true" />
+      <created>1726136038739</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726136038739</updated>
+    </task>
+    <task id="LOCAL-00011" summary="changes pakistan 3">
+      <option name="closed" value="true" />
+      <created>1727174112253</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1727174112253</updated>
+    </task>
+    <task id="LOCAL-00012" summary="changes pakistan 4">
+      <option name="closed" value="true" />
+      <created>1727251866813</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1727251866813</updated>
+    </task>
+    <task id="LOCAL-00013" summary="changes pakistan 5">
+      <option name="closed" value="true" />
+      <created>1727329278145</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1727329278145</updated>
+    </task>
+    <task id="LOCAL-00014" summary="changes pakistan 6">
+      <option name="closed" value="true" />
+      <created>1727333522813</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1727333522813</updated>
+    </task>
+    <task id="LOCAL-00015" summary="changes pakistan old">
+      <option name="closed" value="true" />
+      <created>1727333765691</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1727333765691</updated>
+    </task>
+    <task id="LOCAL-00016" summary="changes pakistan new">
+      <option name="closed" value="true" />
+      <created>1727342244132</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1727342244132</updated>
+    </task>
+    <task id="LOCAL-00017" summary="changes pakistan gecko">
+      <option name="closed" value="true" />
+      <created>1727342313181</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1727342313181</updated>
+    </task>
+    <task id="LOCAL-00018" summary="changes pakistan revert">
+      <option name="closed" value="true" />
+      <created>1727342927675</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1727342927675</updated>
+    </task>
+    <task id="LOCAL-00019" summary="changes pakistan revert">
+      <option name="closed" value="true" />
+      <created>1728453236581</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728453236581</updated>
+    </task>
+    <task id="LOCAL-00020" summary="rida 1st">
+      <option name="closed" value="true" />
+      <created>1728453359974</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1728453359974</updated>
+    </task>
+    <task id="LOCAL-00021" summary="rida 1st">
+      <option name="closed" value="true" />
+      <created>1728543965951</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728543965951</updated>
+    </task>
+    <task id="LOCAL-00022" summary="efficonX User Timesheets">
+      <option name="closed" value="true" />
+      <created>1728560831004</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1728560831004</updated>
+    </task>
+    <task id="LOCAL-00023" summary="efficax 717">
+      <option name="closed" value="true" />
+      <created>1728889608709</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1728889608709</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changes" />
+    <MESSAGE value="changes 2" />
+    <MESSAGE value="changes 5" />
+    <MESSAGE value="changes 6" />
+    <MESSAGE value="changes 7" />
+    <MESSAGE value="changes 8" />
+    <MESSAGE value="changes pakistan" />
+    <MESSAGE value="changes pakistan 1" />
+    <MESSAGE value="changes pakistan 2" />
+    <MESSAGE value="changes pakistan 3" />
+    <MESSAGE value="changes pakistan 4" />
+    <MESSAGE value="changes pakistan 5" />
+    <MESSAGE value="changes pakistan 6" />
+    <MESSAGE value="changes pakistan old" />
+    <MESSAGE value="changes pakistan new" />
+    <MESSAGE value="changes pakistan gecko" />
+    <MESSAGE value="changes pakistan revert" />
+    <MESSAGE value="rida 1st" />
+    <MESSAGE value="efficonX User Timesheets" />
+    <MESSAGE value="efficax 717" />
+    <option name="LAST_COMMIT_MESSAGE" value="efficax 717" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/automate/src/test/java/efx_projects/projectsVO.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/automate/src/test/java/efx_reports/reportsVO.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
