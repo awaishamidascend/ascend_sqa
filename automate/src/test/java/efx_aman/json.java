@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.stream.Stream;
 
-public class jaon {
+public class json {
     public static Stream<AmanVO> setUpData() {
 
     // Read credentials from JSON file using Gson

@@ -1,6 +1,6 @@
 package efx_aman;
 
-public class pdfdonload {
+public class PDFdownload {
 
 
 

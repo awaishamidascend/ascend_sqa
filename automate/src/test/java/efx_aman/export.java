@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.stream.Stream;
-public class EXPORT {
+public class export {
 
         private static webdriverSetup setupClass;
 

@@ -25,7 +25,7 @@ public class login {
 
     // Method source to provide user data from the jaon class
     public static Stream<AmanVO> setUpData() {
-        return jaon.setUpData();  // Call the setUpData method from the jaon class
+        return json.setUpData();  // Call the setUpData method from the jaon class
     }
 
 

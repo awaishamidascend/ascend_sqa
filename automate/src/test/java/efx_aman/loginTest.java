@@ -1,15 +1,13 @@
 package efx_aman;
 
 import WebDriver.webdriverSetup;
-import com.google.gson.Gson;
 import efx_projects.projectsPOM;
 import efx_projects.projectsVO;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.stream.Stream;
 
 public class loginTest {
@@ -29,7 +27,7 @@ public class loginTest {
 
     // Method source to provide user data from the jaon class
     public static Stream<AmanVO> setUpData() {
-        return jaon.setUpData();  // Call the setUpData method from the jaon class
+        return json.setUpData();  // Call the setUpData method from the jaon class
     }
 
 
