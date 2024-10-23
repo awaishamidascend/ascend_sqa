@@ -1,75 +1,82 @@
-package test.automate;
+package WebDriver;
 
-import WebDriver.webdriverSetup;
-import com.google.gson.Gson;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.stream.Stream;
+public class webdriverSetup {
+    private String baseUrl = "https://dev.efficonx.com";
+    protected static WebDriver driver;
+    private static webdriverSetup driverManager;
 
-public class efficonXLoginTest {
-
-    private static webdriverSetup setupClass;
-
-    @BeforeAll
-    public static void setUpClass() throws InterruptedException {
-        // Initialize WebDriver once before all tests
-        System.out.println("BeforeAll: Initializing WebDriver");
-        setupClass = webdriverSetup.getInstance();
-        setupClass.webdriverSetup();
-        setupClass.loadBaseUrl();
+    // Singleton pattern to ensure only one instance of webdriverSetup exists
+    public static webdriverSetup getInstance() {
+        if (driverManager == null) {
+            System.out.println("Creating new instance of webdriverSetup");
+            driverManager = new webdriverSetup();
+        }
+        return driverManager;
     }
 
-    public static Stream<efficonXLoginVO> setUpData() {
+    // Initialize the WebDriver in headless mode for Ubuntu
+    public void webdriverSetup() {
+        try {
+            System.out.println("Setting up WebDriver...");
 
-        // Read credentials from JSON file using Gson
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader("jsons/Users/Users.json")) {
-            // Deserialize into UsersWrapper
-            efficonXLoginVO wrapper = gson.fromJson(reader, efficonXLoginVO.class);
-            // Return the stream of users
-            return wrapper.getUsers().stream();
-        } catch (IOException e) {
+            // Choose Firefox or Chrome (adjust based on your needs)
+            boolean useFirefox = true; // Set to false if you want to use Chrome
+
+            if (useFirefox) {
+                // Path to geckodriver, assuming it's in /usr/local/bin/ for Ubuntu
+                String fireFoxDriverPath = "/usr/local/bin/geckodriverlinux";
+                System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
+
+                // Initialize Firefox options with headless mode
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--headless"); // Enable headless mode
+
+                driver = new FirefoxDriver(options); // Pass the options to FirefoxDriver
+                System.out.println("Firefox WebDriver initialized in headless mode: " + (driver != null));
+            } else {
+                // Path to chromedriver, assuming it's in /usr/local/bin/ for Ubuntu
+                String chromeDriverPath = "/usr/local/bin/chromedriver";
+                System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+
+                // Initialize Chrome options with headless mode
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless"); // Enable headless mode
+                options.addArguments("--no-sandbox"); // Recommended for Linux
+                options.addArguments("--disable-dev-shm-usage"); // Overcome limited resource problems
+
+                driver = new ChromeDriver(options); // Pass the options to ChromeDriver
+                System.out.println("Chrome WebDriver initialized in headless mode: " + (driver != null));
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return Stream.empty();
     }
 
-     @ParameterizedTest(name = "{0}")
-     @MethodSource("setUpData")
-     public void testLoginAndLogout(efficonXLoginVO obj_efficonXVO) throws InterruptedException {
-            System.out.println("Executing test with user: " + obj_efficonXVO.getUsername());
+    // Load the base URL
+    public void loadBaseUrl() throws InterruptedException {
+        if (driver != null) {
+            System.out.println("Loading base URL: " + baseUrl);
+            driver.get(baseUrl);
+            driver.manage().window().maximize();
+            Thread.sleep(3000);
+        } else {
+            throw new IllegalStateException("WebDriver is not initialized. Please initialize the WebDriver before calling loadBaseUrl().");
+        }
+    }
 
-         // Perform login
-         efficonXLoginPOM.username(obj_efficonXVO.getUsername());
-         efficonXLoginPOM.password(obj_efficonXVO.getPassword());
-         Thread.sleep(3000);
-         efficonXLoginPOM.submit();
-
-         // Wait for a while
-         Thread.sleep(10000);
-
-         // Perform logout
-         efficonXLoginPOM.options();
-         efficonXLoginPOM.logout();
-
-         // Wait before finishing the test
-         Thread.sleep(5000);
-     }
-
-     @AfterAll
-     public static void tearDown() {
-         // Quit the driver after each test
-         System.out.println("AfterEach: Quitting WebDriver");
-         if (setupClass != null) {
-             setupClass.quitDriver();
-         }
+    // Quit the WebDriver
+    public void quitDriver() {
+        if (driver != null) {
+            System.out.println("Quitting WebDriver...");
+            driver.quit();
+            driver = null; // Reset driver to null after quitting
+        }
     }
 }
