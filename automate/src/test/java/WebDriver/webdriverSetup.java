@@ -28,8 +28,19 @@ public class webdriverSetup {
             // Choose Firefox or Chrome (adjust based on your needs)
             boolean useFirefox = true; // Set to false if you want to use Chrome
 
+            // Determine the OS and set the appropriate driver path
+            String os = System.getProperty("os.name").toLowerCase();
+            String fireFoxDriverPath;
+
+            if (os.contains("win")) {
+                fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Windows path
+            } else if (os.contains("nix") || os.contains("nux")) {
+                fireFoxDriverPath = "src/test/resources/drivers/geckodriverlinux"; // Linux path
+            } else {
+                throw new UnsupportedOperationException("Unsupported operating system: " + os);
+            }
+
             if (useFirefox) {
-                String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Adjust path as necessary
                 System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
 
                 // Initialize Firefox options with headless mode
