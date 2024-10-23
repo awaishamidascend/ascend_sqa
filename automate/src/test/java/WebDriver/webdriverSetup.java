@@ -11,38 +11,25 @@ public class webdriverSetup {
     protected static WebDriver driver;
     private static webdriverSetup driverManager;
 
-    // Singleton pattern to ensure only one instance of WebDriverSetup exists
-    public static synchronized webdriverSetup getInstance() {
+    // Singleton pattern to ensure only one instance of webdriverSetup exists
+    public static webdriverSetup getInstance() {
         if (driverManager == null) {
-            System.out.println("Creating new instance of WebDriverSetup");
+            System.out.println("Creating new instance of webdriverSetup");
             driverManager = new webdriverSetup();
-            driverManager.initializeWebDriver(); // Initialize the WebDriver upon instance creation
         }
         return driverManager;
     }
 
     // Initialize the WebDriver with Firefox or Chrome in headless mode
-    private void initializeWebDriver() {
+    public void webdriverSetup() {
         try {
             System.out.println("Setting up WebDriver...");
 
-            // Detect the operating system
-            String os = System.getProperty("os.name").toLowerCase();
-            System.out.println("Operating System: " + os);
-
-            // Set the driver path based on the OS
+            // Choose Firefox or Chrome (adjust based on your needs)
             boolean useFirefox = true; // Set to false if you want to use Chrome
 
             if (useFirefox) {
-                String fireFoxDriverPath;
-                if (os.contains("win")) {
-                    fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Windows path
-                } else if (os.contains("nix") || os.contains("nux")) {
-                    fireFoxDriverPath = "src/test/resources/drivers/geckodriverlinux"; // Linux path
-                } else {
-                    throw new IllegalStateException("Unsupported operating system: " + os);
-                }
-
+                String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Adjust path as necessary
                 System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
 
                 // Initialize Firefox options with headless mode
@@ -52,15 +39,7 @@ public class webdriverSetup {
                 driver = new FirefoxDriver(options); // Pass the options to FirefoxDriver
                 System.out.println("Firefox WebDriver initialized in headless mode: " + (driver != null));
             } else {
-                String chromeDriverPath;
-                if (os.contains("win")) {
-                    chromeDriverPath = "src/test/resources/drivers/chromedriver.exe"; // Windows path
-                } else if (os.contains("nix") || os.contains("nux")) {
-                    chromeDriverPath = "src/test/resources/drivers/chromedriverlinux"; // Linux path
-                } else {
-                    throw new IllegalStateException("Unsupported operating system: " + os);
-                }
-
+                String chromeDriverPath = "src/test/resources/drivers/chromedriver.exe"; // Adjust path as necessary
                 System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
                 // Initialize Chrome options with headless mode
@@ -73,17 +52,16 @@ public class webdriverSetup {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Failed to initialize WebDriver: " + e.getMessage());
         }
     }
 
     // Load the base URL
-    public void loadBaseUrl() {
+    public void loadBaseUrl() throws InterruptedException {
         if (driver != null) {
             System.out.println("Loading base URL: " + baseUrl);
             driver.get(baseUrl);
             driver.manage().window().maximize();
-            // Use explicit waits here instead of Thread.sleep()
+            Thread.sleep(3000);
         } else {
             throw new IllegalStateException("WebDriver is not initialized. Please initialize the WebDriver before calling loadBaseUrl().");
         }
