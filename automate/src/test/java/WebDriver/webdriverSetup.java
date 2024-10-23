@@ -19,13 +19,14 @@ public class webdriverSetup {
     }
 
     // Initialize the WebDriver in headless mode for Ubuntu
-    public void setupWebDriver() {
+    public void initWebDriver() {
         try {
             System.out.println("Setting up WebDriver...");
 
-            // Path to geckodriver
-            String fireFoxDriverPath = "/usr/local/bin/geckodriverlinux"; // Adjust the path as necessary
+            // Path to geckodriver, assuming it's in the directory where the file is located
+            String fireFoxDriverPath = "/path/to/geckodriverlinux"; // Update this path to your actual geckodriver path
             System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
+
 
             // Initialize Firefox options with headless mode
             FirefoxOptions options = new FirefoxOptions();
@@ -45,7 +46,7 @@ public class webdriverSetup {
             System.out.println("Loading base URL: " + baseUrl);
             driver.get(baseUrl);
             driver.manage().window().maximize();
-            Thread.sleep(3000);
+            Thread.sleep(3000); // Wait for 3 seconds
         } else {
             throw new IllegalStateException("WebDriver is not initialized. Please initialize the WebDriver before calling loadBaseUrl().");
         }
