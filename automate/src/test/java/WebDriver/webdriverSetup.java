@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class webdriverSetup {
     private String baseUrl = "https://dev.efficonx.com";
@@ -19,18 +20,36 @@ public class webdriverSetup {
         return driverManager;
     }
 
-
-    // Initialize the WebDriver
+    // Initialize the WebDriver with Firefox or Chrome in headless mode
     public void webdriverSetup() {
         try {
             System.out.println("Setting up WebDriver...");
-            String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Adjust path as necessary
-            System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
-//            ChromeOptions options = new ChromeOptions();
-//            // If Chrome is in a non-standard location, set the binary path
-//            options.setBinary("C:/Program Files/Google/Chrome/Application/chrome.exe"); // Replace with your Chrome path if different
-            driver = new FirefoxDriver();
-            System.out.println("WebDriver initialized: " + (driver != null));
+
+            // Choose Firefox or Chrome (adjust based on your needs)
+            boolean useFirefox = true; // Set to false if you want to use Chrome
+
+            if (useFirefox) {
+                String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Adjust path as necessary
+                System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
+
+                // Initialize Firefox options with headless mode
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments("--headless"); // Enable headless mode
+
+                driver = new FirefoxDriver(options); // Pass the options to FirefoxDriver
+                System.out.println("Firefox WebDriver initialized in headless mode: " + (driver != null));
+            } else {
+                String chromeDriverPath = "src/test/resources/drivers/chromedriver.exe"; // Adjust path as necessary
+                System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+
+                // Initialize Chrome options with headless mode
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless"); // Enable headless mode
+
+                driver = new ChromeDriver(options); // Pass the options to ChromeDriver
+                System.out.println("Chrome WebDriver initialized in headless mode: " + (driver != null));
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
