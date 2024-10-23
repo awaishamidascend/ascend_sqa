@@ -25,11 +25,23 @@ public class webdriverSetup {
         try {
             System.out.println("Setting up WebDriver...");
 
-            // Choose Firefox or Chrome (adjust based on your needs)
+            // Detect the operating system
+            String os = System.getProperty("os.name").toLowerCase();
+            System.out.println("Operating System: " + os);
+
+            // Set the driver path based on the OS
             boolean useFirefox = true; // Set to false if you want to use Chrome
 
             if (useFirefox) {
-                String fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Adjust path as necessary
+                String fireFoxDriverPath;
+                if (os.contains("win")) {
+                    fireFoxDriverPath = "src/test/resources/drivers/geckodriver.exe"; // Windows path
+                } else if (os.contains("nix") || os.contains("nux")) {
+                    fireFoxDriverPath = "src/test/resources/drivers/geckodriverlinux"; // Linux path
+                } else {
+                    throw new IllegalStateException("Unsupported operating system: " + os);
+                }
+
                 System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
 
                 // Initialize Firefox options with headless mode
@@ -39,7 +51,15 @@ public class webdriverSetup {
                 driver = new FirefoxDriver(options); // Pass the options to FirefoxDriver
                 System.out.println("Firefox WebDriver initialized in headless mode: " + (driver != null));
             } else {
-                String chromeDriverPath = "src/test/resources/drivers/chromedriver.exe"; // Adjust path as necessary
+                String chromeDriverPath;
+                if (os.contains("win")) {
+                    chromeDriverPath = "src/test/resources/drivers/chromedriver.exe"; // Windows path
+                } else if (os.contains("nix") || os.contains("nux")) {
+                    chromeDriverPath = "src/test/resources/drivers/chromedriverlinux"; // Linux path
+                } else {
+                    throw new IllegalStateException("Unsupported operating system: " + os);
+                }
+
                 System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
                 // Initialize Chrome options with headless mode
