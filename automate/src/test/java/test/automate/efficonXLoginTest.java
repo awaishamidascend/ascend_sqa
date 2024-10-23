@@ -1,6 +1,6 @@
 package test.automate;
 
-import WebDriver.WebDriverSetup;
+import WebDriver.webdriverSetup;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -16,14 +16,14 @@ import java.util.stream.Stream;
 
 public class efficonXLoginTest {
 
-    private static WebDriverSetup setupClass;
+    private static webdriverSetup setupClass;
 
     @BeforeAll
     public static void setUpClass() throws InterruptedException {
         // Initialize WebDriver once before all tests
         System.out.println("BeforeAll: Initializing WebDriver");
-        setupClass = WebDriverSetup.getInstance();
-        setupClass.WebDriverSetup();
+        setupClass = webdriverSetup.getInstance();
+        setupClass.webdriverSetup();
         setupClass.loadBaseUrl();
     }
 
