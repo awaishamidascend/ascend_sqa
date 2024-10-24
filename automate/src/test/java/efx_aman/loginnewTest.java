@@ -11,7 +11,7 @@ public class loginnewTest {
 
     private static webdriverSetup setupClass;
     //private static LoginHelper loginHelper;
-    private static loginPOM loginPOM;
+    private static AmanPOM AmanPOM;
 
 
     @BeforeAll
@@ -35,9 +35,9 @@ public class loginnewTest {
         System.out.println("Executing test with user: " + obj_reporterVO.getUsername());
 
         // Perform login
-        loginPOM.username(obj_reporterVO.getUsername());
-        loginPOM.password(obj_reporterVO.getPassword());
+        AmanPOM.username(obj_reporterVO.getUsername());
+        AmanPOM.password(obj_reporterVO.getPassword());
         Thread.sleep(3000);
-        loginPOM.submit();
+        AmanPOM.submit();
     }
 }

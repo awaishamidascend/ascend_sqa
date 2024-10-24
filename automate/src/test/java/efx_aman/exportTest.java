@@ -42,28 +42,28 @@ public class exportTest {
             System.out.println("Executing test with user: " + obj_reporterVO.getUsername());
 
             // Perform login
-            loginPOM.username(obj_reporterVO.getUsername());
-            loginPOM.password(obj_reporterVO.getPassword());
+            AmanPOM.username(obj_reporterVO.getUsername());
+            AmanPOM.password(obj_reporterVO.getPassword());
             Thread.sleep(3000);
-            loginPOM.submit();
+            AmanPOM.submit();
 
             Thread.sleep(10000);
 
-            loginPOM.FORM();
+            AmanPOM.FORM();
             Thread.sleep(2000);
 
-            loginPOM.الصيدليات();
+            AmanPOM.الصيدليات();
             Thread.sleep(2000);
 
-            loginPOM.export();
+            AmanPOM.export();
             Thread.sleep(2000);
 
-            loginPOM.pdf();
+            AmanPOM.pdf();
             Thread.sleep(10000);
 
-            loginPOM.profile();
+            AmanPOM.profile();
             Thread.sleep(2000);
-            loginPOM.logout();
+            AmanPOM.logout();
             // Wait for a while
             Thread.sleep(10000);
 

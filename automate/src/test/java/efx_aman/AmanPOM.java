@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-public class loginPOM extends WebDriver.webdriverSetup {
+public class AmanPOM extends WebDriver.webdriverSetup {
     private static WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 

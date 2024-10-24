@@ -32,11 +32,11 @@ public class ForgotpasswordTest {
         System.out.println("Executing forgot password flow for user: " + user.getUsername());
 
         // Forgot password flow
-        loginPOM.forgot();
+        AmanPOM.forgot();
         Thread.sleep(2000);
-        loginPOM.forgotemail(user.getUsername());
+        AmanPOM.forgotemail(user.getUsername());
         Thread.sleep(2000);
-        loginPOM.forgotemailsendbutton();
+        AmanPOM.forgotemailsendbutton();
         Thread.sleep(2000);
     }
 

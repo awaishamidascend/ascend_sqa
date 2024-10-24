@@ -1,8 +1,6 @@
 package efx_aman;
 
 import WebDriver.webdriverSetup;
-import efx_aman.loginPOM;
-import efx_aman.AmanVO;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -37,22 +35,22 @@ public class loginTest {
         System.out.println("Executing test with user: " + obj_reporterVO.getUsername());
 
         // Perform login
-        loginPOM.username(obj_reporterVO.getUsername());
-        loginPOM.password(obj_reporterVO.getPassword());
+        AmanPOM.username(obj_reporterVO.getUsername());
+        AmanPOM.password(obj_reporterVO.getPassword());
         Thread.sleep(3000);
-        loginPOM.submit();
+        AmanPOM.submit();
 
         Thread.sleep(5000);
 
 
-        loginPOM.profile();
+        AmanPOM.profile();
         Thread.sleep(2000);
-        loginPOM.logout();
+        AmanPOM.logout();
 
         // Wait for a while
         Thread.sleep(10000);
 
-        loginPOM.Secondurl();
+        AmanPOM.Secondurl();
         Thread.sleep(10000);
 
 
