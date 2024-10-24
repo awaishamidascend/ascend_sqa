@@ -36,7 +36,7 @@ import java.util.stream.Stream;
         public void testLoginAndLogout(AmanVO obj_reporterVO) throws InterruptedException {
             System.out.println("Executing test with user: " + obj_reporterVO.getUsername());
 
-            // Perform forgot password flow
+            // Perfororgot password flow
 
             loginPOM.forgot();
             Thread.sleep(2000);
