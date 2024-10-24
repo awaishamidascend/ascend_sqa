@@ -13,7 +13,7 @@ public class json {
     Gson gson = new Gson();
         try (
     FileReader reader = new FileReader("jsons/Users/Aman_Users1.json")) {
-        // Deserialize into UsersWrapper
+        // Deserialize into AmanVO Object
         AmanVO wrapper = gson.fromJson(reader, AmanVO.class);
         // Return the stream of users
         return wrapper.getUsers().stream();

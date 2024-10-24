@@ -2,32 +2,34 @@ package efx_aman;
 
 import java.util.List;
 
-    public class AmanVO {
+public class AmanVO {
 
-        private List<efx_aman.AmanVO> Users;
-        public List<efx_aman.AmanVO> getUsers() {
-            return Users;
-        }
+    private List<AmanVO> Users;
+    private String username;
+    private String password;
 
-        private String username;
-        private String password;
-
-        // Getters and setters
-
-        public String getUsername() {return username;}
-
-        public String getPassword() {return password;}
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
-
-        public void setUsers(List<efx_aman.AmanVO> users) {
-            Users = users;
-        }
+    // Getters and Setters
+    public List<AmanVO> getUsers() {
+        return Users;
     }
 
+    public void setUsers(List<AmanVO> users) {
+        Users = users;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+}
