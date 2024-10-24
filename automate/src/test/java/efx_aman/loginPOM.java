@@ -67,8 +67,19 @@ public class loginPOM extends WebDriver.webdriverSetup {
         driver.findElement(By.xpath("//div[@id='row-0']//div[@class='cursorPointer']//*[name()='svg']")).click();
     }
 
+    public static void forgot() {
 
+        driver.findElement(By.xpath("//p[@class='my-2']")).click();
+    }
+    public static void forgotemail() {
 
+        driver.findElement(By.xpath("//input[@placeholder='Email']")).click();
+    }
+
+    public static void forgotemailsendbutton() {
+
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+    }
 
 
 
