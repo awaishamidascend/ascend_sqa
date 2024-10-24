@@ -2,6 +2,7 @@ package efx_aman;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -70,8 +71,11 @@ public class loginPOM extends WebDriver.webdriverSetup {
         driver.findElement(By.xpath("//p[@class='my-2']")).click();
     }
     public static void forgotemail(String username) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement emailField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Email']")));
 
-        driver.findElement(By.xpath("//input[@placeholder='Email']")).click();
+        emailField.clear();  // Clear any pre-existing value
+        emailField.sendKeys(username);  // Send the email (username)
     }
 
     public static void forgotemailsendbutton() {

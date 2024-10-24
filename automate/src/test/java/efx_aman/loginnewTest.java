@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-public class login {
+public class loginnewTest {
 
     private static webdriverSetup setupClass;
     //private static LoginHelper loginHelper;
