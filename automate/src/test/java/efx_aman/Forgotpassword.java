@@ -1,7 +1,6 @@
 package efx_aman;
 
 import WebDriver.webdriverSetup;
-import com.google.gson.Gson;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +23,7 @@ public class Forgotpassword {
 
     // Method source to provide user data from the JSON class
     public static Stream<AmanVO> setUpData() {
-        return Json.setUpData();  // Call the setUpData method from the Json class
+        return json.setUpData();  // Call the setUpData method from the Json class
     }
 
     @ParameterizedTest(name = "{0}")

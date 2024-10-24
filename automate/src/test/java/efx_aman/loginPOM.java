@@ -1,9 +1,7 @@
 package efx_aman;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -71,7 +69,7 @@ public class loginPOM extends WebDriver.webdriverSetup {
 
         driver.findElement(By.xpath("//p[@class='my-2']")).click();
     }
-    public static void forgotemail() {
+    public static void forgotemail(String username) {
 
         driver.findElement(By.xpath("//input[@placeholder='Email']")).click();
     }

@@ -1,8 +1,8 @@
 package efx_aman;
 
 import WebDriver.webdriverSetup;
-import efx_projects.projectsPOM;
-import efx_projects.projectsVO;
+import efx_aman.loginPOM;
+import efx_aman.AmanVO;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
